@@ -4,3 +4,8 @@
 .Ruserdata
 
 .DS_Store
+
+data/**/*.json
+stan/csv_fits/
+traceplots/
+shell_scripts/console_output/
