@@ -1,0 +1,6 @@
+  // truncated gamma distribution function
+  real trunc_gamma_lpdf(real y, real ymin, real alpha, real beta) {
+    real lpdf = gamma_lpdf(y | alpha, beta);
+    real cst = gamma_lccdf(ymin | alpha, beta);
+    return lpdf - cst;
+  }

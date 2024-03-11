@@ -1,0 +1,26 @@
+  // Gaussian copula gauge function
+  real gauss_gauge(real w1, real rho) {
+    real w2 = 1 - w1;
+    return (w1 + w2 - 2 * rho * sqrt(w1 * w2)) / (1 - rho^2);
+  }
+  
+  // Logistic copula gauge function
+  real logistic_gauge(real w1, real dep) {
+    real w2 = 1 - w1;
+    real dep_inv = 1/dep;
+    return (dep_inv * fmax(w1, w2) + (1-dep_inv)*fmin(w1,w2));
+  } 
+  
+  // Inverse logistic copula gauge function
+  real inv_log_gauge(real w1, real dep) {
+    real w2 = 1 - w1;
+    real dep_inv = 1/dep;
+    return (w1^dep_inv + w2^dep_inv)^dep;
+  }
+  
+  // Asymmetric logistic copula gauge function
+  real asym_log_gauge(real w1, real dep) {
+    real w2 = 1 - w1;
+    real dep_inv = 1/dep;
+    return (fmin((w1 + w2), (dep_inv * fmax(w1, w2) + (1-dep_inv) * fmin(w1, w2))));
+  } 
