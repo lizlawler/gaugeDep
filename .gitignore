@@ -6,6 +6,6 @@
 .DS_Store
 
 data/**/*.json
-stan/csv_fits/
+*.csv
 traceplots/
 shell_scripts/console_output/
