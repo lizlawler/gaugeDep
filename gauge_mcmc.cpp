@@ -279,12 +279,12 @@ Rcpp::List cens_mcmc_mh(int const& n_iter, arma::vec const& W, arma::vec const& 
 //
 
 /*** R
-idx <- RcppSimdJson::fload("data/gauss/low_10.json")$idx
-W <- RcppSimdJson::fload("data/gauss/low_10.json")$W
-R <- RcppSimdJson::fload("data/gauss/low_10.json")$R
-r0_w <- RcppSimdJson::fload("data/gauss/low_10.json")$r0_w
+idx <- RcppSimdJson::fload("data/gauss/low_11.json")$idx
+W <- RcppSimdJson::fload("data/gauss/low_11.json")$W
+R <- RcppSimdJson::fload("data/gauss/low_11.json")$R
+r0_w <- RcppSimdJson::fload("data/gauss/low_11.json")$r0_w
 # 
 # # test <- trunc_log_lhood(W, R, r0_w, 2, 0.1)
-trunc_mcmc_mh(5000, W[idx], R[idx], r0_w[idx], c(0.1, 0.2), update_int = 20, output_file="./test.csv")
+trunc_mcmc_mh(10000, W[idx], R[idx], r0_w[idx], c(0.1, 0.2), update_int = 20, output_file="./test.csv")
 # test_run <- cens_mcmc_mh(5000, W, R, r0_w, c(0.05, 0.05), update_int = 20)
 */
