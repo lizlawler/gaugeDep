@@ -8,4 +8,4 @@
 data/**/*.json
 *.csv
 traceplots/
-shell_scripts/console_output/
+shell_scripts/console_output/*.txt
