@@ -1,0 +1,15 @@
+  // truncated gamma log pdf
+  real trunc_gamma_lpdf(real y, real ymin, real alpha, real beta) {
+    real lpdf = gamma_lpdf(y | alpha, beta);
+    real cst = gamma_lccdf(ymin | alpha, beta);
+    return lpdf - cst;
+  }
+  
+  // censored (log) likelihood
+  real cens_gamma_lpdf(real y, real threshold, real alpha, real beta) {
+    if (y < threshold) {
+      return gamma_lcdf(threshold | alpha, beta);
+    } else {
+      return gamma_lpdf(y | alpha, beta);
+    }
+  }
