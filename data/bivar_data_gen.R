@@ -4,7 +4,7 @@ library(tidyverse)
 library(patchwork)
 library(cmdstanr)
 # 
-model <- cmdstan_model("stan/bivar_trunc_gamma_asym_log.stan", compile = FALSE)
+model <- cmdstan_model("stan/bivar_trunc_rectangular.stan", compile = FALSE)
 model$check_syntax(pedantic = TRUE)
 
 n <- 10000 
@@ -220,25 +220,59 @@ stan_mid_dep_log <- list(R = mid_dep_log_stan$r,
                          q = unique(mid_dep_log_points$qy1))
 write_stan_json(stan_mid_dep_log, "data/mid_dep_logistic.json")
 
+w <- seq(0, 1, length.out = nrow(mid))
+
 mid_dep_log_plot <- mid_dep_log_points %>%
   ggplot(aes(y1/log(n), y2/log(n), color = high)) + 
-  geom_point(alpha=0.5) +
+  geom_point(alpha=0.5,size = 2) +
   geom_line(aes(x = y1_lb/log(n), y = y2_lb/log(n), color = 'red')) +
   theme_classic() +
   scale_color_manual(values = cols) +
-  theme(axis.text.x = element_text(size = 14), axis.text.y = element_text(size = 14), legend.position = "none") +
-  xlim(0,1) + ylim(0,1) +
-  xlab("y1") + ylab("y2") + ggtitle(expression(paste("Logistic copula, ", "r", "=0.5,", " expo margins")))
+  theme(axis.text.x = element_text(size = 14), 
+        axis.text.y = element_text(size = 14), 
+        legend.position = "none",
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14),
+        panel.background = element_rect(fill='transparent'),
+        plot.background = element_rect(fill='transparent', color='transparent')) +
+  scale_x_continuous(limits = c(0,1.2), expand = c(0,0)) + 
+  scale_y_continuous(limits = c(0,1.2), expand = c(0,0)) +
+  xlab(expression("X"["1"]/"log(n)")) + ylab(expression("X"["2"]/"log(n)"))
 
 mid_dep_log_plot_rw <- mid_dep_log_points %>%
   ggplot(aes(w, y = r/log(n), color = high)) + 
-  geom_point(alpha=0.5) +
+  geom_point(alpha=0.5, size = 2) +
   geom_line(aes(x = w, y = r0_w/log(n), color = 'red')) +
   theme_classic() +
   scale_color_manual(values = cols) +
-  theme(axis.text.x = element_text(size = 14), axis.text.y = element_text(size = 14), legend.position = "none") +
-  xlim(0,1) + ylim(0,2) +
-  xlab("w") + ylab("r/log(n)") + ggtitle(expression(paste("Logistic copula, ", "r", "=0.5,", " expo margins")))
+  theme(axis.text.x = element_text(size = 14), 
+        axis.text.y = element_text(size = 14), 
+        legend.position = "none",
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14),
+        panel.background = element_rect(fill='transparent'),
+        plot.background = element_rect(fill='transparent', color='transparent')) +
+  scale_x_continuous(limits = c(0,1), expand = c(0,0)) + 
+  scale_y_continuous(limits = c(0,2), expand = c(0,0)) +
+  xlab("w") + ylab("r/log(n)")
+
+column_label_1 <- wrap_elements(panel = ggpubr::text_grob(label = 'Pseudo-polar coordinates',
+                                                          face = "bold",
+                                                          size = 20))
+column_label_2 <- wrap_elements(panel = ggpubr::text_grob(label = 'Euclidean coordinates',
+                                                          face = "bold",
+                                                          size = 20))
+threshold_plots <- (column_label_2 | column_label_1) / 
+  (mid_dep_log_plot | mid_dep_log_plot_rw) +
+  plot_layout(heights = c(0.15, 1)) & 
+  theme(panel.background = element_rect(fill='transparent'),
+        plot.background = element_rect(fill='transparent', color='transparent'))
+ggsave("~/Desktop/csu/prelim_presentation/threshold_plots.pdf",
+       plot = threshold_plots,
+       dpi = 320,
+       bg = 'transparent', 
+       width = 11, height = 5.5)
+knitr::plot_crop("~/Desktop/csu/prelim_presentation/threshold_plots.pdf")
 
 low_dep_log_points <- low_dep_log %>% as_tibble() %>% 
   mutate(qy1 = quantile(low_dep_log[,1], 0.95), qy2 = quantile(low_dep_log[,1], 0.95),
