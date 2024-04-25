@@ -1,9 +1,9 @@
 #include fcns_data_params_trunc.stan
 transformed parameters {
-  // vector[n0] beta;
-  vector[n0_ctau] beta;
-  // for (n in 1:n0) {
-  for (n in 1:n0_ctau) {
+  vector[n0] beta;
+  // vector[n0_ctau] beta;
+  for (n in 1:n0) {
+  // for (n in 1:n0_ctau) {
     beta[n] = asym_log_gauge(W_trunc[n], dep);
   }
 }
