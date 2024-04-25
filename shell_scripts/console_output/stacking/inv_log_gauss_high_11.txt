@@ -25,12 +25,12 @@ method = sample (Default)
     num_chains = 3
 id = 1 (Default)
 data
-  file = ../data/gauss/high_10.json
+  file = ../data/gauss/high_11.json
 init = 2 (Default)
 random
-  seed = 511280258 (Default)
+  seed = 511561541 (Default)
 output
-  file = csv_fits/stacking/gauss/inv_log/high_10_cens_marg.csv
+  file = csv_fits/stacking/gauss/inv_log/high_11_cens_marg.csv
   diagnostic_file =  (Default)
   refresh = 100 (Default)
   sig_figs = -1 (Default)
@@ -38,86 +38,132 @@ output
 num_threads = 3
 
 
-Gradient evaluation took 0.0202 seconds
-1000 transitions using 10 leapfrog steps per transition would take 202 seconds.
+Gradient evaluation took 0.020725 seconds
+1000 transitions using 10 leapfrog steps per transition would take 207.25 seconds.
 Adjust your expectations accordingly!
 
 
 
-Gradient evaluation took 0.019611 seconds
-1000 transitions using 10 leapfrog steps per transition would take 196.11 seconds.
+Gradient evaluation took 0.016162 seconds
+1000 transitions using 10 leapfrog steps per transition would take 161.62 seconds.
 Adjust your expectations accordingly!
 
 
 
-Gradient evaluation took 0.020573 seconds
-1000 transitions using 10 leapfrog steps per transition would take 205.73 seconds.
+Gradient evaluation took 0.019635 seconds
+1000 transitions using 10 leapfrog steps per transition would take 196.35 seconds.
 Adjust your expectations accordingly!
 
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
 'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
 'stan/bivar_cens_inv_log.stan', line 8, column 0)
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
 'stan/bivar_cens_inv_log.stan', line 8, column 0)
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
 Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
 'stan/bivar_cens_inv_log.stan', line 8, column 0)
@@ -125,7 +171,7 @@ If this warning occurs sporadically, such as for highly constrained variable typ
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
 'stan/bivar_cens_inv_log.stan', line 8, column 0)
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
@@ -140,24 +186,11 @@ Informational Message: The current Metropolis proposal is about to be rejected b
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
 'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan//model_gq_cens.stan', line 3, column 2, included from
 'stan/bivar_cens_inv_log.stan', line 8, column 0)
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
 Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
-Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -214,63 +247,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
 Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -288,46 +264,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -377,6 +314,14 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
 Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -386,7 +331,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -419,6 +363,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -435,22 +380,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -492,16 +422,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -582,55 +502,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -680,7 +552,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -721,6 +593,47 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -762,14 +675,6 @@ If this warning occurs sporadically, such as for highly constrained variable typ
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
 Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
 Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -835,7 +740,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -852,62 +756,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -957,30 +806,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
 Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -990,7 +815,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1136,7 +960,47 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
 Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -1226,80 +1090,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
 Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
-Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1316,6 +1107,71 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1381,138 +1237,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
 Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
 Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -1562,6 +1287,16 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1634,40 +1369,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1749,6 +1450,32 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1805,9 +1532,102 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1841,6 +1661,18 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1881,56 +1713,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -1988,6 +1770,8 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2028,8 +1812,14 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2087,64 +1877,8 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
-Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2258,6 +1992,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2266,80 +2001,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2405,6 +2067,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2413,112 +2076,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
-Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2584,7 +2142,49 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2626,144 +2226,8 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2813,13 +2277,12 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 154.322 seconds (Warm-up)
+               115.461 seconds (Sampling)
+               269.783 seconds (Total)
 
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -2844,29 +2307,6 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 'stan/bivar_cens_inv_log.stan', line 8, column 0)
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
-Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
-'stan//fcns_data_params_cens.stan', line 4, column 2, included from
-'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
-'stan/bivar_cens_inv_log.stan', line 8, column 0)
-If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
-but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
-
-Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
-
- Elapsed Time: 143.473 seconds (Warm-up)
-               107.258 seconds (Sampling)
-               250.731 seconds (Total)
 
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -2893,6 +2333,7 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2917,11 +2358,37 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
-Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
- Elapsed Time: 145.406 seconds (Warm-up)
-               116.826 seconds (Sampling)
-               262.232 seconds (Total)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
@@ -2948,6 +2415,15 @@ If this warning occurs sporadically, such as for highly constrained variable typ
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
 Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
 Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
 'stan//fcns_data_params_cens.stan', line 4, column 2, included from
@@ -2990,8 +2466,30 @@ but if this warning occurs often then your model may be either severely ill-cond
 
 Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
 
- Elapsed Time: 164.563 seconds (Warm-up)
-               113.321 seconds (Sampling)
-               277.884 seconds (Total)
+ Elapsed Time: 179.078 seconds (Warm-up)
+               123.856 seconds (Sampling)
+               302.934 seconds (Total)
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 180.115 seconds (Warm-up)
+               126.411 seconds (Sampling)
+               306.526 seconds (Total)
 
 Model has finished running all 3 chains
