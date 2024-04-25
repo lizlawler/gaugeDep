@@ -16,7 +16,7 @@ do
 for i in {1..100}
 do
 export gauge_name dep_type level i
-nohup ./shell_scripts/sampling_trunc_stacking.sh > shell_scripts/console_output/stacking/${gauge_name}_${dep_type}_${level}_${i}.txt 2>&1
+nohup ./shell_scripts/sampling_trunc_stacking.sh > shell_scripts/console_output/stacking/trunc_${gauge_name}_${dep_type}_${level}_${i}.txt 2>&1
 sleep 3
 done
 sleep 2
