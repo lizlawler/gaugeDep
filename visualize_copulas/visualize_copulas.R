@@ -104,8 +104,10 @@ logistic_copula <- function(n = 1000, r = 0.5) {
 
 logistic_gauge <- function(x, y, r = 0.5) {
   r_inv <- 1/r
-  return(r_inv * max(x, y) + (1-r_inv)*min(x,y))
+  return(r_inv * pmax(x, y) + (1-r_inv)*pmin(x,y))
 }
+
+
 
 high_dep_log <- logistic_copula(N, 0.1)
 mid_dep_log <- logistic_copula(N, 0.5)
@@ -326,18 +328,20 @@ dirichlet_copula <- function(n = 1000, theta1, theta2) {
 }
 
 dirichlet_gauge <- function(x, y, theta1, theta2) {
-  return((1 + theta1 + theta2) * min(x, y) - (theta1 * x + theta2 * y))
+  return((1 + theta1 + theta2) * pmax(x, y) - (theta1 * x + theta2 * y))
 }
 
-test <- rbvevd(N, alpha = 3, beta = 6, model = 'ct')
-sum(which(test[,1] <= 0))
+w <- seq(0, 1, length.out = 500)
+gw <- dirichlet_gauge(w, 1-w, 3, 3)
+plot(w/gw, (1-w)/gw)
 
-dirichlet_mid <- dirichlet_copula(N, 2, 5)
+
+dirichlet_mid <- dirichlet_copula(N, 7, 2)
 
 dirichlet_mid_gauge <- crossing(x = seq(0, 1, length.out = n), y = x) %>% 
-  mutate(z = pmap_dbl(list(x = x, y = y, theta1 = 0.3, theta2=0.7), 
+  mutate(z = pmap_dbl(list(x = x, y = y, theta1 = 2, theta2=2), 
                       function(x, y, theta1, theta2) dirichlet_gauge(x, y, theta1, theta2)-1))
-dirichlet_mid_gauge %>% ggplot() + geom_contour(aes(x, y, z = z, col = 'red'), breaks = 0)
+# dirichlet_mid_gauge %>% ggplot() + geom_contour(aes(x, y, z = z, col = 'red'), breaks = 0)
 
 dirichlet_mid_plot <- dirichlet_mid %>% 
   as_tibble() %>% 
@@ -349,23 +353,21 @@ dirichlet_mid_plot <- dirichlet_mid %>%
   xlab("x") + ylab("y") + ggtitle("Dirichlet copula")
 (dirichlet_mid_plot <- ggExtra::ggMarginal(dirichlet_mid_plot, type = "histogram"))
 
-
 dirichlet_mid_rw_plot <- dirichlet_mid %>% as_tibble() %>% 
   mutate(r = (x + y), 
          w = x/r, 
-         gw = pmap_dbl(list(x = w, y = 1-w, theta1 = 2, theta2 = 5), 
+         gw = pmap_dbl(list(x = w, y = 1-w, theta1 = 2, theta2 = 2), 
                        function(x, y, theta1, theta2) dirichlet_gauge(x,y,theta1,theta2))) %>%
   ggplot(aes(w, r/log(N))) + 
   geom_point(alpha=0.5, color = "blue") +
-  geom_line(aes(w, gw, col = 'red')) +
+  geom_line(aes(w, 1/gw, col = 'red')) +
   theme_classic() +
   theme(axis.text.x = element_text(size = 14), axis.text.y = element_text(size = 14), legend.position = "none") +
   xlab("w") + ylab("r/log(N)")
 
-
-## Negative logistic dependence structure ----------
-neg_log_copula <- function(n = 1000, r = 1.1) {
-  x <- rbvevd(N, dep = r, model = 'neglog')
+## Husler-Reiss dependence structure
+hr_copula <- function(n = 1000, r) {
+  x <- rbvevd(N, dep = r, model = 'hr')
   u1 <- pgev(x[,1], loc = 0, scale = 1, shape = 0)
   u2 <- pgev(x[,2], loc = 0, scale = 1, shape = 0)
   x <- qexp(u1)
@@ -373,36 +375,17 @@ neg_log_copula <- function(n = 1000, r = 1.1) {
   return(cbind(x, y))
 }
 
-neg_log_gauge <- function(x, y, r) {
-  return((1 + 2 * r) * min(x, y) - r * (x + y))
+hr_gauge <- function(x, y) {
+  return(ifelse(x == y, x, Inf))
 }
+w <- seq(0, 1, length.out = 1000)
+gw <- hr_gauge(w, 1-w)
+plot(w/gw, (1-w)/gw)
 
-neg_log_mid <- neg_log_copula(N, 2)
-
-neg_log_gauge_values <- crossing(x = seq(0, 1, length.out = n), y = x) %>% 
-  mutate(z = pmap_dbl(list(x = x, y = y, r = 2), 
-                      function(x, y, r) neg_log_gauge(x, y, r)-1))
-r
-neg_log_plot <- neg_log_mid %>% 
+test <- hr_copula(N, 3)
+test %>% 
   as_tibble() %>% 
   ggplot(aes(x/log(N), y/log(N))) + 
   geom_point(alpha=0.5, color = "blue") +
-  geom_contour(aes(neg_log_gauge_values$x, neg_log_gauge_values$y, z = neg_log_gauge_values$z, col = 'red'), breaks = 0) +
   theme_classic() +
-  theme(axis.text.x = element_text(size = 14), axis.text.y = element_text(size = 14), legend.position = "none") +
-  xlab("x") + ylab("y") + ggtitle("Neg logistic copula")
-(neg_log_hist <- ggExtra::ggMarginal(neg_log_plot, type = "histogram"))
-
-
-neg_log_plot_rw <- neg_log_mid %>% as_tibble() %>% 
-  mutate(r = (x + y), 
-         w = x/r, 
-         gw = pmap_dbl(list(x = w, y = 1-w, r = 2), 
-                       function(x, y, r) neg_log_gauge(x,y,r))) %>%
-  ggplot(aes(w, r/log(N))) + 
-  geom_point(alpha=0.5, color = "blue") +
-  geom_line(aes(w, gw, col = 'red')) +
-  theme_classic() +
-  theme(axis.text.x = element_text(size = 14), axis.text.y = element_text(size = 14), legend.position = "none") +
-  xlab("w") + ylab("r/log(N)")
-
+  theme(axis.text.x = element_text(size = 14), axis.text.y = element_text(size = 14), legend.position = "none")
