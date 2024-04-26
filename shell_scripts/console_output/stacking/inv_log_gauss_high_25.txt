@@ -2906,3 +2906,26 @@ Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be posi
 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
 
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_inv_log.stan', line 1, column 0) (in 'stan//model_gq_cens.stan', line 7, column 4, included from
+'stan/bivar_cens_inv_log.stan', line 8, column 0)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 171.11 seconds (Warm-up)
+               140.219 seconds (Sampling)
+               311.329 seconds (Total)
+
+Model has finished running all 3 chains
