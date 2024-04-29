@@ -4,7 +4,7 @@ library(tidyverse)
 library(patchwork)
 library(cmdstanr)
 # 
-model <- cmdstan_model("stan/bivar_trunc_rectangular.stan", compile = FALSE)
+model <- cmdstan_model("stan/bivar_cens_inv_log.stan", compile = FALSE)
 model$check_syntax(pedantic = TRUE)
 
 n <- 10000 

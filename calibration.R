@@ -2,6 +2,7 @@ library(cmdstanr)
 library(MCMCvis)
 library(posterior)
 library(tidyverse)
+library(patchwork)
 
 quantile_df <- function(x, probs = c(0.25, 0.75)) {
   tibble(
@@ -102,6 +103,12 @@ logistic_coverage_ctau <- extract_coverage("logistic", "trunc", "ctau")
 
 gauss_coverage_cens <- extract_coverage("gauss", "cens", "marg")
 
+inv_log_coverage_marg <- extract_coverage("inv_log", "trunc", "marg")
+asym_log_coverage_marg <- extract_coverage("asym_log", "trunc", "marg")
+
+inv_log_coverage_ctau <- extract_coverage("inv_log", "trunc", "ctau")
+asym_log_coverage_ctau <- extract_coverage("asym_log", "trunc", "ctau")
+
 
 ## Create boxplots and coverage plots ----------
 plot_coverage <- function(cov_tibble, true_dep) {
@@ -139,9 +146,9 @@ plot_boxplot <- function(cov_tibble, true_dep) {
     xlim(-0.5, 0.5)
 }
 
-create_save_plots <- function(coverage_list) {
-  
-}
+# create_save_plots <- function(coverage_list) {
+#   
+# }
 
 all_gauss_marg_plots <- (plot_coverage(gauss_coverage_marg[[1]], 0.1) | plot_coverage(gauss_coverage_marg[[1]], 0.5) | plot_coverage(gauss_coverage_marg[[1]], 0.9)) / 
   (plot_boxplot(gauss_coverage_marg[[2]], 0.1) | plot_boxplot(gauss_coverage_marg[[2]], 0.5) | plot_boxplot(gauss_coverage_marg[[2]], 0.9))
@@ -183,7 +190,46 @@ ggsave("./figures/logistic_ctau_calibration.pdf",
        height = 10,
        dpi = 320)
 
+all_inv_log_marg_plots <- (plot_coverage(inv_log_coverage_marg[[1]], 0.1) | plot_coverage(inv_log_coverage_marg[[1]], 0.5) | plot_coverage(inv_log_coverage_marg[[1]], 0.9)) / 
+  (plot_boxplot(inv_log_coverage_marg[[2]], 0.1) | plot_boxplot(inv_log_coverage_marg[[2]], 0.5) | plot_boxplot(inv_log_coverage_marg[[2]], 0.9))
 
+ggsave("./figures/inv_log_marg_calibration.pdf", 
+       all_inv_log_marg_plots,
+       bg = "transparent",
+       width = 15,
+       height = 10,
+       dpi = 320)
+
+all_asym_log_marg_plots <- (plot_coverage(asym_log_coverage_marg[[1]], 0.1) | plot_coverage(asym_log_coverage_marg[[1]], 0.5) | plot_coverage(asym_log_coverage_marg[[1]], 0.9)) / 
+  (plot_boxplot(asym_log_coverage_marg[[2]], 0.1) | plot_boxplot(asym_log_coverage_marg[[2]], 0.5) | plot_boxplot(asym_log_coverage_marg[[2]], 0.9))
+
+ggsave("./figures/asym_log_marg_calibration.pdf", 
+       all_asym_log_marg_plots,
+       bg = "transparent",
+       width = 15,
+       height = 10,
+       dpi = 320)
+
+
+all_inv_log_ctau_plots <- (plot_coverage(inv_log_coverage_ctau[[1]], 0.1) | plot_coverage(inv_log_coverage_ctau[[1]], 0.5) | plot_coverage(inv_log_coverage_ctau[[1]], 0.9)) / 
+  (plot_boxplot(inv_log_coverage_ctau[[2]], 0.1) | plot_boxplot(inv_log_coverage_ctau[[2]], 0.5) | plot_boxplot(inv_log_coverage_ctau[[2]], 0.9))
+
+ggsave("./figures/inv_log_ctau_calibration.pdf", 
+       all_inv_log_ctau_plots,
+       bg = "transparent",
+       width = 15,
+       height = 10,
+       dpi = 320)
+
+out <- (plot_coverage(asym_log_coverage_ctau[[1]], 0.1) | plot_coverage(asym_log_coverage_ctau[[1]], 0.5) | plot_coverage(asym_log_coverage_ctau[[1]], 0.9)) / 
+  (plot_boxplot(asym_log_coverage_ctau[[2]], 0.1) | plot_boxplot(asym_log_coverage_ctau[[2]], 0.5) | plot_boxplot(asym_log_coverage_ctau[[2]], 0.9))
+
+ggsave("./figures/asym_log_ctau_calibration.pdf", 
+       all_asym_log_ctau_plots,
+       bg = "transparent",
+       width = 15,
+       height = 10,
+       dpi = 320)
 
 
 

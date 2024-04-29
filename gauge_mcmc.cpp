@@ -11,6 +11,23 @@ arma::vec gauss_gauge(arma::vec const& W, double const& dep) {
 }
 
 // [[Rcpp::export]]
+arma::vec trunc_log_lhood_gen_quant(arma::vec const& W, arma::vec const& R, arma::vec const& r0_w,
+                       double const& alpha, double const& theta) {
+  int n = R.size();
+  arma::vec log_lik(n);
+  
+  arma::vec gw = gauss_gauge(W, theta);
+  
+  for(int i = 0; i < n; i++) {
+    double gw_inv = 1/gw(i);
+    double log_pdf = R::dgamma(R(i), alpha, gw_inv, true);
+    double log_ccdf = R::pgamma(r0_w(i), alpha, gw_inv, false, true);
+    log_lik(i) = log_pdf - log_ccdf;
+  }
+  return log_lik;
+}
+
+// [[Rcpp::export]]
 double trunc_log_lhood(arma::vec const& W, arma::vec const& R, arma::vec const& r0_w,
                        double const& alpha, double const& theta) {
   int n = R.size();
@@ -100,13 +117,13 @@ void trunc_mcmc_mh(int const& n_iter, arma::vec const& W, arma::vec const& R, ar
   
   // Write metadata to the CSV file
   outfile << "metadata\n";
-  outfile << "Date:" << year << "_" << month << "_" << day << "_" << hour << "_" << min << "_" << sec << "\n";
-  outfile << "Initial values: alpha = " << alpha << ", theta = " << theta << "\n";
-  outfile << "Sampling settings: num_iterations = " << n_iter << ", step_size = " << step_size << "...\n";
-  outfile << "end_metadata\n";
+  outfile << "Date:" << year << "_" << month << "_" << day << "_" << hour << "_" << min << "_" << sec << std::endl;
+  outfile << "Initial values: alpha = " << alpha << ", theta = " << theta << std::endl;
+  outfile << "Sampling settings: num_iterations = " << n_iter << ", step_size = " << step_size << std::endl;
+  outfile << "end_metadata" << std::endl;
   
   // Write column headers for the CSV file
-  outfile << "iter,alpha,theta,posterior_log_lik\n";
+  outfile << "iter,alpha,theta,posterior_log_lik" << std::endl;
   
   // Keep track of acceptances
   int accept = 0;
@@ -136,11 +153,9 @@ void trunc_mcmc_mh(int const& n_iter, arma::vec const& W, arma::vec const& R, ar
     double theta_star = theta + R::rnorm(0.0, step_size(1));
     
     double log_ratio = 0.0;
-    log_ratio += log_prior_alpha(alpha_star);
-    log_ratio += log_prior_theta(theta_star);
+    log_ratio += log_prior_alpha(alpha_star) + log_prior_theta(theta_star);
     log_ratio += trunc_log_lhood(W, R, r0_w, alpha_star, theta_star);
-    log_ratio -= log_prior_alpha(alpha);
-    log_ratio -= log_prior_theta(theta);
+    log_ratio -= log_prior_alpha(alpha) - log_prior_theta(theta);
     log_ratio -= trunc_log_lhood(W, R, r0_w, alpha, theta);
     
     if(log(R::runif(0.0,1.0)) < log_ratio) {
