@@ -1,8 +1,19 @@
 #include fcns_data_params_cens.stan
-transformed parameters {
-  vector[N] beta;
+model {
+  alpha ~ gamma(4, 2);
+  dep ~ uniform(0, 1);
+  
   for (n in 1:N) {
-    beta[n] = inv_log_gauge(W[n], dep);
+    target += cens_gamma_lpdf(R[n] | r0_w[n], alpha, inv_log_gauge(W[n], dep));
+    // target += cens_gamma_lpdf(R[n] | r0_w_ctau[n], alpha, inv_log_gauge(W[n], dep));
   }
 }
-#include model_gq_cens.stan
+
+// generated quantities {
+//   vector[N] log_lik;
+//   for (n in 1:N) {
+//     log_lik[n] = cens_gamma_lpdf(R[n] | r0_w[n], alpha, inv_log_gauge(W[n], dep));
+//     // log_lik[n] = cens_gamma_lpdf(R[n] | r0_w_ctau[n], alpha, inv_log_gauge(W[n], dep));
+//   }
+// }
+

@@ -17,28 +17,21 @@ parameters {
   real<lower=0> theta2;
 }
 
-transformed parameters {
-  vector[N] beta;
-  for (n in 1:N) {
-    beta[n] = dirichlet_gauge(W[n], theta1, theta2);
-  }
-}
-
 model {
   alpha ~ gamma(4, 2);
   theta1 ~ student_t(4, 0, 4);
   theta2 ~ student_t(4, 0, 2);
   
   for (n in 1:N) {
-    target += cens_gamma_lpdf(R[n] | r0_w[n], alpha, beta[n]);
-    // target += cens_gamma_lpdf(R[n] | r0_w_ctau[n], alpha, beta[n]);
+    target += cens_gamma_lpdf(R[n] | r0_w[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
+    // target += cens_gamma_lpdf(R[n] | r0_w_ctau[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
   }
 }
 
-generated quantities {
-  vector[N] log_lik;
-  for (n in 1:N) {
-    log_lik[n] = cens_gamma_lpdf(R[n] | r0_w[n], alpha, beta[n]);
-    // log_lik[n] = cens_gamma_lpdf(R[n] | r0_w_ctau[n], alpha, beta[n]);
-  }
-}
+// generated quantities {
+//   vector[N] log_lik;
+//   for (n in 1:N) {
+//     log_lik[n] = cens_gamma_lpdf(R[n] | r0_w[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
+//     // log_lik[n] = cens_gamma_lpdf(R[n] | r0_w_ctau[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
+//   }
+// }
