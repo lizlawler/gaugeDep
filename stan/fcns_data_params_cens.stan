@@ -9,7 +9,7 @@ data {
   array[N] real<lower=0> R;
   array[N] real<lower=0, upper=1> W;
   array[N] real<lower=0> r0_w;
-  // array[N] real<lower=0> r0_w_ctau;
+  array[N] real<lower=0> r0_w_ctau;
 }
 
 parameters {
