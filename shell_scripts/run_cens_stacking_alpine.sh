@@ -3,7 +3,7 @@
 #
 # cycle through loop and launch sbatch for every combination
 #
-source /curc/sw/anaconda/2023.09/etc/profile.d/conda.sh
+source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate stan
 
 stanc_exe="/projects/$USER/software/anaconda/envs/stan/bin/cmdstan/bin/stanc"

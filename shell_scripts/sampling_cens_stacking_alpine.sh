@@ -2,7 +2,7 @@
 # model run 
 
 # change this directory to wherever Stan conda environment lives
-source /curc/sw/anaconda/2023.09/etc/profile.d/conda.sh
+source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate stan
 
 basedir="./stan/"

@@ -16,7 +16,7 @@ export TEMP=${TMPDIR}
 export TEMPDIR=${TMPDIR}
 mkdir -p $TMPDIR
 
-source /curc/sw/anaconda/2023.09/etc/profile.d/conda.sh
+source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate stan
 
 ./shell_scripts/sampling_cens_stacking_alpine.sh \
