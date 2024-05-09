@@ -12,6 +12,7 @@ inc_path="stan/"
 for gauge_name in "gauss" "logistic" "inv_log" "asym_log" "dirichlet" "rectangular"
 do
 for threshold in "marg" "ctau"
+do
 object="stan/bivar_cens_${threshold}_${gauge_name}"
 ${stanc_exe} ${object}.stan --include-paths=${inc_path}
 cmdstan_model ${object}
