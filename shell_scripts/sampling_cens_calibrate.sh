@@ -5,7 +5,7 @@ datafile="../data/${gauge_name}/${level}_${i}.json"
 basedir="./stan/"
 cd ${basedir}
 model="bivar_cens_${gauge_name}"
-outbase="csv_fits/calibrate/${gauge_name}/${level}_${i}_cens_marg"
+outbase="csv_fits/calibrate/${gauge_name}/${level}_${i}_cens_marg_take2"
 
 # run model with 3 chains
 ./${model} sample num_chains=3 \
