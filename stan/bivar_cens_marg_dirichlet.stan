@@ -8,7 +8,6 @@ data {
   array[N] real<lower=0> R;
   array[N] real<lower=0, upper=1> W;
   array[N] real<lower=0> r0_w;
-  // array[N] real<lower=0> r0_w_ctau;
 }
 
 parameters {
@@ -24,14 +23,12 @@ model {
   
   for (n in 1:N) {
     target += cens_gamma_lpdf(R[n] | r0_w[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
-    // target += cens_gamma_lpdf(R[n] | r0_w_ctau[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
   }
 }
 
-// generated quantities {
-//   vector[N] log_lik;
-//   for (n in 1:N) {
-//     log_lik[n] = cens_gamma_lpdf(R[n] | r0_w[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
-//     // log_lik[n] = cens_gamma_lpdf(R[n] | r0_w_ctau[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
-//   }
-// }
+generated quantities {
+  vector[N] log_lik;
+  for (n in 1:N) {
+    log_lik[n] = cens_gamma_lpdf(R[n] | r0_w[n], alpha, dirichlet_gauge(W[n], theta1, theta2));
+  }
+}
