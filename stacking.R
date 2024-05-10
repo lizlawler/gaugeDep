@@ -1,18 +1,23 @@
+args <- commandArgs(trailingOnly=TRUE)
+threshold <- args[1]
+dep_type <- args[2]
+level <- args[3]
+
 library(cmdstanr)
 library(posterior)
-library(tidyverse)
+library(dplyr)
+library(tidyr)
 library(loo)
 library(patchwork)
 
-options(mc.cores = parallel::detectCores()/2)
+options(mc.cores = parallel::detectCores())
 
-create_model_fit <- function(sim_phase = "stacking", gauge, dep_type, dep_level, dataset_num) {
+create_model_fit <- function(sim_phase = "stacking", gauge, dep_type, threshold, dep_level, dataset_num) {
   start_file_path <- paste0("stan/csv_fits/", sim_phase, "/", dep_type, "/", gauge, "/")
   csvfiles <- paste0(start_file_path,
                      list.files(path = start_file_path, 
                                 pattern = paste0(dep_level, "_", dataset_num, "_\\d{1}.csv")))
-  # fit <- read_cmdstan_csv(csvfiles, variables = "log_lik", format = "draws_matrix")$post_warmup_draws
-  fit <- as_cmdstan_fit(csvfiles)
+  fit <- read_cmdstan_csv(csvfiles, variables = "log_lik", format = "draws_matrix")$post_warmup_draws
   return(fit)
 }
 
