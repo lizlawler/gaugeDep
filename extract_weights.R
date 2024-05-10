@@ -27,7 +27,7 @@ create_model_fit <- function(sim_phase = "stacking", gauge, dep_type, likelihood
 extract_lpd_pt <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level, dataset_num) {
   temp <- create_model_fit(gauge = gauge, dep_type = dep_type, likelihood = likelihood, threshold = threshold,
                            dep_level = dep_level, dataset_num = dataset_num)
-  loo_temp <- temp$loo()
+  loo_temp <- loo(temp)
   return(loo_temp$pointwise[,"elpd_loo"])
 }
 
