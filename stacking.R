@@ -1,77 +1,13 @@
-args <- commandArgs(trailingOnly=TRUE)
-threshold <- args[1]
-dep_type <- args[2]
-level <- args[3]
-
 library(cmdstanr)
 library(posterior)
 library(dplyr)
 library(tidyr)
+library(tidyverse)
 library(loo)
 library(patchwork)
 
-options(mc.cores = parallel::detectCores())
 
-create_model_fit <- function(sim_phase = "stacking", gauge, dep_type, threshold, dep_level, dataset_num) {
-  start_file_path <- paste0("stan/csv_fits/", sim_phase, "/", dep_type, "/", gauge, "/")
-  csvfiles <- paste0(start_file_path,
-                     list.files(path = start_file_path, 
-                                pattern = paste0(dep_level, "_", dataset_num, "_\\d{1}.csv")))
-  fit <- read_cmdstan_csv(csvfiles, variables = "log_lik", format = "draws_matrix")$post_warmup_draws
-  return(fit)
-}
-
-extract_lpd_pt <- function(sim_phase = "stacking", gauge, dep_type, dep_level, dataset_num) {
-  temp <- create_model_fit(gauge = gauge, dep_type = dep_type, dep_level = dep_level, dataset_num = dataset_num)
-  loo_temp <- temp$loo()
-  return(loo_temp$pointwise[,"elpd_loo"])
-}
-
-create_lpd_list <- function(sim_phase = "stacking", dep_type, dep_level, dataset_num) {
-  gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular") 
-  lpd_list <- setNames(sapply(gauge_library, 
-                          function(x) extract_lpd_pt(gauge = x, dep_type = dep_type,
-                                                              dep_level = dep_level, 
-                                                              dataset_num = dataset_num)), 
-                   gauge_library)
-  return(lpd_list)
-}
-
-model_weights <- function(sim_phase = "stacking", dep_type, dep_level, dataset_num) {
-  temp <- create_lpd_list(dep_type = dep_type, dep_level = dep_level, dataset_num = dataset_num)
-  stacking <- stacking_weights(temp)
-  pseudobma_boot <- pseudobma_weights(temp)
-  pseudobma_noboot <- pseudobma_weights(temp, BB = FALSE)
-  return(list("stacking" = stacking,
-              "pseudobma_boot" = pseudobma_boot,
-              "pseudobma_noboot" = pseudobma_noboot))
-}
-
-system.time(ind_mid_wts <- lapply(1:100, function(x) model_weights(dep_type = "independent", dep_level = "mid",
-                                                                   dataset_num = x)))
-saveRDS(ind_mid_wts, "stacking_weights/ind_mid_wts.RDS")
-rm(ind_mid_wts)
-gc()
-
-ind_high_wts <- lapply(1:100, function(x) model_weights(dep_type = "independent", dep_level = "high",
-                                                         dataset_num = x))
-saveRDS(ind_high_wts, "stacking_weights/ind_high_wts.RDS")
-rm(ind_high_wts)
-gc()
-
-dep_mid_wts <- lapply(1:100, function(x) model_weights(dep_type = "dependent", dep_level = "mid",
-                                                         dataset_num = x))
-saveRDS(dep_mid_wts, "stacking_weights/dep_mid_wts.RDS")
-rm(dep_mid_wts)
-gc()
-
-dep_high_wts <- lapply(1:100, function(x) model_weights(dep_type = "dependent", dep_level = "high",
-                                                          dataset_num = x))
-saveRDS(dep_high_wts, "stacking_weights/dep_high_wts.RDS")
-rm(dep_high_wts)
-gc()
-
-
+## One dataset's gauge fits.  --------
 mock_data <- jsonlite::read_json("data/independent/mid_40.json")
 R <- mock_data$R |> unlist() |> as_tibble() |> rename(R = value)
 W <- mock_data$W |> unlist() |> as_tibble() |> rename(W = value)
@@ -267,79 +203,47 @@ ids <- pareto_k_ids(loo1)
 pareto_k_values(loo1)[ids]
 pareto_k_values(loo2)[ids]
 
-gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular") 
-ind_mid_wts <- readRDS("~/Desktop/research/gaugeDependence/stacking_weights/ind_mid_wts.RDS")
 
-all_wts_ai <- ind_mid_wts |> bind_rows() |> 
-  mutate(method = rep(gauge_library, 100)) |>
-  mutate(stacking = as.numeric(stacking),
-         pseudobma_boot = as.numeric(pseudobma_boot),
-         pseudobma_noboot = as.numeric(pseudobma_noboot)) |>
-  pivot_longer(cols = 1:3, names_to = 'weighting', values_to = 'weights')
-boxplot_ai <- all_wts_ai |> mutate(method = case_when(method == "gauss" ~ 'Gaussian',
-                                        method == 'logistic' ~ 'Logistic',
-                                        method == 'inv_log' ~ 'Inv. logistic',
-                                        method == 'asym_log' ~ 'Asym. logistic',
-                                        method == 'rectangular' ~ 'Rectangular',
-                                        method == 'dirichlet' ~ 'Dirichlet'),
-                     weighting = case_when(weighting == 'stacking' ~ 'Stacking',
-                                           weighting == 'pseudobma_boot' ~ 'Pseudo-BMA+',
-                                           weighting == 'pseudobma_noboot' ~ 'Pseudo-BMA'),
-                     weighting = as.factor(weighting)) |>
-  ggplot(aes(x = method, y = weights, fill = weighting)) + geom_boxplot() +
-  theme_classic() + 
-  scale_y_continuous(limits = c(0, 1)) + 
-  theme(legend.position = c(0.2, 0.9),
-        panel.background = element_rect(fill='transparent'),
-        plot.background = element_rect(fill='transparent', color='transparent'),
-        legend.background = element_rect(fill='transparent'),
-        legend.text = element_text(size = rel(1)),
-        axis.text = element_text(size = rel(1)),
-        axis.title = element_text(size = rel(1))) +
-  xlab("Gauge function") + ylab("Weights") + labs(fill = "")
+## Create boxplots of stacking weights ----------------
+gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
+create_stacking_boxplot <- function(dep_type, dep_level, likelihood, threshold) {
+  readRDS("~/Desktop/research/gaugeDependence/stacking_weights/gauss_high_trunc_ctauwts.RDS")
+  filepath <- paste0("stacking_weights/", dep_type, "_", dep_level, "_", likelihood, "_", threshold, "_wts.RDS")
+  all_wts <- readRDS(filepath) |>
+    bind_rows() |> 
+    mutate(method = rep(gauge_library, 100)) |>
+    mutate(stacking = as.numeric(stacking),
+           pseudobma_boot = as.numeric(pseudobma_boot),
+           pseudobma_noboot = as.numeric(pseudobma_noboot)) |>
+    pivot_longer(cols = 1:3, names_to = 'weighting', values_to = 'weights')
+  boxplot_wts <- all_wts |>
+    mutate(method = case_when(method == "gauss" ~ 'Gauss',
+                              method == 'logistic' ~ 'Logistic',
+                              method == 'inv_log' ~ 'Inv. logistic',
+                              method == 'asym_log' ~ 'Asym. logistic',
+                              method == 'rectangular' ~ 'Rectangular',
+                              method == 'dirichlet' ~ 'Dirichlet'),
+           weighting = case_when(weighting == 'stacking' ~ 'Stacking',
+                                 weighting == 'pseudobma_boot' ~ 'Pseudo-BMA+',
+                                 weighting == 'pseudobma_noboot' ~ 'Pseudo-BMA'),
+           weighting = as.factor(weighting)) |>
+    ggplot(aes(x = method, y = weights, fill = weighting)) + geom_boxplot() +
+    theme_classic() + 
+    scale_y_continuous(limits = c(0, 1), expand = c(0,0)) + 
+    theme(panel.background = element_rect(fill='transparent'),
+          plot.background = element_rect(fill='transparent', color='transparent'),
+          legend.background = element_rect(fill='transparent'),
+          legend.text = element_text(size = rel(1)),
+          axis.text = element_text(size = rel(1)),
+          axis.title = element_text(size = rel(1))) +
+    xlab("Gauge function") + ylab("Weights") + labs(fill = "")
+  return(boxplot_wts)
+}
 
-ggsave("~/Desktop/csu/prelim_presentation/boxplot_ai_wts.pdf",
-       plot = boxplot_ai,
+boxplot_wts + theme(legend.position = "inside")
+ggsave("figures/weights_ad_trunc_high_marg.pdf",
+       plot = boxplot_ad_trunc_high_marg,
        bg = 'transparent',
        dpi = 320,
        width = 8,
        height = 3.5)
- knitr::plot_crop("~/Desktop/csu/prelim_presentation/boxplot_ai_wts.pdf")
-
-dep_mid_wts <- readRDS("~/Desktop/research/gaugeDependence/stacking_weights/dep_mid_wts.RDS")
-
-all_wts_ad <- dep_mid_wts |> bind_rows() |> 
-  mutate(method = rep(gauge_library, 100)) |>
-  mutate(stacking = as.numeric(stacking),
-         pseudobma_boot = as.numeric(pseudobma_boot),
-         pseudobma_noboot = as.numeric(pseudobma_noboot)) |>
-  pivot_longer(cols = 1:3, names_to = 'weighting', values_to = 'weights')
-boxplot_ad <- all_wts_ad |> mutate(method = case_when(method == "gauss" ~ 'Gaussian',
-                                                      method == 'logistic' ~ 'Logistic',
-                                                      method == 'inv_log' ~ 'Inv. logistic',
-                                                      method == 'asym_log' ~ 'Asym. logistic',
-                                                      method == 'rectangular' ~ 'Rectangular',
-                                                      method == 'dirichlet' ~ 'Dirichlet'),
-                                   weighting = case_when(weighting == 'stacking' ~ 'Stacking',
-                                                         weighting == 'pseudobma_boot' ~ 'Pseudo-BMA+',
-                                                         weighting == 'pseudobma_noboot' ~ 'Pseudo-BMA'),
-                                   weighting = as.factor(weighting)) |>
-  ggplot(aes(x = method, y = weights, fill = weighting)) + geom_boxplot() +
-  theme_classic() + 
-  scale_y_continuous(limits = c(0, 1)) + 
-  theme(legend.position = c(0.6, 0.9),
-        panel.background = element_rect(fill='transparent'),
-        plot.background = element_rect(fill='transparent', color='transparent'),
-        legend.background = element_rect(fill='transparent'),
-        legend.text = element_text(size = rel(1)),
-        axis.text = element_text(size = rel(1)),
-        axis.title = element_text(size = rel(1))) +
-  xlab("Gauge function") + ylab("Weights") + labs(fill = "")
-
-ggsave("~/Desktop/csu/prelim_presentation/boxplot_ad_wts.pdf",
-       plot = boxplot_ad,
-       bg = 'transparent',
-       dpi = 320,
-       width = 8,
-       height = 3.5)
-knitr::plot_crop("~/Desktop/csu/prelim_presentation/boxplot_ad_wts.pdf")

@@ -10,7 +10,7 @@ cd ${basedir}
 model="bivar_trunc_${threshold}_${gauge_name}"
 
 # run model with 3 chains
-for i in {1..100}
+for i in {58..100}
 do
 datafile="../data/${dep_type}/${level}_${i}.json"
 outbase="csv_fits/stacking/${dep_type}/${gauge_name}/${level}_${i}_trunc_${threshold}"

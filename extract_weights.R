@@ -11,7 +11,7 @@ library(tidyr)
 library(loo)
 library(patchwork)
 
-total_datasets <- ifelse(threshold == "high" & dep_type == "logistic", 57, 70)
+total_datasets <- ifelse(level == "high" & dep_type == "logistic", 57, 70)
 
 options(mc.cores = parallel::detectCores())
 
