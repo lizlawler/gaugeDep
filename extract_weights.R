@@ -49,6 +49,7 @@ model_weights <- function(sim_phase = "stacking", dep_type, dep_level, likelihoo
   stacking <- stacking_weights(temp)
   pseudobma_boot <- pseudobma_weights(temp)
   pseudobma_noboot <- pseudobma_weights(temp, BB = FALSE)
+  print(paste0("Weights extracted for dataset: ", dataset_num))
   return(list("stacking" = stacking,
               "pseudobma_boot" = pseudobma_boot,
               "pseudobma_noboot" = pseudobma_noboot))
