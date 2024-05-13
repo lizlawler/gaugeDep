@@ -14,4 +14,3 @@ generated quantities {
     log_lik[n] = cens_gamma_lpdf(R[n] | r0_w[n], alpha, rectangular_gauge(W[n], dep));
   }
 }
-
