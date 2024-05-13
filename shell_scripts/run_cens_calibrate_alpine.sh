@@ -19,7 +19,7 @@ cmdstan_model ${object}
 for level in "low" "mid" "high"
 do
 export gauge_name threshold level
-sbatch --job-name ${gauge_name}_${threshold}_${level} \
+sbatch --job-name ${gauge_name}_${threshold}_${level}_calibration \
 --output="./shell_scripts/console_output/calibrate/%x_%j.txt" \
 shell_scripts/call_cens_calibrate_sampler.sh
 sleep 1
