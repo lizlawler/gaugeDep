@@ -11,8 +11,6 @@ library(tidyr)
 library(loo)
 library(patchwork)
 
-total_datasets <- ifelse(level == "high" & dep_type == "logistic", 57, 70)
-
 options(mc.cores = parallel::detectCores())
 
 create_model_fit <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level, dataset_num) {
@@ -56,7 +54,7 @@ model_weights <- function(sim_phase = "stacking", dep_type, dep_level, likelihoo
               "pseudobma_noboot" = pseudobma_noboot))
 }
 
-system.time(mod_wts <- lapply(1:total_datasets, function(x) model_weights(dep_type = dep_type, dep_level = level, likelihood = likelihood, 
+system.time(mod_wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, likelihood = likelihood, 
                                                                           threshold = threshold, dataset_num = x)))
 filepath <- paste0("stacking_weights/", dep_type, "_", level, "_", likelihood, "_", threshold, "wts.RDS")
 saveRDS(mod_wts, filepath)
