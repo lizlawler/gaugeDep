@@ -57,7 +57,7 @@ model_weights <- function(sim_phase = "stacking", dep_type, dep_level, likelihoo
 
 system.time(mod_wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, likelihood = likelihood, 
                                                                           threshold = threshold, dataset_num = x)))
-filepath <- paste0("stacking_weights/", dep_type, "_", level, "_", likelihood, "_", threshold, "wts.RDS")
+filepath <- paste0("stacking_weights/", dep_type, "_", level, "_", likelihood, "_", threshold, "_wts.RDS")
 saveRDS(mod_wts, filepath)
 
 print("Model weights have been successfully saved")
