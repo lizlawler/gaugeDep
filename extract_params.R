@@ -3,7 +3,7 @@ dep_type <- args[1]
 gauge <- args[2]
 likelihood <- args[3]
 threshold <- args[4]
-level <- args[5]
+dep_level <- args[5]
 
 library(cmdstanr)
 library(posterior)
@@ -46,7 +46,7 @@ create_tib_med_params <- function(sim_phase = "stacking", gauge, dep_type, likel
 med_params <- create_tib_med_params("stacking", gauge = gauge, dep_type = dep_type,
                                     likelihood = likelihood, threshold = threshold, dep_level = dep_level)
 
-filepath <- paste0("extracted_params/", gauge, "_", dep_type, "_", level, "_", likelihood, "_", threshold, "_params.RDS")
+filepath <- paste0("extracted_params/", gauge, "_", dep_type, "_", dep_level, "_", likelihood, "_", threshold, "_params.RDS")
 saveRDS(med_params, filepath)
 
 print("Posterior medians of parameters have been successfully saved")
