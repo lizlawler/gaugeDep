@@ -15,6 +15,7 @@ extract_median_params <- function(sim_phase = "stacking", gauge, dep_type, likel
   csvfiles <- paste0(start_file_path,
                      list.files(path = start_file_path, 
                                 pattern = paste0(dep_level, "_", dataset_num, "_", likelihood, "_", threshold, "_\\d{1}.csv")))
+  fit <- as_cmdstan_fit(csvfiles)
   if(gauge != "dirichlet") {
     return(fit |> as_draws_df() |> 
              select(alpha, dep) |> 
