@@ -22,7 +22,7 @@ cmdstan_model ${object}
 for level in "low" "mid" "high" "wc"
 do
 export gauge_name likelihood threshold dep_type level
-parentjob=$(sbatch --job-name ${gauge_name}_${likelihood}_${threshold}_${dep_type}_${level}_ai_sampling \
+parentjob=$(sbatch --parsable $1 --job-name ${gauge_name}_${likelihood}_${threshold}_${dep_type}_${level}_ai_sampling \
 --output="./shell_scripts/console_output/stacking/%x_%j.txt" \
 shell_scripts/call_${likelihood}_stacking_sampler.sh)
 sleep 1
