@@ -10,7 +10,7 @@ library(posterior)
 library(dplyr)
 library(tidyr)
 
-extract_median_params <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level, dataset_num) {
+extract_params <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level, dataset_num) {
   start_file_path <- paste0("stan/csv_fits/", sim_phase, "/", dep_type, "/", gauge, "/")
   csvfiles <- paste0(start_file_path,
                      list.files(path = start_file_path, 
@@ -18,36 +18,36 @@ extract_median_params <- function(sim_phase = "stacking", gauge, dep_type, likel
   fit <- as_cmdstan_fit(csvfiles)
   if(gauge != "dirichlet") {
     return(fit |> as_draws_df() |> 
-             select(alpha, dep) |> 
-             apply(MARGIN = 2, FUN = median) |> t() |>
+             rename(draw = ".draw") |>
+             select(alpha, dep, draw) |>
              as_tibble() |>
              mutate(dataset = dataset_num))
   } else {
     return(fit |> as_draws_df() |> 
-             select(alpha, theta1, theta2) |> 
-             apply(MARGIN = 2, FUN = median) |> t() |>
+             rename(draw = ".draw") |>
+             select(alpha, theta1, theta2, draw) |>
              as_tibble() |>
              mutate(dataset = dataset_num))
   }
 }
 
-create_tib_med_params <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level) {
-  dataset_num <- 1:100
-  tib_med_params <- sapply(dataset_num, 
-                           function(x) extract_median_params(gauge = gauge, 
-                                                             dep_type = dep_type,
-                                                             likelihood = likelihood, 
-                                                             threshold = threshold, 
-                                                             dep_level = dep_level, 
-                                                             dataset_num = x), 
-                           simplify = FALSE)
-  return(tib_med_params |> bind_rows())
+create_tib_params <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level) {
+  data_num <- c(10,93)
+  tib_params <- sapply(data_num, 
+                       function(x) extract_params(gauge = gauge, 
+                                                  dep_type = dep_type,
+                                                  likelihood = likelihood, 
+                                                  threshold = threshold, 
+                                                  dep_level = dep_level, 
+                                                  dataset_num = x), 
+                       simplify = FALSE)
+  return(tib_params)
 }
 
-med_params <- create_tib_med_params("stacking", gauge = gauge, dep_type = dep_type,
-                                    likelihood = likelihood, threshold = threshold, dep_level = dep_level)
+all_iter_params <- create_tib_params("stacking", gauge = gauge, dep_type = dep_type,
+                                     likelihood = likelihood, threshold = threshold, dep_level = dep_level)
 
-filepath <- paste0("extracted_params/", gauge, "_", dep_type, "_", dep_level, "_", likelihood, "_", threshold, "_params.RDS")
-saveRDS(med_params, filepath)
+filepath <- paste0("extracted_params/", gauge, "_", dep_type, "_", dep_level, "_", likelihood, "_", threshold, "_all_iter_params.RDS")
+saveRDS(all_iter_params, filepath)
 
-print("Posterior medians of parameters have been successfully saved")
+print("Posterior samples of parameters have been successfully saved")
