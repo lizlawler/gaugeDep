@@ -158,25 +158,41 @@ gen_data_file <- function(N = 10000, n0 = 1, dep, cop_func, dep_level, iter) {
   # cmdstanr::write_stan_json(temp, paste0("data/", dep_type, "/", dep_level, "_", iter, ".json"))
 }
 
-dep_levels <- list(c(0.1, "low"), c(0.5, "mid"), c(0.9, "high"))
+dep_levels <- list(c(0.1, "low"), c(0.5, "mid"), c(0.9, "high"), c(0.8, "wc"))
 for (j in seq_along(dep_levels)) {
   dep <- as.numeric(dep_levels[[j]][1])
   level <- dep_levels[[j]][2]
   for ( i in 1:100) {
-    # gen_data_file(10000, dep, gauss, "independent", level, i)
-    gen_data_file(10000, 1000, dep, gauss, level, i)
+    gen_data_file(5000, 250, dep, gauss, level, i)
   }
 }
 
-dep_levels <- list(c(0.1, "high"), c(0.5, "mid"), c(0.9, "low"))
+data <- RcppSimdJson::fload("data/gauss/wc_10.json")
+x1 <- data$R * data$W 
+x2 <- data$R * (1 - data$W)
+idx <- data$idx
+idx_ctau <- data$idx_ctau
+plot(x1, x2, pch = 20)
+points(x1[idx], x2[idx], pch = 20, col = "blue")
+points(x1[idx_ctau], x2[idx_ctau], pch = 20, col = "red")
+
+dep_levels <- list(c(0.1, "high"), c(0.5, "mid"), c(0.9, "low"), c(0.8, "wc_low"), c(0.4, "wc_mid"))
 for (j in seq_along(dep_levels)) {
   dep <- as.numeric(dep_levels[[j]][1])
   level <- dep_levels[[j]][2]
   for ( i in 1:100) {
-    # gen_data_file(10000, dep, logistic, "dependent", level, i)
-    gen_data_file(10000, 1000, dep, asym_log, level, i)
+    gen_data_file(5000, 250, dep, logistic, level, i)
   }
 }
+
+data <- RcppSimdJson::fload("data/logistic/high_10.json")
+x1 <- data$R * data$W 
+x2 <- data$R * (1 - data$W)
+idx <- data$idx
+idx_ctau <- data$idx_ctau
+plot(x1, x2, pch = 20)
+points(x1[idx], x2[idx], pch = 20, col = "blue")
+points(x1[idx_ctau], x2[idx_ctau], pch = 20, col = "red")
 
 dep_levels <- list(c(3, "high"), c(1, "mid"), c(0.5, "low"))
 for (j in seq_along(dep_levels)) {
