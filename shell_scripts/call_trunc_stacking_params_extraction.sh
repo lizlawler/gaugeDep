@@ -5,8 +5,8 @@
 #SBATCH --chdir=/scratch/alpine/eslawler@colostate.edu/gaugeDependence/
 #SBATCH --qos=normal
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=3
-#SBATCH --time=1:00:00
+#SBATCH --ntasks-per-node=2
+#SBATCH --time=00:15:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=eslawler@colostate.edu
 

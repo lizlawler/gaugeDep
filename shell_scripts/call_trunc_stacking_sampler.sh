@@ -6,7 +6,7 @@
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=3:00:00
+#SBATCH --time=6:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=eslawler@colostate.edu
 
@@ -19,5 +19,5 @@ mkdir -p $TMPDIR
 source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate stan
 
-./shell_scripts/sampling_trunc_stacking_alpine.sh \
+./shell_scripts/sampling_trunc_stacking.sh \
 ${gauge_name} ${threshold} ${dep_type} ${level}
