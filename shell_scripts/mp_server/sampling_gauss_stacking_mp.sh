@@ -8,8 +8,8 @@ model="bivar_${likelihood}_${threshold}_${gauge_name}"
 
 # run model with 3 chains
 for level in "low" "mid" "high" "wc"
-echo "Starting model runs with for ${level} dependence of AI datasets"
 do
+echo "Starting model runs with for ${level} dependence of AI datasets"
 for i in {1..100}
 do
 datafile="../data/gauss/${level}_${i}.json"
