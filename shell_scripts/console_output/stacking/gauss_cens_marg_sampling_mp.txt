@@ -544,3 +544,2581 @@ Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
 Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
 Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
 Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 114.268 seconds (Warm-up)
+               84.823 seconds (Sampling)
+               199.091 seconds (Total)
+
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 106.171 seconds (Warm-up)
+               96.505 seconds (Sampling)
+               202.676 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 116.176 seconds (Warm-up)
+               94.494 seconds (Sampling)
+               210.67 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 3
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_4.json
+init = 2 (Default)
+random
+  seed = 625699196 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_4_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.019846 seconds
+1000 transitions using 10 leapfrog steps per transition would take 198.46 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.016013 seconds
+1000 transitions using 10 leapfrog steps per transition would take 160.13 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.017937 seconds
+1000 transitions using 10 leapfrog steps per transition would take 179.37 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: grad_reg_lower_inc_gamma: n (internal counter) exceeded 100000 iterations, gamma_p(a,z) gradient (a) did not converge. (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 99.217 seconds (Warm-up)
+               86.664 seconds (Sampling)
+               185.881 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 99.686 seconds (Warm-up)
+               88.787 seconds (Sampling)
+               188.473 seconds (Total)
+
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 110.906 seconds (Warm-up)
+               97.754 seconds (Sampling)
+               208.66 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 4
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_5.json
+init = 2 (Default)
+random
+  seed = 625908092 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_5_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.019895 seconds
+1000 transitions using 10 leapfrog steps per transition would take 198.95 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.017442 seconds
+1000 transitions using 10 leapfrog steps per transition would take 174.42 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.016182 seconds
+1000 transitions using 10 leapfrog steps per transition would take 161.82 seconds.
+Adjust your expectations accordingly!
+
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: grad_reg_lower_inc_gamma: n (internal counter) exceeded 100000 iterations, gamma_p(a,z) gradient (a) did not converge. (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 110.023 seconds (Warm-up)
+               88.237 seconds (Sampling)
+               198.26 seconds (Total)
+
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 113.974 seconds (Warm-up)
+               87.253 seconds (Sampling)
+               201.227 seconds (Total)
+
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 138.077 seconds (Warm-up)
+               104.204 seconds (Sampling)
+               242.281 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 5
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_6.json
+init = 2 (Default)
+random
+  seed = 626150606 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_6_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.012998 seconds
+1000 transitions using 10 leapfrog steps per transition would take 129.98 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01205 seconds
+1000 transitions using 10 leapfrog steps per transition would take 120.5 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011182 seconds
+1000 transitions using 10 leapfrog steps per transition would take 111.82 seconds.
+Adjust your expectations accordingly!
+
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 99.282 seconds (Warm-up)
+               80.069 seconds (Sampling)
+               179.351 seconds (Total)
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 104.079 seconds (Warm-up)
+               79.885 seconds (Sampling)
+               183.964 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 95.353 seconds (Warm-up)
+               88.838 seconds (Sampling)
+               184.191 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 6
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_7.json
+init = 2 (Default)
+random
+  seed = 626335086 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_7_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.013773 seconds
+1000 transitions using 10 leapfrog steps per transition would take 137.73 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012323 seconds
+1000 transitions using 10 leapfrog steps per transition would take 123.23 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011844 seconds
+1000 transitions using 10 leapfrog steps per transition would take 118.44 seconds.
+Adjust your expectations accordingly!
+
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 126.654 seconds (Warm-up)
+               101.567 seconds (Sampling)
+               228.221 seconds (Total)
+
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 142.791 seconds (Warm-up)
+               92.148 seconds (Sampling)
+               234.939 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 129.654 seconds (Warm-up)
+               107.558 seconds (Sampling)
+               237.212 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 7
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_8.json
+init = 2 (Default)
+random
+  seed = 626572512 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_8_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.013752 seconds
+1000 transitions using 10 leapfrog steps per transition would take 137.52 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011939 seconds
+1000 transitions using 10 leapfrog steps per transition would take 119.39 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011385 seconds
+1000 transitions using 10 leapfrog steps per transition would take 113.85 seconds.
+Adjust your expectations accordingly!
+
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 134.75 seconds (Warm-up)
+               107.495 seconds (Sampling)
+               242.245 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 129.081 seconds (Warm-up)
+               118.972 seconds (Sampling)
+               248.053 seconds (Total)
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 133.326 seconds (Warm-up)
+               115.079 seconds (Sampling)
+               248.405 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 8
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_9.json
+init = 2 (Default)
+random
+  seed = 626821092 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_9_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.012151 seconds
+1000 transitions using 10 leapfrog steps per transition would take 121.51 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01231 seconds
+1000 transitions using 10 leapfrog steps per transition would take 123.1 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011883 seconds
+1000 transitions using 10 leapfrog steps per transition would take 118.83 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 122.058 seconds (Warm-up)
+               89.061 seconds (Sampling)
+               211.119 seconds (Total)
+
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 110.802 seconds (Warm-up)
+               108.446 seconds (Sampling)
+               219.248 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 113.043 seconds (Warm-up)
+               112.276 seconds (Sampling)
+               225.319 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 9
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_10.json
+init = 2 (Default)
+random
+  seed = 627046618 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_10_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.020372 seconds
+1000 transitions using 10 leapfrog steps per transition would take 203.72 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.016086 seconds
+1000 transitions using 10 leapfrog steps per transition would take 160.86 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01737 seconds
+1000 transitions using 10 leapfrog steps per transition would take 173.7 seconds.
+Adjust your expectations accordingly!
+
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: grad_reg_lower_inc_gamma: n (internal counter) exceeded 100000 iterations, gamma_p(a,z) gradient (a) did not converge. (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 126.08 seconds (Warm-up)
+               96.954 seconds (Sampling)
+               223.034 seconds (Total)
+
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 127.484 seconds (Warm-up)
+               105.172 seconds (Sampling)
+               232.656 seconds (Total)
+
+
+ Elapsed Time: 135.67 seconds (Warm-up)
+               97.07 seconds (Sampling)
+               232.74 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 10
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_11.json
+init = 2 (Default)
+random
+  seed = 627279591 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_11_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.01172 seconds
+1000 transitions using 10 leapfrog steps per transition would take 117.2 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.010325 seconds
+1000 transitions using 10 leapfrog steps per transition would take 103.25 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012697 seconds
+1000 transitions using 10 leapfrog steps per transition would take 126.97 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: grad_reg_lower_inc_gamma: n (internal counter) exceeded 100000 iterations, gamma_p(a,z) gradient (a) did not converge. (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 103.808 seconds (Warm-up)
+               77.108 seconds (Sampling)
+               180.916 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 93.38 seconds (Warm-up)
+               89.923 seconds (Sampling)
+               183.303 seconds (Total)
+
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 103.486 seconds (Warm-up)
+               94.442 seconds (Sampling)
+               197.928 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 11
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_12.json
+init = 2 (Default)
+random
+  seed = 627477731 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_12_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.012788 seconds
+1000 transitions using 10 leapfrog steps per transition would take 127.88 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.008942 seconds
+1000 transitions using 10 leapfrog steps per transition would take 89.42 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012098 seconds
+1000 transitions using 10 leapfrog steps per transition would take 120.98 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 116.943 seconds (Warm-up)
+               85.496 seconds (Sampling)
+               202.439 seconds (Total)
+
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 116.751 seconds (Warm-up)
+               98.403 seconds (Sampling)
+               215.154 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 125.634 seconds (Warm-up)
+               98.175 seconds (Sampling)
+               223.809 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 12
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_13.json
+init = 2 (Default)
+random
+  seed = 627701791 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_13_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.015839 seconds
+1000 transitions using 10 leapfrog steps per transition would take 158.39 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.010825 seconds
+1000 transitions using 10 leapfrog steps per transition would take 108.25 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012401 seconds
+1000 transitions using 10 leapfrog steps per transition would take 124.01 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 118.141 seconds (Warm-up)
+               89.223 seconds (Sampling)
+               207.364 seconds (Total)
+
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 115.657 seconds (Warm-up)
+               100.174 seconds (Sampling)
+               215.831 seconds (Total)
+
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 130.802 seconds (Warm-up)
+               112.659 seconds (Sampling)
+               243.461 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 13
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_14.json
+init = 2 (Default)
+random
+  seed = 627945462 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_14_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.014236 seconds
+1000 transitions using 10 leapfrog steps per transition would take 142.36 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012037 seconds
+1000 transitions using 10 leapfrog steps per transition would take 120.37 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012372 seconds
+1000 transitions using 10 leapfrog steps per transition would take 123.72 seconds.
+Adjust your expectations accordingly!
+
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: grad_reg_lower_inc_gamma: n (internal counter) exceeded 100000 iterations, gamma_p(a,z) gradient (a) did not converge. (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 92.909 seconds (Warm-up)
+               91.745 seconds (Sampling)
+               184.654 seconds (Total)
+
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 94.276 seconds (Warm-up)
+               96.136 seconds (Sampling)
+               190.412 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 100.463 seconds (Warm-up)
+               93.643 seconds (Sampling)
+               194.106 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 14
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_15.json
+init = 2 (Default)
+random
+  seed = 628139814 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_15_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.018052 seconds
+1000 transitions using 10 leapfrog steps per transition would take 180.52 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.016752 seconds
+1000 transitions using 10 leapfrog steps per transition would take 167.52 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.017211 seconds
+1000 transitions using 10 leapfrog steps per transition would take 172.11 seconds.
+Adjust your expectations accordingly!
+
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 129.844 seconds (Warm-up)
+               81.689 seconds (Sampling)
+               211.533 seconds (Total)
+
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 117.939 seconds (Warm-up)
+               108.727 seconds (Sampling)
+               226.666 seconds (Total)
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 124.773 seconds (Warm-up)
+               110.936 seconds (Sampling)
+               235.709 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 15
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_16.json
+init = 2 (Default)
+random
+  seed = 628375833 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_16_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.020052 seconds
+1000 transitions using 10 leapfrog steps per transition would take 200.52 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.013597 seconds
+1000 transitions using 10 leapfrog steps per transition would take 135.97 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.016866 seconds
+1000 transitions using 10 leapfrog steps per transition would take 168.66 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is inf, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_gauss.stan', line 1, column 0) (in 'stan/bivar_cens_marg_gauss.stan', line 7, column 4 to column 77)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 110.498 seconds (Warm-up)
+               97.968 seconds (Sampling)
+               208.466 seconds (Total)
+
+
+ Elapsed Time: 117.352 seconds (Warm-up)
+               91.243 seconds (Sampling)
+               208.595 seconds (Total)
+
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 126.466 seconds (Warm-up)
+               93.561 seconds (Sampling)
+               220.027 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 16
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_17.json
+init = 2 (Default)
+random
+  seed = 628596083 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_17_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.015095 seconds
+1000 transitions using 10 leapfrog steps per transition would take 150.95 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011256 seconds
+1000 transitions using 10 leapfrog steps per transition would take 112.56 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011551 seconds
+1000 transitions using 10 leapfrog steps per transition would take 115.51 seconds.
+Adjust your expectations accordingly!
+
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 90.859 seconds (Warm-up)
+               92.263 seconds (Sampling)
+               183.122 seconds (Total)
+
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 97.521 seconds (Warm-up)
+               96.99 seconds (Sampling)
+               194.511 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 97.346 seconds (Warm-up)
+               105.453 seconds (Sampling)
+               202.799 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 17
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_18.json
+init = 2 (Default)
+random
+  seed = 628799141 (Default)
+output
+  file = csv_fits/stacking/gauss/gauss/low_18_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.011116 seconds
+1000 transitions using 10 leapfrog steps per transition would take 111.16 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011057 seconds
+1000 transitions using 10 leapfrog steps per transition would take 110.57 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.010914 seconds
+1000 transitions using 10 leapfrog steps per transition would take 109.14 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_gauss.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)

@@ -367,3 +367,3123 @@ Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
 Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
 Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 111.091 seconds (Warm-up)
+               98.818 seconds (Sampling)
+               209.909 seconds (Total)
+
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 116.906 seconds (Warm-up)
+               94.08 seconds (Sampling)
+               210.986 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 113.032 seconds (Warm-up)
+               109.069 seconds (Sampling)
+               222.101 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 2
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_3.json
+init = 2 (Default)
+random
+  seed = 625669069 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_3_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.01987 seconds
+1000 transitions using 10 leapfrog steps per transition would take 198.7 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.019374 seconds
+1000 transitions using 10 leapfrog steps per transition would take 193.74 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.019269 seconds
+1000 transitions using 10 leapfrog steps per transition would take 192.69 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 112.484 seconds (Warm-up)
+               84.037 seconds (Sampling)
+               196.521 seconds (Total)
+
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 112.168 seconds (Warm-up)
+               107.965 seconds (Sampling)
+               220.133 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 126.88 seconds (Warm-up)
+               94.23 seconds (Sampling)
+               221.11 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 3
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_4.json
+init = 2 (Default)
+random
+  seed = 625890422 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_4_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.016736 seconds
+1000 transitions using 10 leapfrog steps per transition would take 167.36 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.017618 seconds
+1000 transitions using 10 leapfrog steps per transition would take 176.18 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.014092 seconds
+1000 transitions using 10 leapfrog steps per transition would take 140.92 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lpdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 13, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 111.096 seconds (Warm-up)
+               97.89 seconds (Sampling)
+               208.986 seconds (Total)
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 109.52 seconds (Warm-up)
+               101.499 seconds (Sampling)
+               211.019 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 121.712 seconds (Warm-up)
+               92.476 seconds (Sampling)
+               214.188 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 4
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_5.json
+init = 2 (Default)
+random
+  seed = 626104925 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_5_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.020385 seconds
+1000 transitions using 10 leapfrog steps per transition would take 203.85 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.019007 seconds
+1000 transitions using 10 leapfrog steps per transition would take 190.07 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.018183 seconds
+1000 transitions using 10 leapfrog steps per transition would take 181.83 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 113.546 seconds (Warm-up)
+               103.772 seconds (Sampling)
+               217.318 seconds (Total)
+
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 124.351 seconds (Warm-up)
+               104.988 seconds (Sampling)
+               229.339 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 125.106 seconds (Warm-up)
+               107.477 seconds (Sampling)
+               232.583 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 5
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_6.json
+init = 2 (Default)
+random
+  seed = 626337788 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_6_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.013729 seconds
+1000 transitions using 10 leapfrog steps per transition would take 137.29 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011366 seconds
+1000 transitions using 10 leapfrog steps per transition would take 113.66 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012892 seconds
+1000 transitions using 10 leapfrog steps per transition would take 128.92 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 107.587 seconds (Warm-up)
+               86.272 seconds (Sampling)
+               193.859 seconds (Total)
+
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 109.975 seconds (Warm-up)
+               95.256 seconds (Sampling)
+               205.231 seconds (Total)
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 111.323 seconds (Warm-up)
+               95.904 seconds (Sampling)
+               207.227 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 6
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_7.json
+init = 2 (Default)
+random
+  seed = 626545216 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_7_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.012983 seconds
+1000 transitions using 10 leapfrog steps per transition would take 129.83 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.009853 seconds
+1000 transitions using 10 leapfrog steps per transition would take 98.53 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.010397 seconds
+1000 transitions using 10 leapfrog steps per transition would take 103.97 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 141.348 seconds (Warm-up)
+               101.515 seconds (Sampling)
+               242.863 seconds (Total)
+
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 130.024 seconds (Warm-up)
+               143.475 seconds (Sampling)
+               273.499 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 154.692 seconds (Warm-up)
+               124.028 seconds (Sampling)
+               278.72 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 7
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_8.json
+init = 2 (Default)
+random
+  seed = 626824137 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_8_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.014201 seconds
+1000 transitions using 10 leapfrog steps per transition would take 142.01 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.009554 seconds
+1000 transitions using 10 leapfrog steps per transition would take 95.54 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011574 seconds
+1000 transitions using 10 leapfrog steps per transition would take 115.74 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 131.086 seconds (Warm-up)
+               99.486 seconds (Sampling)
+               230.572 seconds (Total)
+
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 120.719 seconds (Warm-up)
+               111.722 seconds (Sampling)
+               232.441 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 122.707 seconds (Warm-up)
+               115.919 seconds (Sampling)
+               238.626 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 8
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_9.json
+init = 2 (Default)
+random
+  seed = 627063047 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_9_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.020855 seconds
+1000 transitions using 10 leapfrog steps per transition would take 208.55 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.017182 seconds
+1000 transitions using 10 leapfrog steps per transition would take 171.82 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.017254 seconds
+1000 transitions using 10 leapfrog steps per transition would take 172.54 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 123.267 seconds (Warm-up)
+               96.728 seconds (Sampling)
+               219.995 seconds (Total)
+
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 126.084 seconds (Warm-up)
+               103.104 seconds (Sampling)
+               229.188 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 122.161 seconds (Warm-up)
+               114.315 seconds (Sampling)
+               236.476 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 9
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_10.json
+init = 2 (Default)
+random
+  seed = 627299824 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_10_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.014551 seconds
+1000 transitions using 10 leapfrog steps per transition would take 145.51 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011306 seconds
+1000 transitions using 10 leapfrog steps per transition would take 113.06 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012135 seconds
+1000 transitions using 10 leapfrog steps per transition would take 121.35 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 135.392 seconds (Warm-up)
+               98.384 seconds (Sampling)
+               233.776 seconds (Total)
+
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 136.407 seconds (Warm-up)
+               123.749 seconds (Sampling)
+               260.156 seconds (Total)
+
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 155.405 seconds (Warm-up)
+               130.293 seconds (Sampling)
+               285.698 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 10
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_11.json
+init = 2 (Default)
+random
+  seed = 627585803 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_11_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.014089 seconds
+1000 transitions using 10 leapfrog steps per transition would take 140.89 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012021 seconds
+1000 transitions using 10 leapfrog steps per transition would take 120.21 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.013422 seconds
+1000 transitions using 10 leapfrog steps per transition would take 134.22 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 107.122 seconds (Warm-up)
+               90.743 seconds (Sampling)
+               197.865 seconds (Total)
+
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 114.101 seconds (Warm-up)
+               100.003 seconds (Sampling)
+               214.104 seconds (Total)
+
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 120.535 seconds (Warm-up)
+               115.903 seconds (Sampling)
+               236.438 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 11
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_12.json
+init = 2 (Default)
+random
+  seed = 627822454 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_12_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.012933 seconds
+1000 transitions using 10 leapfrog steps per transition would take 129.33 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.008928 seconds
+1000 transitions using 10 leapfrog steps per transition would take 89.28 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.010598 seconds
+1000 transitions using 10 leapfrog steps per transition would take 105.98 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 117.577 seconds (Warm-up)
+               112.141 seconds (Sampling)
+               229.718 seconds (Total)
+
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 130.777 seconds (Warm-up)
+               104.96 seconds (Sampling)
+               235.737 seconds (Total)
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 135.418 seconds (Warm-up)
+               110.901 seconds (Sampling)
+               246.319 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 12
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_13.json
+init = 2 (Default)
+random
+  seed = 628069041 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_13_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.016517 seconds
+1000 transitions using 10 leapfrog steps per transition would take 165.17 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.015245 seconds
+1000 transitions using 10 leapfrog steps per transition would take 152.45 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.017545 seconds
+1000 transitions using 10 leapfrog steps per transition would take 175.45 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 138.203 seconds (Warm-up)
+               101.471 seconds (Sampling)
+               239.674 seconds (Total)
+
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 134.565 seconds (Warm-up)
+               119.685 seconds (Sampling)
+               254.25 seconds (Total)
+
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 163.834 seconds (Warm-up)
+               127.247 seconds (Sampling)
+               291.081 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 13
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_14.json
+init = 2 (Default)
+random
+  seed = 628360434 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_14_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.021166 seconds
+1000 transitions using 10 leapfrog steps per transition would take 211.66 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01755 seconds
+1000 transitions using 10 leapfrog steps per transition would take 175.5 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01604 seconds
+1000 transitions using 10 leapfrog steps per transition would take 160.4 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 113.022 seconds (Warm-up)
+               88.164 seconds (Sampling)
+               201.186 seconds (Total)
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 105.187 seconds (Warm-up)
+               96.549 seconds (Sampling)
+               201.736 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 109.78 seconds (Warm-up)
+               98.716 seconds (Sampling)
+               208.496 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 14
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_15.json
+init = 2 (Default)
+random
+  seed = 628569155 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_15_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.013937 seconds
+1000 transitions using 10 leapfrog steps per transition would take 139.37 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.013206 seconds
+1000 transitions using 10 leapfrog steps per transition would take 132.06 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.012188 seconds
+1000 transitions using 10 leapfrog steps per transition would take 121.88 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is inf, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [2] Iteration: 1700 / 2000 [ 85%]  (Sampling)
+Chain [3] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [1] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [2] Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain [3] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [1] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [2] Iteration: 1900 / 2000 [ 95%]  (Sampling)
+Chain [3] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 123.961 seconds (Warm-up)
+               96.958 seconds (Sampling)
+               220.919 seconds (Total)
+
+Chain [1] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 122.475 seconds (Warm-up)
+               100.722 seconds (Sampling)
+               223.197 seconds (Total)
+
+Chain [2] Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 121.429 seconds (Warm-up)
+               104.967 seconds (Sampling)
+               226.396 seconds (Total)
+
+Model has finished running all 3 chains for dataset number 15
+method = sample (Default)
+  sample
+    num_samples = 1000 (Default)
+    num_warmup = 1000 (Default)
+    save_warmup = 0 (Default)
+    thin = 1 (Default)
+    adapt
+      engaged = 1 (Default)
+      gamma = 0.050000000000000003 (Default)
+      delta = 0.80000000000000004 (Default)
+      kappa = 0.75 (Default)
+      t0 = 10 (Default)
+      init_buffer = 75 (Default)
+      term_buffer = 50 (Default)
+      window = 25 (Default)
+    algorithm = hmc (Default)
+      hmc
+        engine = nuts (Default)
+          nuts
+            max_depth = 10 (Default)
+        metric = diag_e (Default)
+        metric_file =  (Default)
+        stepsize = 1 (Default)
+        stepsize_jitter = 0 (Default)
+    num_chains = 3
+id = 1 (Default)
+data
+  file = ../data/gauss/low_16.json
+init = 2 (Default)
+random
+  seed = 628795819 (Default)
+output
+  file = csv_fits/stacking/gauss/inv_log/low_16_cens_marg.csv
+  diagnostic_file =  (Default)
+  refresh = 100 (Default)
+  sig_figs = -1 (Default)
+  profile_file = profile.csv (Default)
+num_threads = 3
+
+
+Gradient evaluation took 0.013593 seconds
+1000 transitions using 10 leapfrog steps per transition would take 135.93 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.010584 seconds
+1000 transitions using 10 leapfrog steps per transition would take 105.84 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.011622 seconds
+1000 transitions using 10 leapfrog steps per transition would take 116.22 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain [2] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [3] Iteration:    1 / 2000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: gamma_lpdf: Random variable is 0, but must be positive finite! (in 'stan/bivar_cens_marg_inv_log.stan', line 3, column 2 to column 22)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [1] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [1] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [2] Iteration:  100 / 2000 [  5%]  (Warmup)
+Chain [3] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [1] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [2] Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain [3] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [3] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [2] Iteration:  300 / 2000 [ 15%]  (Warmup)
+Chain [1] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [3] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [2] Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain [1] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [3] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [2] Iteration:  500 / 2000 [ 25%]  (Warmup)
+Chain [1] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [2] Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain [1] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [3] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain [2] Iteration:  700 / 2000 [ 35%]  (Warmup)
+Chain [3] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [2] Iteration:  800 / 2000 [ 40%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: Exception: gamma_lcdf: Inverse scale parameter is 0, but must be positive finite! (in 'stan//likelihoodGamma.stanfunctions', line 11, column 6, included from
+'stan//fcns_data_params_cens.stan', line 4, column 2, included from
+'stan/bivar_cens_marg_inv_log.stan', line 1, column 0) (in 'stan/bivar_cens_marg_inv_log.stan', line 7, column 4 to column 79)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Chain [2] Iteration:  900 / 2000 [ 45%]  (Warmup)
+Chain [1] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [1] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [3] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [1] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain [2] Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain [3] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [2] Iteration: 1100 / 2000 [ 55%]  (Sampling)
+Chain [1] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [3] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [2] Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain [1] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [1] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [2] Iteration: 1300 / 2000 [ 65%]  (Sampling)
+Chain [3] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [2] Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain [1] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [2] Iteration: 1500 / 2000 [ 75%]  (Sampling)
+Chain [3] Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain [1] Iteration: 1700 / 2000 [ 85%]  (Sampling)
