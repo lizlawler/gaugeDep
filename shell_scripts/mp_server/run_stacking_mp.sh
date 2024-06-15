@@ -16,12 +16,8 @@ do
 object="stan/bivar_${likelihood}_${threshold}_${gauge_name}"
 ${stanc_exe} ${object}.stan --include-paths=${inc_path}
 cmdstan_model ${object}
-for dep_type in "gauss" "logistic"
-do
-export gauge_name likelihood threshold dep_type
-nohup ./shell_scripts/mp_server/sampling_${dep_type}_stacking_mp.sh > shell_scripts/console_output/stacking/${gauge_name}_${likelihood}_${threshold}_${dep_type}_sampling_mp.txt 2>&1 &
-sleep 1
-done
+export gauge_name likelihood threshold
+nohup ./shell_scripts/mp_server/sampling_stacking_mp.sh > shell_scripts/console_output/stacking/${gauge_name}_${likelihood}_${threshold}_sampling_mp.txt 2>&1 &
 sleep 1
 done
 sleep 1
