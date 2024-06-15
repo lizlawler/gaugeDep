@@ -3,7 +3,6 @@
 #
 # cycle through loop and launch sampling for each combination
 #
-conda activate stan_new
 trap '' HUP
 stanc_exe="/data/accounts/lawler/.conda/envs/stan_new/bin/cmdstan/bin/stanc"
 # compile model and link c++ 
