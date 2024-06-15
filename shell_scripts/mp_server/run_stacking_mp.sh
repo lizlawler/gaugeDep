@@ -19,7 +19,7 @@ cmdstan_model ${object}
 for dep_type in "gauss" "logistic"
 do
 export gauge_name likelihood threshold dep_type
-nohup ./shell_scripts/mp_server/sampling_${dep_type}_stacking_mp.sh > shell_scripts/console_output/${gauge_name}_${likelihood}_${threshold}_${dep_type}_${level}_sampling_mp.txt 2>&1 &
+nohup ./shell_scripts/mp_server/sampling_${dep_type}_stacking_mp.sh > shell_scripts/console_output/stacking/${gauge_name}_${likelihood}_${threshold}_${dep_type}_sampling_mp.txt 2>&1 &
 sleep 1
 done
 sleep 1
