@@ -1,8 +1,11 @@
-#!/bin/bash
-# shell script to call sbatch
+#!/usr/bin/zsh
+# shell script to kick off sampling
 #
 # cycle through loop and launch sampling for each combination
 #
+source /data/accounts/lawler/.zshrc
+
+conda activate stan_new
 trap '' HUP
 stanc_exe="/data/accounts/lawler/.conda/envs/stan_new/bin/cmdstan/bin/stanc"
 # compile model and link c++ 

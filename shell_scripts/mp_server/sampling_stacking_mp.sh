@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/zsh
 # model run 
+source /data/accounts/lawler/.zshrc
 
 trap '' HUP
 basedir="./stan/"
