@@ -34,7 +34,7 @@ extract_params <- function(sim_phase = "stacking", gauge, dep_type, likelihood, 
 }
 
 create_tib_params <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level) {
-  data_num <- c(10,93)
+  data_num <- 1:100
   tib_params <- sapply(data_num, 
                        function(x) extract_params(gauge = gauge, 
                                                   dep_type = dep_type,
