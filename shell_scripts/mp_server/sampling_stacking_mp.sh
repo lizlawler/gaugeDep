@@ -27,7 +27,7 @@ sleep 1
 echo "Model has finished running on all 100 datasets for ${level} of AI datasets"
 sleep 1
 conda activate r_env
-Rscript --vanilla extract_params.R \
+Rscript --vanilla ../extract_params.R \
 ${dep_type} ${gauge_name} ${likelihood} ${threshold} ${level}
 sleep 1
 conda activate stan_new
@@ -55,7 +55,7 @@ sleep 1
 echo "Model has finished running on all 100 datasets for ${level} of AD datasets"
 sleep 1
 conda activate r_env
-Rscript --vanilla extract_params.R \
+Rscript --vanilla ../extract_params.R \
 ${dep_type} ${gauge_name} ${likelihood} ${threshold} ${level}
 sleep 1
 conda activate stan_new
