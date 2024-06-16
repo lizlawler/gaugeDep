@@ -17,14 +17,15 @@ extract_params <- function(sim_phase = "stacking", gauge, dep_type, likelihood, 
   csvfiles <- paste0(start_file_path,
                      list.files(path = start_file_path, 
                                 pattern = paste0(dep_level, "_", dataset_num, "_", likelihood, "_", threshold, "_\\d{1}.csv")))
-  fit <- as_cmdstan_fit(csvfiles)
   if(gauge != "dirichlet") {
+    fit <- read_cmdstan_csv(csvfiles, variables = c("alpha", "dep"))$post_warmup_draws
     return(fit |> as_draws_df() |> 
              rename(draw = ".draw") |>
              select(alpha, dep, draw) |>
              as_tibble() |>
              mutate(dataset = dataset_num))
   } else {
+    fit <- read_cmdstan_csv(csvfiles, variables = c("alpha", "theta1", "theta2"))$post_warmup_draws
     return(fit |> as_draws_df() |> 
              rename(draw = ".draw") |>
              select(alpha, theta1, theta2, draw) |>
