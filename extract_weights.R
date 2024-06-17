@@ -9,9 +9,10 @@ library(posterior)
 library(dplyr)
 library(tidyr)
 library(loo)
-library(patchwork)
 
 options(mc.cores = parallel::detectCores())
+
+setwd("/data/accounts/lawler/research/gaugeDependence/")
 
 create_model_fit <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level, dataset_num) {
   start_file_path <- paste0("stan/csv_fits/", sim_phase, "/", dep_type, "/", gauge, "/")
@@ -55,8 +56,8 @@ model_weights <- function(sim_phase = "stacking", dep_type, dep_level, likelihoo
               "pseudobma_noboot" = pseudobma_noboot))
 }
 
-system.time(mod_wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, likelihood = likelihood, 
-                                                                          threshold = threshold, dataset_num = x)))
+mod_wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, likelihood = likelihood, 
+                                                   threshold = threshold, dataset_num = x))
 filepath <- paste0("stacking_weights/", dep_type, "_", level, "_", likelihood, "_", threshold, "_wts.RDS")
 saveRDS(mod_wts, filepath)
 
