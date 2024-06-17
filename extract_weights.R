@@ -10,11 +10,6 @@ library(dplyr)
 library(tidyr)
 library(loo)
 
-dep_type <- "gauss"
-likelihood <- "trunc"
-threshold <- "marg"
-level <- "mid"
-
 options(mc.cores = parallel::detectCores())
 
 # setwd("/data/accounts/lawler/research/gaugeDependence/")
@@ -61,8 +56,8 @@ model_weights <- function(sim_phase = "stacking", dep_type, dep_level, likelihoo
               "pseudobma_noboot" = pseudobma_noboot))
 }
 
-mod_wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, likelihood = likelihood, 
-                                                   threshold = threshold, dataset_num = x))
+system.time(mod_wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, likelihood = likelihood, 
+                                                   threshold = threshold, dataset_num = x)))
 filepath <- paste0("stacking_weights/", dep_type, "_", level, "_", likelihood, "_", threshold, "_wts.RDS")
 saveRDS(mod_wts, filepath)
 
