@@ -1,0 +1,16 @@
+asym_log
+15-43 datasets wc_low, cens, ctau, logistic
+50-79 datasets wc_low, cens, marg, logistic
+
+inv_log
+94-100  datasets   wc_mid, cens, ctau, logistic
+1-26 datasets wc_low, cens, ctau, logistic
+19-52 datasets wc_low, cens, marg, logistic
+ 
+dirichlet
+56-85 high, cens, ctau, logistic
+61-91 high, cens, marg, logistic
+55-100 wc_mid, cens, ctau, logistic
+65-100 wc_mid, cens, marg, logistic
+1-100 wc_low, cens, ctau, logistic
+1-100 wc_low, cens, marg, logistic
