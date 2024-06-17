@@ -14,7 +14,7 @@ for threshold in "marg" "ctau"
 do
 for level in "low" "mid" "high"
 export dep_type likelihood threshold level
-nohup ./shell_scripts/mp_server/sampling_stacking_mp.sh > shell_scripts/console_output/stacking/${gauge_name}_${likelihood}_${threshold}_sampling_mp.txt 2>&1 &
+nohup Rscript --vanilla extract_weights.R > shell_scripts/console_output/stacking/${dep_type}_${likelihood}_${threshold}_weights_mp.txt 2>&1 &
 sleep 1
 done
 sleep 1
