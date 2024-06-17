@@ -15,7 +15,7 @@ do
 for level in "low" "mid" "high"
 do
 export dep_type likelihood threshold level
-nohup Rscript --vanilla extract_weights.R dep_type likelihood threshold level > shell_scripts/console_output/stacking/${dep_type}_${likelihood}_${threshold}_weights_mp.txt 2>&1 &
+nohup Rscript --vanilla extract_weights.R > shell_scripts/console_output/stacking/${dep_type}_${likelihood}_${threshold}_weights_mp.txt 2>&1 &
 sleep 1
 done
 sleep 1

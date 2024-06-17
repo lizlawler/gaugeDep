@@ -10,9 +10,14 @@ library(dplyr)
 library(tidyr)
 library(loo)
 
+dep_type <- "gauss"
+likelihood <- "trunc"
+threshold <- "marg"
+level <- "mid"
+
 options(mc.cores = parallel::detectCores())
 
-setwd("/data/accounts/lawler/research/gaugeDependence/")
+# setwd("/data/accounts/lawler/research/gaugeDependence/")
 
 create_model_fit <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level, dataset_num) {
   start_file_path <- paste0("stan/csv_fits/", sim_phase, "/", dep_type, "/", gauge, "/")
