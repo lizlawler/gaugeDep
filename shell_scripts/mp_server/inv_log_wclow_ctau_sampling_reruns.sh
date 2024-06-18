@@ -6,13 +6,13 @@ trap '' HUP
 gauge_name="inv_log"
 likelihood="cens"
 level="wc_low"
+threshold="ctau"
 basedir="./stan/"
 cd ${basedir}
 model="bivar_${likelihood}_${threshold}_${gauge_name}"
 
 # run next on AD datasets
 dep_type="logistic"
-threshold="ctau"
 echo "Starting model runs with for ${level} dependence of AD datasets"
 for i in {1..27}
 do
