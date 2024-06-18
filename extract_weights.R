@@ -19,6 +19,9 @@ create_model_fit <- function(sim_phase = "stacking", gauge, dep_type, likelihood
   csvfiles <- paste0(start_file_path,
                      list.files(path = start_file_path, 
                                 pattern = paste0(dep_level, "_", dataset_num, "_", likelihood, "_", threshold, "_\\d{1}.csv")))
+  if(level == "low" | level == "mid") {
+    csvfiles <- csvfiles[!grepl("wc", csvfiles)]
+  }
   fit <- read_cmdstan_csv(csvfiles, variables = "log_lik", format = "draws_matrix")$post_warmup_draws
   return(fit)
 }
