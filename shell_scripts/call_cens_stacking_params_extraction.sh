@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --partition=amilan
-#SBATCH --account=csu54_alpine1
+#SBATCH --account=csu-general
 #SBATCH --chdir=/scratch/alpine/eslawler@colostate.edu/gaugeDependence/
 #SBATCH --qos=normal
 #SBATCH --nodes=1

@@ -34,70 +34,141 @@ rectangular_gauge <- function(w, dep_par) {
   return(pmax((w - (1 - w)) / dep_par, ((1 - w) - w) / dep_par, (w + (1 - w)) / (2 - dep_par)))
 }
 
-# create function to simulate new data when k = 1 -----------
-sim_new_data <- function(w, r0w, nsim, pars, gauge_fcn) {
-  resample_idx <- sample(1:length(w), size = nsim, replace = T)
+# importance weighting function
+imp_weights <- function(k, w, r0w, pars, gauge) {
+  gauge_fcn <- get(paste0(gauge, "_gauge"))
+  rate <- gauge_fcn(w, dep_par = pars[2:length(pars)])
+  num <- pgamma(k * r0w, shape = pars[1], rate = rate, lower.tail = FALSE)
+  denom <- pgamma(r0w, shape = pars[1], rate = rate, lower.tail = FALSE)
+  return(num / denom)
+}
+
+# create function to simulate new data (bivariate case) -----------
+sim_new_data <- function(k = 1, w, r0w, nsim, pars, gauge) {
+  gauge_fcn <- get(paste0(gauge, "_gauge"))
+  if(k != 1) {
+    weights <- imp_weights(k = k, w = w, r0w = r0w, pars = pars, gauge = gauge)
+    resample_idx <- sample(1:length(w), size = nsim, prob = weights, replace = T)
+    r0w_resample <- k * r0w[resample_idx]
+  } else {
+    resample_idx <- sample(1:length(w), size = nsim, replace = T)
+    r0w_resample <- r0w[resample_idx]
+  }
   w_resample <- w[resample_idx]
-  r0w_resample <- r0w[resample_idx]
-  rate_init <- gauge_fcn(w, dep_par = pars[2:length(pars)])
-  rate_star <- rate_init[resample_idx] 
+  rate_star <- gauge_fcn(w_resample, dep_par = pars[2:length(pars)])
   rstar <- qgamma(1 - runif(nsim) * pgamma(r0w_resample, shape = pars[1], 
                                            rate = rate_star, lower.tail = F),
                   shape = pars[1], rate = rate_star)
   xstar <- cbind(rstar * w_resample, rstar * (1 - w_resample))
-  return(xstar |> as_tibble() |> rename(x1 = V1, x2 = V2))
+  if(k != 1) {
+    return(list(df = (xstar |> as_tibble() |> rename(x1 = V1, x2 = V2)),
+                weights = weights))
+  } else {
+    return(list(df = (xstar |> as_tibble() |> rename(x1 = V1, x2 = V2))))
+  }
 }
 
 # create function to make predictions from newly simulated data -------
-pred_probs <- function(sim_df, lower, upper, idx, length_data) {
-  prob_x_given_r <- (sim_df |>
-                       filter(x1 >= lower & x1 <= upper & x2 >= lower & x2 <= upper) |>
-                       nrow()) / nrow(sim_df)
+pred_probs <- function(sim_df_list, idx, length_data, dim1, dim2, k = 1) {
+  prob_x_given_r <- (sim_df_list[["df"]] |>
+                       filter(x1 >= dim1[1] & x1 <= dim1[2] & x2 >= dim2[1] & x2 <= dim2[2]) |>
+                       nrow()) / nrow(sim_df_list[["df"]])
   prob_r_over_thres <- length(idx)/length_data
-  return(prob_x_given_r * prob_r_over_thres)
+  if(k != 1) {
+    weights <- sim_df_list[["weights"]]
+    prob_r_over_k_over_thres <- mean(weights)
+    prob_r_over_k <- prob_r_over_k_over_thres * prob_r_over_thres
+    return(prob_x_given_r * prob_r_over_k)
+  } else {
+    return(prob_x_given_r * prob_r_over_thres)
+  }
 }
 
 # create function that wraps everything together ---------
-make_preds <- function(data_file, lower, upper, posterior_pars, gauge) {
+make_preds <- function(data_file, posterior_pars, gauge, dim1, dim2, k = 1, all_angles = FALSE, true_gauge = FALSE) {
+  gauge_fcn <- get(paste0(gauge, "_gauge"))
   data <- fload(data_file)
-  r0_w <- data$r0_w
-  X1 <- data$R * data$W
-  X2 <- data$R * (1-data$W)
   R <- data$R
   W <- data$W
-  idx <- data$idx
-  sim_df <- sim_new_data(w = W[idx], r0w = r0_w[idx], nsim = 10000, pars = posterior_pars, gauge_fcn = get(paste0(gauge, "_gauge")))
-  return(pred_probs(sim_df, lower, upper, idx, length(data$R)))
+  
+  # use all angles or only angles associated with large R
+  if(all_angles) {
+    nsim <- 10000
+    if(true_gauge) {
+      gw_true <- data$ctau / data$r0_w_ctau
+      ctau_low <- quantile(gw_true * R, 0.05)
+      r0_w <- ctau_low / gw_true
+    } else {
+      gw_hat <- gauge_fcn(W, posterior_pars[2:length(posterior_pars)])
+      ctau_hat <- quantile(R * gw_hat, 0.05)
+      r0_w <- ctau_hat / gw_hat
+    }
+  } else {
+    nsim <- 5000
+    if(true_gauge) {
+      r0_w <- data$r0_w_ctau
+    } else {
+      gw_hat <- gauge_fcn(W, posterior_pars[2:length(posterior_pars)])
+      ctau_hat <- quantile(R * gw_hat, 0.95)
+      r0_w <- ctau_hat / gw_hat
+    }
+  }
+  idx <- which(R > r0_w)
+  sim_df_list <- sim_new_data(k = k, w = W[idx], r0w = r0_w[idx], nsim = nsim, pars = posterior_pars, gauge = gauge)
+  return(list(pred = pred_probs(sim_df_list, idx, length(W), dim1, dim2, k = k),
+              new_data = sim_df_list))
 }
 
+# # testing -------
+# gauss_params <- readRDS("extracted_params/gauss_gauss_high_cens_ctau_all_iter_params.RDS")
+# rectangular_params <- readRDS("extracted_params/rectangular_gauss_low_cens_ctau_all_iter_params.RDS")
+# median_params <- lapply(gauss_params, function(x) x |> select(-draw) |> apply(MARGIN = 2, FUN = median)) |> bind_rows()
+# data_gauss_low_15 <- fload("data/gauss/low_15.json")
+# b1_og <- make_preds("data/gauss/low_15.json",as.numeric(median_params[15,1:2]), gauge = "gauss", c(10,12), c(10,12), k = 1)
+# b1 <- make_preds("data/gauss/low_15.json",as.numeric(median_params[15,1:2]), gauge = "gauss", c(10,12), c(10,12), k = 3.9)
+# 
+# b2 <- make_preds("data/gauss/low_15.json",as.numeric(median_params[15,1:2]), gauge = "gauss", c(10,12), c(6,8), k = 3.1)
+# b3 <- make_preds("data/gauss/low_15.json",as.numeric(median_params[15,1:2]), gauge = "gauss", c(10,12), c(2,4), k = 2.4)
+# 
+# plot(b1$new_data$df, pch = 20)
+# rect(xleft = 10, xright = 12, ybottom = 2, ytop = 4, border="red")
+# rect(xleft = 10, xright = 12, ybottom = 6, ytop = 8, border="blue")
+# rect(xleft = 10, xright = 12, ybottom = 10, ytop = 12, border="green")
+# 
+# gw_hat <- gauss_gauge(data_gauss_low_15$W, dep_par = 0.1)
+# ctau_hat <- quantile(gw_hat * data_gauss_low_15$R, 0.95)
+# test_grid <- expand_grid(x1_tilde = seq(10,12,length.out=25), x2_tilde = seq(6,8, length.out=25))
+# test_grid <- test_grid |> mutate(w_tilde = x1_tilde / (x1_tilde + x2_tilde),
+#                                  r_tilde = x1_tilde + x2_tilde)
+# gw_tilde <- gauss_gauge(test_grid$w_tilde, 0.1)
+# poss_k <- test_grid$r_tilde * gw_tilde / ctau_hat
+# round(min(poss_k), 1) - 0.1
+
+
 # create function to make predictions by the gauge function it was fit to ----------
-preds_by_gauge <- function(gauge, dep_type, dep_level, likelihood, threshold) {
-  if(dep_level == "high") {
-    lower_lim <- 8
-    upper_lim <- 10
-  } else if (dep_level == "mid") {
-    lower_lim <- 7
-    upper_lim <- 9
-  } else {
-    lower_lim <- 6
-    upper_lim <- 8
-  }
-  posterior_params <- readRDS(paste0("extracted_params/", gauge, "_", dep_type, "_", 
-                                     dep_level, "_", likelihood, "_", threshold, "_params.RDS"))
+preds_by_gauge <- function(gauge, dep_type, dep_level, likelihood, threshold, dim1, dim2, k = 1, all_angles = F, true_gauge = F) {
+  posterior_params_all_iter <- readRDS(paste0("extracted_params/", gauge, "_", dep_type, "_", 
+                                              dep_level, "_", likelihood, "_", threshold, "_all_iter_params.RDS"))
   init_data_path <- paste0("data/", dep_type, "/", dep_level, "_")
+  posterior_params <- lapply(posterior_params_all_iter, function(x) x |> select(-draw) |> apply(MARGIN = 2, FUN = median)) |> bind_rows()
   results <- apply(posterior_params, 1, function(row) {
     data_file <- paste0(init_data_path, row["dataset"], ".json")
     params <- as.numeric(row[-length(row)])
-    return(make_preds(data_file, lower = lower_lim, upper = upper_lim, posterior_pars = params, gauge = gauge))
+    return(make_preds(data_file, posterior_pars = params, gauge = gauge, 
+                      dim1 = dim1, dim2 = dim2, 
+                      k = k, all_angles = all_angles, true_gauge = true_gauge))
   })
-  return(results)
+  return(lapply(results, function(x) x$pred) |> unlist())
 }
 
 # create function that makes predictions for all 100 datasets for a specific dependence type and level, likelihood type,
 # threshold type, and with all gauge function fits -------
-preds_by_dep_level_lhood_thres <- function(dep_type, dep_level, likelihood, threshold) {
+preds_by_dep_level_lhood_thres <- function(dep_type, dep_level, likelihood, threshold, dim1, dim2, k = 1, all_angles = F, true_gauge = F) {
   gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
-  return(sapply(gauge_library, function(x) preds_by_gauge(x, dep_type, dep_level, likelihood, threshold)) |>
+  return(sapply(gauge_library, function(x) preds_by_gauge(x, dep_type, dep_level, 
+                                                          likelihood, threshold, 
+                                                          dim1, dim2, 
+                                                          k = k, all_angles = all_angles, true_gauge = true_gauge)) |>
            as_tibble() |>
            mutate(dataset = 1:100))
 }
@@ -116,9 +187,12 @@ make_wts_df <- function(weights_file) {
 }
 
 # create function to create weighted sum of predictions by three BMA methods ------
-weighted_preds_by_lhood_thres <- function(dep_type, dep_level, likelihood, threshold) {
+weighted_preds_by_lhood_thres <- function(dep_type, dep_level, likelihood, threshold, dim1, dim2, k = 1, all_angles = F, true_gauge = F) {
   scenario <- paste0(dep_type, "_", dep_level, "_", likelihood, "_", threshold)
-  temp_preds <- preds_by_dep_level_lhood_thres(dep_type, dep_level, likelihood, threshold) |>
+  temp_preds <- preds_by_dep_level_lhood_thres(dep_type, dep_level, 
+                                               likelihood, threshold, 
+                                               dim1, dim2, 
+                                               k = k, all_angles = all_angles, true_gauge = true_gauge) |>
     pivot_longer(cols = -'dataset', names_to = "method", values_to = "preds")
   temp_wts <- make_wts_df(paste0("stacking_weights/", scenario, "_wts.RDS"))
   temp_weighted_preds <- temp_wts |> left_join(temp_preds) |>
@@ -140,84 +214,133 @@ weighted_preds_by_lhood_thres <- function(dep_type, dep_level, likelihood, thres
   return(boxplot_wts)
 }
 
-weighted_preds_by_level <- function(dep_type, dep_level) {
+weighted_preds_by_level <- function(dep_type, dep_level, dim1, dim2, k = 1, all_angles = F, true_gauge = F) {
   thres <- c("ctau", "marg")
   lhood <- c("trunc", "cens")
   lhood_thres_combos <- expand_grid(lhood, thres)
   all_wts <- apply(lhood_thres_combos, 1, 
                    function(row) weighted_preds_by_lhood_thres(dep_type, dep_level, 
-                                                               row["lhood"], row["thres"]))
+                                                               row["lhood"], row["thres"],
+                                                               dim1, dim2, 
+                                                               k = k, all_angles = all_angles, true_gauge = true_gauge))
 }
+
+# functions to determine the true probability -----
+true_gauss_prob <- function(dim1, dim2, dep) {
+  dim1_star <- qnorm(pexp(dim1))
+  dim2_star <- qnorm(pexp(dim2))
+  corr_matrix <- matrix(c(1, dep, dep, 1), nrow = 2)
+  return(pmvnorm(lower = c(dim1_star[1],dim2_star[1]), upper = c(dim1_star[2],dim2_star[2]), corr = corr_matrix)[1])
+}
+
+true_logistic_prob <- function(dim1, dim2, dep) {
+  dim1_star <- qgev(pexp(dim1), loc = 0, scale = 1, shape = 0)
+  dim2_star <- qgev(pexp(dim2), loc = 0, scale = 1, shape = 0)
+  upper_right <- pbvevd(q = c(dim1_star[2], dim2_star[2]), dep = dep)
+  upper_left <- pbvevd(q = c(dim1_star[1], dim2_star[2]), dep = dep)
+  lower_right <- pbvevd(q = c(dim1_star[2], dim2_star[1]), dep = dep)
+  lower_left <- pbvevd(q = c(dim1_star[1], dim2_star[1]), dep = dep)
+  return(upper_right - upper_left - lower_right + lower_left)
+}
+
+# create function that wraps everything to gether to make boxplot of predictions
+create_predictions_boxplot <- function(dep_type, dep_level, dim1, dim2, all_angles = F, true_gauge = F) {
+  angles_name <- ifelse(all_angles, "all_angles", "angles_largeR")
+  thresh_name <- ifelse(true_gauge, "true_gauge", "fitted_gauge")
+  filename <- paste0("boxplots_pred_probs/", dep_type, "/", angles_name, "/",
+                       thresh_name, "/", dep_level, "_preds_probs_boxplot.RDS")  
   
-create_predictions_boxplot <- function(dep_type, dep_level) {
-  filename <- paste0("boxplots_pred_probs/", dep_type, "_", dep_level, "_preds_probs_boxplot.RDS")
-  preds_tib <- weighted_preds_by_level(dep_type, dep_level) |> bind_rows() |>
+  # determine appropriate value of k
+  pseudo_pred <- expand_grid(x1_pseudo = seq(dim1[1], dim1[2], length.out=25), 
+                             x2_pseudo = seq(dim2[1], dim2[2], length.out=25)) |> 
+    mutate(w_pseudo = x1_pseudo / (x1_pseudo + x2_pseudo),
+           r_pseudo = x1_pseudo + x2_pseudo)
+  if(dep_type == "gauss") {
+    data_random <- RcppSimdJson::fload(paste0("data/gauss/", dep_level, "_", sample(1:100, size = 1),".json"))
+    levels_list <- list(low = 0.1, mid = 0.5, high = 0.9, wc = 0.8)
+    gw_pseudo <- gauss_gauge(pseudo_pred$w_pseudo, as.numeric(levels_list[dep_level]))
+    if(all_angles) {
+      ctau_temp <- data_random$ctau
+      r0_w_temp <- data_random$r0_w_ctau
+      gw_temp <- ctau_temp / r0_w_temp
+      ctau_random <- quantile(gw_temp * data_random$R, 0.05)
+    } else {
+      ctau_random <- data$ctau
+    }
+    poss_k <- pseudo_pred$r_pseudo * gw_pseudo / ctau_random
+    k <- max(round(min(poss_k), 1) - 0.2, 1)
+  } else {
+    data_random <- RcppSimdJson::fload(paste0("data/logistic/", dep_level, "_", sample(1:100, size = 1),".json"))
+    levels_list <- list(low = 0.9, mid = 0.5, high = 0.1, wc_mid = 0.4, wc_low = 0.8)
+    gw_pseudo <- logistic_gauge(pseudo_pred$w_pseudo, as.numeric(levels_list[dep_level]))
+    if(all_angles) {
+      ctau_temp <- data_random$ctau
+      r0_w_temp <- data_random$r0_w_ctau
+      gw_temp <- ctau_temp / r0_w_temp
+      ctau_random <- quantile(gw_temp * data_random$R, 0.05)
+    } else {
+      ctau_random <- data$ctau
+    }
+    poss_k <- pseudo_pred$r_pseudo * gw_pseudo / ctau_random
+    k <- max(round(min(poss_k), 1) - 0.1, 1)
+  }
+  
+  plot_title <- paste0(dep_type, ", ", dep_level, ", (",paste(dim1, collapse = ","), ") x (", paste(dim2, collapse = ","),")", 
+                       ", k = ", k, ", ", gsub("_", "", angles_name), ", threshold = ", gsub("_", " ", thresh_name))
+
+  # determine true probability
+  if(dep_type == "gauss") {
+    levels_list <- list(low = 0.1, mid = 0.5, high = 0.9, wc = 0.8)
+    true_prob <- true_gauss_prob(dim1 = dim1, dim2 = dim2, dep = as.numeric(levels_list[dep_level]))
+  } else {
+    levels_list <- list(low = 0.9, mid = 0.5, high = 0.1, wc_mid = 0.4, wc_low = 0.8)
+    true_prob <- true_logistic_prob(dim1 = dim1, dim2 = dim2, dep = as.numeric(levels_list[dep_level]))
+  }
+  
+  # make predictions
+  preds_tib <- weighted_preds_by_level(dep_type, dep_level, 
+                                       dim1, dim2, 
+                                       k = k, all_angles = all_angles, true_gauge = true_gauge) |> 
+    bind_rows() |>
     mutate(scenario = stringr::str_to_title(gsub("_", ", ", gsub(paste0(dep_type, "_", dep_level, "_"), "", scenario))))
+  
+  # create boxplot
   temp_plot <- preds_tib |> ggplot(aes(x = scenario, y = bma_preds, fill = bma_method)) + 
     geom_boxplot() +
-    # geom_hline(yintercept = 8.210874e-05, col = "darkgrey", linetype = "longdash") + 
+    geom_hline(yintercept = true_prob, col = "darkgrey", linetype = "longdash") +
     theme_classic() +
+    ggtitle(plot_title) +
     xlab("Likelihood and Threshold") + ylab("Prediction probabilities") + labs(fill = "")
-  # ggsave(filename,
-  #        plot = temp_plot,
-  #        bg = 'transparent',
-  #        dpi = 320)
+  ggsave(gsub(".RDS", ".pdf", filename),
+         plot = temp_plot,
+         bg = 'transparent',
+         dpi = 320)
   saveRDS(temp_plot, filename)
   print(paste0(filename, " has been saved"))
 }
 
-dep_types <- c("gauss", "logistic")
-dep_levels <- c("high", "mid", "low")
-types_levels_combos <- expand_grid(dep_types, dep_levels)
-apply(types_levels_combos, 1, 
-      function(row) create_predictions_boxplot(row["dep_types"], row["dep_levels"]))
+dep_types <- c("gauss")
+dep_levels <- c("high", "mid", "low", "wc")
+boxes <- tibble(dim1 = list(c(10,12)), dim2 = list(c(10,12), c(6,8), c(2,4)))
+all_angles_vals <- c(T, F)
+true_gauge_vals <- c(T, F)
+all_combos_gauss <- expand_grid(dep_types, dep_levels, boxes, all_angles_vals, true_gauge_vals)
+system.time(apply(all_combos_gauss, 1,
+                  function(row) create_predictions_boxplot(dep_type = as.character(row["dep_types"]), 
+                                                           dep_level = as.character(row["dep_levels"]),
+                                                           dim1 = as.numeric(unlist(row["dim1"])), 
+                                                           dim2 = as.numeric(unlist(row["dim2"])),
+                                                           all_angles = as.logical(row["all_angles_vals"]), 
+                                                           true_gauge = as.logical(row["true_gauge_vals"]))))
 
 
-# determining the true probability -----
-
-lower_limit <- qnorm(pexp(8))
-upper_limit <- qnorm(pexp(10))
-pmvnorm(lower = rep(lower_limit, 2), upper = rep(upper_limit, 2), corr = matrix(c(1, 0.9, 0.9, 1), nrow = 2))[1]
-
-lower_limit <- qgev(pexp(8), loc = 0, scale = 1, shape = 0)
-upper_limit <- qgev(pexp(10), loc = 0, scale = 1, shape = 0)
-pbvevd(q = c(lower_limit, upper_limit), dep = 0.1)
-
-upper_rt_pt <- pbvevd(q = c(upper_limit, upper_limit), dep = 0.1)
-upper_lt_pt <- pbvevd(q = c(lower_limit, upper_limit), dep = 0.1)
-lower_rt_pt <- pbvevd(q = c(upper_limit, lower_limit), dep = 0.1)
-lower_lt_pt <- pbvevd(q = c(lower_limit, lower_limit), dep = 0.1)
-
-upper_rt_pt - upper_lt_pt - lower_rt_pt + lower_lt_pt
-log_point <- rbvevd(5000, dep = 0.1)
-
-## playing with using ALL angles -----------
-med_pars <- gauss_high_trunc_marg_93[[1]][,1:2] |> as.numeric()
-gw_fit <- gauss_gauge(W, 1-W, med_pars[2])
-# gw_true <- gauss_gauge(W, 1-W, 0.9)
-plot(W/gw_fit, (1-W)/gw_fit, col = 4)
-# points(W/gw_true, (1-W)/gw_true, col = 3)
-
-rw_gw_fit <- cbind(R, W, r0_w, gw_fit) |> as_tibble() |> mutate(r_gw = gw_fit * R) 
-ctau <- quantile(rw_gw_fit$r_gw, 0.92)
-rw_gw_fit <- rw_gw_fit |> mutate(r0w_tau = ctau / gw_fit)
-rw_gw_fit_over1 <- rw_gw_fit |> filter(R > r0w_tau)
-
-new_x <- sim.2d(w=rw_gw_fit$W, r0w=rw_gw_fit$r0w_tau, k=1, 20000, par = med_pars, gfun = gauge_gaussian) |> 
-  as_tibble() |> rename(X1 = V1, X2=V2)
-
-plot(X1, X2,pch=20, xlim=c(0,14), ylim = c(0,14))
-# points(new_x_liz,pch=20,col=4)
-points(new_x,pch=20,col=3)
-
-lower <- 8
-upper <- 10
-# prob_new_x_liz <- (new_x_liz |> filter(X1 >= lower & X1 <= upper & X2 >= lower & X2 <= upper) |> nrow())/nrow(new_x_liz) * nrow(rw_gw_fit_over1)/nrow(rw_gw_fit)
-(new_x |> filter(X1 >= lower & X1 <= upper & X2 >= lower & X2 <= upper) |> 
-                 nrow())/nrow(new_x) * 0.08
-
-# convert [8,10] x [8,10] box in expo to gaussian coordinates
-lower_limit <- qnorm(pexp(7))
-upper_limit <- qnorm(pexp(9))
-pmvnorm(lower = rep(lower_limit, 2), upper = rep(upper_limit, 2), corr = matrix(c(1, 0.5, 0.5, 1), nrow = 2))[1]
-
+dep_types <- c("logistic")
+dep_levels <- c("high", "mid", "low", "wc_mid", "wc_low")
+all_combos_logistic <- expand_grid(dep_types, dep_levels, boxes, all_angles_vals, true_gauge_vals)
+system.time(apply(all_combos_logistic, 1,
+                  function(row) create_predictions_boxplot(dep_type = as.character(row["dep_types"]), 
+                                                           dep_level = as.character(row["dep_levels"]),
+                                                           dim1 = as.numeric(unlist(row["dim1"])), 
+                                                           dim2 = as.numeric(unlist(row["dim2"])),
+                                                           all_angles = as.logical(row["all_angles_vals"]), 
+                                                           true_gauge = as.logical(row["true_gauge_vals"]))))
