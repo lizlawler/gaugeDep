@@ -11,6 +11,16 @@ polar_euc_tib <- function(x, y, gauge, dep) {
   return(polar_euc_gw)
 }
 
+# for Husler-Reiss data only (doesn't use gauge function threshold)
+polar_euc_tib_hr <- function(x, y) {
+  euc_tib <- cbind(x,y) |> as_tibble()
+  polar_euc <- euc_tib |> mutate(r = x+y,
+                                    w = x/r)
+  return(polar_euc)
+}
+
+## 0.25, 2, 6
+
 ## Copula functions for varying dependence structures -----------
 gauss_gauge <- function(x, y, dep = 0.5) {
   top <- x + y - 2 * dep * sqrt(x * y)
@@ -77,6 +87,15 @@ dirichlet <- function(N = 10000, theta1, theta2 = 2) {
   return(polar_euc_tib(x, y, dirichlet_gauge, dep))
 }
 
+husler_reiss <- function(N = 10000, dep = 1) {
+  x <- rbvevd(N, dep = dep, model = "hr")
+  u1 <- pgev(x[,1], loc = 0, scale = 1, shape = 0)
+  u2 <- pgev(x[,2], loc = 0, scale = 1, shape = 0)
+  x <- qexp(u1)
+  y <- qexp(u2)
+  return(polar_euc_tib_hr(x, y))
+}
+
 ## Creation of stan data list -------------
 grab_top_n <- function(cloud_tib, n0 = 1, N = 10000) {
   tau <- (N-n0)/N
@@ -90,35 +109,31 @@ grab_top_n <- function(cloud_tib, n0 = 1, N = 10000) {
     idx <- which(cloud_tib$x > q | cloud_tib$y > q)
   }
   r0_w <- cloud_tib |> mutate(r0_w = ifelse(w > 0.5, q/w, q/(1-w))) |> select(r0_w)
-  ctau <- as.numeric(quantile(cloud_tib$gw_r, tau))
-  r0_w_ctau <- ctau / cloud_tib$gw
-  idx_ctau <- which(cloud_tib$r > r0_w_ctau)
-  return(list(q = q,
-              idx = idx,
-              n0 = length(idx),
-              N = N,
-              R = cloud_tib$r,
-              W = cloud_tib$w,
-              r0_w = r0_w$r0_w,
-              ctau = ctau,
-              r0_w_ctau = r0_w_ctau,
-              n0_ctau = length(idx_ctau),
-              # gw = cloud_tib$gw,
-              idx_ctau = idx_ctau))
+  if("gw" %in% colnames(cloud_tib)) {
+    ctau <- as.numeric(quantile(cloud_tib$gw_r, tau))
+    r0_w_ctau <- ctau / cloud_tib$gw
+    idx_ctau <- which(cloud_tib$r > r0_w_ctau)
+    return(list(q = q,
+                idx = idx,
+                n0 = length(idx),
+                N = N,
+                R = cloud_tib$r,
+                W = cloud_tib$w,
+                r0_w = r0_w$r0_w,
+                ctau = ctau,
+                r0_w_ctau = r0_w_ctau,
+                n0_ctau = length(idx_ctau),
+                idx_ctau = idx_ctau))
+  } else {
+    return(list(q = q,
+                idx = idx,
+                n0 = length(idx),
+                N = N,
+                R = cloud_tib$r,
+                W = cloud_tib$w,
+                r0_w = r0_w$r0_w))
+  }
 }
-
-# high_test <- gauss(10000, 0.9)
-# test_idx <- grab_top_n(high_test, 1000, 10000)
-# 
-# plot(high_test$x[-test_idx$idx_ctau], high_test$y[-test_idx$idx_ctau], col = "blue", xlim = c(0,5), ylim = c(0,5))
-# points(high_test$x[test_idx$idx_ctau], high_test$y[test_idx$idx_ctau], col = "red")
-# points(test_idx$W[test_idx$idx_ctau], test_idx$r0_w_ctau[test_idx$idx_ctau], col = "green")
-# 
-# w <- test_idx$W[test_idx$idx_ctau]
-# gw <- high_test$gw[test_idx$idx_ctau]
-# c <- test_idx$ctau
-# 
-# points(c * w / gw, c * (1-w) / gw, col = "green")
 
 
 data_list <- function(N = 10000, n0 = 1, dep, cop_func) {
@@ -126,37 +141,22 @@ data_list <- function(N = 10000, n0 = 1, dep, cop_func) {
   return(grab_top_n(og_data, n0 = n0, N = N))
 }
 
-# test <- data_list(N = 10000, n0 = 1000, dep = 0.5, cop_func = gauss)
-# w <- test$W
-# r <- test$R / log(10000)
-# gw <- test$gw
-# x <- w * r
-# y <- (r - x)
-# c <- test$ctau / log(10000)
-# q <- test$q / log(10000)
-# 
-# plot(w[-test$idx_ctau], r[-test$idx_ctau], col = "blue", ylim = c(0,2), cex = 0.5)
-# points(w[test$idx_ctau], r[test$idx_ctau], col = "red", cex = 0.5)
-# points(w[test$idx_ctau], test$r0_w_ctau[test$idx_ctau]/log(10000), col = "green", cex = 0.25)
-# 
-# plot(x[-test$idx_ctau], y[-test$idx_ctau], col = "blue", xlim = c(0,1.25), ylim = c(0,1.25), cex = 0.5)
-# points(x[test$idx_ctau], y[test$idx_ctau], col = "red", cex = 0.5)
-# points(c * w[test$idx_ctau] / gw[test$idx_ctau], c * (1-w[test$idx_ctau]) / gw[test$idx_ctau], col = "green", cex = 0.25)
-# 
-# plot(w[-test$idx], r[-test$idx], col = "blue", ylim = c(0,2), cex = 0.5)
-# points(w[test$idx], r[test$idx], col = "red", cex = 0.5)
-# points(w[test$idx], test$r0_w[test$idx]/log(10000), col = "green", cex = 0.25)
-# 
-# plot(x[-test$idx], y[-test$idx], col = "blue",  xlim = c(0,1.25), ylim = c(0,1.25), cex = 0.5)
-# points(x[test$idx], y[test$idx], col = "red", cex = 0.5)
-# abline(h = q, v = q, col = "green", lwd = 2)
-
-
 gen_data_file <- function(N = 10000, n0 = 1, dep, cop_func, dep_level, iter) {
   temp <- data_list(N, n0, dep, cop_func)
   cmdstanr::write_stan_json(temp, paste0("data/", deparse(substitute(cop_func)), "/", dep_level, "_", iter, ".json"))
   # cmdstanr::write_stan_json(temp, paste0("data/", dep_type, "/", dep_level, "_", iter, ".json"))
 }
+
+# test <- data_list(dep = 6, cop_func = husler_reiss)
+dep_levels <- list(c(0.25, "low"), c(2, "mid"), c(6, "high"))
+for (j in seq_along(dep_levels)) {
+  dep <- as.numeric(dep_levels[[j]][1])
+  level <- dep_levels[[j]][2]
+  for ( i in 1:100) {
+    gen_data_file(5000, 250, dep, husler_reiss, level, i)
+  }
+}
+
 
 dep_levels <- list(c(0.1, "low"), c(0.5, "mid"), c(0.9, "high"), c(0.8, "wc"))
 for (j in seq_along(dep_levels)) {

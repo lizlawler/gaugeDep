@@ -10,8 +10,6 @@ library(posterior)
 library(dplyr)
 library(tidyr)
 
-setwd("/data/accounts/lawler/research/gaugeDependence/")
-
 extract_params <- function(sim_phase = "stacking", gauge, dep_type, likelihood, threshold, dep_level, dataset_num) {
   start_file_path <- paste0("stan/csv_fits/", sim_phase, "/", dep_type, "/", gauge, "/")
   csvfiles <- paste0(start_file_path,
