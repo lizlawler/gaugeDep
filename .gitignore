@@ -9,3 +9,5 @@ data/**/*.json
 *.csv
 traceplots/
 shell_scripts/console_output/
+
+boxplots_pred_probs/
