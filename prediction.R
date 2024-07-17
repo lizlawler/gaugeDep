@@ -5,6 +5,11 @@ library(tidyverse)
 library(RcppSimdJson)
 library(mvtnorm)
 library(evd)
+library(progressr)
+source("run_wc_models.R")
+
+options(rlib_name_repair_verbosity = "quiet")
+handlers("cli")
 
 ## Gauge functions
 gauss_gauge <- function(w, dep_par = 0.5) {
@@ -34,13 +39,17 @@ rectangular_gauge <- function(w, dep_par) {
   return(pmax((w - (1 - w)) / dep_par, ((1 - w) - w) / dep_par, (w + (1 - w)) / (2 - dep_par)))
 }
 
+# w <- seq(0,1,length.out = 300)
+# gw <- inv_log_gauge(w, dep_par = 31)
+# plot(w/gw, (1-w)/gw, pch = 20)
+
 # importance weighting function
 imp_weights <- function(k, w, r0w, pars, gauge) {
   gauge_fcn <- get(paste0(gauge, "_gauge"))
   rate <- gauge_fcn(w, dep_par = pars[2:length(pars)])
-  num <- pgamma(k * r0w, shape = pars[1], rate = rate, lower.tail = FALSE)
-  denom <- pgamma(r0w, shape = pars[1], rate = rate, lower.tail = FALSE)
-  return(num / denom)
+  num <- pgamma(k * r0w, shape = pars[1], rate = rate, lower.tail = FALSE, log.p = TRUE)
+  denom <- pgamma(r0w, shape = pars[1], rate = rate, lower.tail = FALSE, log.p = TRUE)
+  return(exp(num - denom))
 }
 
 # create function to simulate new data (bivariate case) -----------
@@ -85,68 +94,42 @@ pred_probs <- function(sim_df_list, idx, length_data, dim1, dim2, k = 1) {
 }
 
 # create function that wraps everything together ---------
-make_preds <- function(data_file, posterior_pars, gauge, dim1, dim2, k = 1, all_angles = FALSE, true_gauge = FALSE) {
+make_preds <- function(data_file, posterior_pars, gauge, dim1, dim2, true_threshold = F, wc = F) {
   gauge_fcn <- get(paste0(gauge, "_gauge"))
   data <- fload(data_file)
   R <- data$R
   W <- data$W
+  ctau_true <- data$ctau
+  r0_w_ctau <- data$r0_w_ctau
   
-  # use all angles or only angles associated with large R
-  if(all_angles) {
-    nsim <- 10000
-    if(true_gauge) {
-      gw_true <- data$ctau / data$r0_w_ctau
-      ctau_low <- quantile(gw_true * R, 0.05)
-      r0_w <- ctau_low / gw_true
-    } else {
-      gw_hat <- gauge_fcn(W, posterior_pars[2:length(posterior_pars)])
-      ctau_hat <- quantile(R * gw_hat, 0.05)
-      r0_w <- ctau_hat / gw_hat
-    }
-  } else {
-    nsim <- 5000
-    if(true_gauge) {
-      r0_w <- data$r0_w_ctau
-    } else {
-      gw_hat <- gauge_fcn(W, posterior_pars[2:length(posterior_pars)])
-      ctau_hat <- quantile(R * gw_hat, 0.95)
-      r0_w <- ctau_hat / gw_hat
-    }
+  # create fake data to use in determining k value
+  pseudo_pred <- expand_grid(x1_pseudo = seq(dim1[1], dim1[2], length.out=15), 
+                             x2_pseudo = seq(dim2[1], dim2[2], length.out=15)) |> 
+    mutate(w_pseudo = x1_pseudo / (x1_pseudo + x2_pseudo),
+           r_pseudo = x1_pseudo + x2_pseudo)
+  
+  if(true_threshold & !wc) {
+    
+    
   }
+  # create threshold based on fitted gauge function (for LS and WC models)
+  gw_fitted <- gauge_fcn(W, posterior_pars[2:length(posterior_pars)])
+  ctau_fitted <- quantile(gw_fitted * R, 0.95)
+  r0_w <- ctau_fitted/gw_fitted
   idx <- which(R > r0_w)
-  sim_df_list <- sim_new_data(k = k, w = W[idx], r0w = r0_w[idx], nsim = nsim, pars = posterior_pars, gauge = gauge)
-  return(list(pred = pred_probs(sim_df_list, idx, length(W), dim1, dim2, k = k),
+  
+  # determine appropriate value of k with fitted gauge, in the proposed box
+  gw_pseudo <- gauge_fcn(pseudo_pred$w_pseudo, posterior_pars[2:length(posterior_pars)])
+  poss_k <- pseudo_pred$r_pseudo * gw_pseudo / ctau_fitted
+  k <- max(round(min(poss_k), 1) - 0.1, 1)
+  
+  sim_df_list <- sim_new_data(k = k, w = W[idx], r0w = r0_w[idx], nsim = 5000, pars = posterior_pars, gauge = gauge)
+  return(list(pred = pred_probs(sim_df_list, idx = idx, length_data = length(R), dim1, dim2, k = k),
               new_data = sim_df_list))
 }
 
-# # testing -------
-# gauss_params <- readRDS("extracted_params/gauss_gauss_high_cens_ctau_all_iter_params.RDS")
-# rectangular_params <- readRDS("extracted_params/rectangular_gauss_low_cens_ctau_all_iter_params.RDS")
-# median_params <- lapply(gauss_params, function(x) x |> select(-draw) |> apply(MARGIN = 2, FUN = median)) |> bind_rows()
-# data_gauss_low_15 <- fload("data/gauss/low_15.json")
-# b1_og <- make_preds("data/gauss/low_15.json",as.numeric(median_params[15,1:2]), gauge = "gauss", c(10,12), c(10,12), k = 1)
-# b1 <- make_preds("data/gauss/low_15.json",as.numeric(median_params[15,1:2]), gauge = "gauss", c(10,12), c(10,12), k = 3.9)
-# 
-# b2 <- make_preds("data/gauss/low_15.json",as.numeric(median_params[15,1:2]), gauge = "gauss", c(10,12), c(6,8), k = 3.1)
-# b3 <- make_preds("data/gauss/low_15.json",as.numeric(median_params[15,1:2]), gauge = "gauss", c(10,12), c(2,4), k = 2.4)
-# 
-# plot(b1$new_data$df, pch = 20)
-# rect(xleft = 10, xright = 12, ybottom = 2, ytop = 4, border="red")
-# rect(xleft = 10, xright = 12, ybottom = 6, ytop = 8, border="blue")
-# rect(xleft = 10, xright = 12, ybottom = 10, ytop = 12, border="green")
-# 
-# gw_hat <- gauss_gauge(data_gauss_low_15$W, dep_par = 0.1)
-# ctau_hat <- quantile(gw_hat * data_gauss_low_15$R, 0.95)
-# test_grid <- expand_grid(x1_tilde = seq(10,12,length.out=25), x2_tilde = seq(6,8, length.out=25))
-# test_grid <- test_grid |> mutate(w_tilde = x1_tilde / (x1_tilde + x2_tilde),
-#                                  r_tilde = x1_tilde + x2_tilde)
-# gw_tilde <- gauss_gauge(test_grid$w_tilde, 0.1)
-# poss_k <- test_grid$r_tilde * gw_tilde / ctau_hat
-# round(min(poss_k), 1) - 0.1
-
-
 # create function to make predictions by the gauge function it was fit to ----------
-preds_by_gauge <- function(gauge, dep_type, dep_level, likelihood, threshold, dim1, dim2, k = 1, all_angles = F, true_gauge = F) {
+preds_by_gauge <- function(gauge, dep_type, dep_level, likelihood, threshold, dim1, dim2) {
   posterior_params_all_iter <- readRDS(paste0("extracted_params/", gauge, "_", dep_type, "_", 
                                               dep_level, "_", likelihood, "_", threshold, "_all_iter_params.RDS"))
   init_data_path <- paste0("data/", dep_type, "/", dep_level, "_")
@@ -154,25 +137,24 @@ preds_by_gauge <- function(gauge, dep_type, dep_level, likelihood, threshold, di
   results <- apply(posterior_params, 1, function(row) {
     data_file <- paste0(init_data_path, row["dataset"], ".json")
     params <- as.numeric(row[-length(row)])
-    return(make_preds(data_file, posterior_pars = params, gauge = gauge, 
-                      dim1 = dim1, dim2 = dim2, 
-                      k = k, all_angles = all_angles, true_gauge = true_gauge))
+    return(tryCatch(make_preds(data_file, posterior_pars = params, gauge = gauge, 
+                      dim1 = dim1, dim2 = dim2), error=function(e) list(pred = NA)))
   })
   return(lapply(results, function(x) x$pred) |> unlist())
 }
 
 # create function that makes predictions for all 100 datasets for a specific dependence type and level, likelihood type,
 # threshold type, and with all gauge function fits -------
-preds_by_dep_level_lhood_thres <- function(dep_type, dep_level, likelihood, threshold, dim1, dim2, k = 1, all_angles = F, true_gauge = F) {
+preds_by_dep_level_lhood_thres <- function(dep_type, dep_level, likelihood, threshold, dim1, dim2) {
   gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
   return(sapply(gauge_library, function(x) preds_by_gauge(x, dep_type, dep_level, 
                                                           likelihood, threshold, 
-                                                          dim1, dim2, 
-                                                          k = k, all_angles = all_angles, true_gauge = true_gauge)) |>
+                                                          dim1, dim2)) |>
            as_tibble() |>
            mutate(dataset = 1:100))
 }
 
+# test <- preds_by_dep_level_lhood_thres("gauss", "high", "trunc", "ctau", c(10,12), c(10,12))
 # create function to reshape previously extracted stacking weights -------
 make_wts_df <- function(weights_file) {
   gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
@@ -187,42 +169,41 @@ make_wts_df <- function(weights_file) {
 }
 
 # create function to create weighted sum of predictions by three BMA methods ------
-weighted_preds_by_lhood_thres <- function(dep_type, dep_level, likelihood, threshold, dim1, dim2, k = 1, all_angles = F, true_gauge = F) {
+weighted_preds_by_lhood_thres <- function(dep_type, dep_level, likelihood, threshold, dim1, dim2) {
   scenario <- paste0(dep_type, "_", dep_level, "_", likelihood, "_", threshold)
   temp_preds <- preds_by_dep_level_lhood_thres(dep_type, dep_level, 
                                                likelihood, threshold, 
-                                               dim1, dim2, 
-                                               k = k, all_angles = all_angles, true_gauge = true_gauge) |>
+                                               dim1, dim2) |>
     pivot_longer(cols = -'dataset', names_to = "method", values_to = "preds")
   temp_wts <- make_wts_df(paste0("stacking_weights/", scenario, "_wts.RDS"))
-  temp_weighted_preds <- temp_wts |> left_join(temp_preds) |>
-    mutate(stacking_preds = preds * stacking,
-           pseudo_boot = pseudobma_boot * preds,
-           pseudo_noboot = pseudobma_noboot * preds) |>
-    group_by(dataset) |>
-    summarize(stacking_predictions = sum(stacking_preds),
-              pseudobma_boot_preds = sum(pseudo_boot),
-              pseudobma_noboot_preds = sum(pseudo_noboot)) |>
-    ungroup()
+  temp_weighted_preds <- suppressMessages(temp_wts |> left_join(temp_preds) |>
+                                            mutate(stacking_preds = preds * stacking,
+                                                   pseudo_boot = pseudobma_boot * preds,
+                                                   pseudo_noboot = pseudobma_noboot * preds) |>
+                                            group_by(dataset) |>
+                                            summarize(stacking_predictions = sum(stacking_preds),
+                                                      pseudobma_boot_preds = sum(pseudo_boot),
+                                                      pseudobma_noboot_preds = sum(pseudo_noboot)) |>
+                                            ungroup())
   boxplot_wts <- temp_weighted_preds |> 
-    pivot_longer(cols = -'dataset', names_to = "bma_method", values_to = "bma_preds") |>
-    mutate(bma_method = case_when(grepl("stacking", bma_method) ~ 'Stacking',
-                                  grepl("noboot", bma_method) ~ 'Pseudo-BMA',
-                                  grepl("boot", bma_method) ~ 'Pseudo-BMA+'),
-           bma_method = as.factor(bma_method),
+    pivot_longer(cols = -'dataset', names_to = "method", values_to = "preds") |>
+    mutate(method = case_when(grepl("stacking", method) ~ 'Stacking',
+                              grepl("noboot", method) ~ 'Pseudo-BMA',
+                              grepl("boot", method) ~ 'Pseudo-BMA+'),
+           method = as.factor(method),
            scenario = rep(scenario))
   return(boxplot_wts)
 }
 
-weighted_preds_by_level <- function(dep_type, dep_level, dim1, dim2, k = 1, all_angles = F, true_gauge = F) {
+weighted_preds_by_level <- function(dep_type, dep_level, dim1, dim2) {
   thres <- c("ctau", "marg")
   lhood <- c("trunc", "cens")
   lhood_thres_combos <- expand_grid(lhood, thres)
-  all_wts <- apply(lhood_thres_combos, 1, 
-                   function(row) weighted_preds_by_lhood_thres(dep_type, dep_level, 
-                                                               row["lhood"], row["thres"],
-                                                               dim1, dim2, 
-                                                               k = k, all_angles = all_angles, true_gauge = true_gauge))
+  all_wts <- apply(lhood_thres_combos, 1, function(row) {
+    weighted_preds_by_lhood_thres(dep_type, dep_level, 
+                                  row["lhood"], row["thres"],
+                                  dim1, dim2)})
+  return(all_wts)
 }
 
 # functions to determine the true probability -----
@@ -244,103 +225,85 @@ true_logistic_prob <- function(dim1, dim2, dep) {
 }
 
 # create function that wraps everything to gether to make boxplot of predictions
-create_predictions_boxplot <- function(dep_type, dep_level, dim1, dim2, all_angles = F, true_gauge = F) {
-  angles_name <- ifelse(all_angles, "all_angles", "angles_largeR")
-  thresh_name <- ifelse(true_gauge, "true_gauge", "fitted_gauge")
-  filename <- paste0("boxplots_pred_probs/", dep_type, "/", angles_name, "/",
-                       thresh_name, "/", dep_level, "_preds_probs_boxplot.RDS")  
-  
-  # determine appropriate value of k
-  pseudo_pred <- expand_grid(x1_pseudo = seq(dim1[1], dim1[2], length.out=25), 
-                             x2_pseudo = seq(dim2[1], dim2[2], length.out=25)) |> 
-    mutate(w_pseudo = x1_pseudo / (x1_pseudo + x2_pseudo),
-           r_pseudo = x1_pseudo + x2_pseudo)
-  if(dep_type == "gauss") {
-    data_random <- RcppSimdJson::fload(paste0("data/gauss/", dep_level, "_", sample(1:100, size = 1),".json"))
-    levels_list <- list(low = 0.1, mid = 0.5, high = 0.9, wc = 0.8)
-    gw_pseudo <- gauss_gauge(pseudo_pred$w_pseudo, as.numeric(levels_list[dep_level]))
-    if(all_angles) {
-      ctau_temp <- data_random$ctau
-      r0_w_temp <- data_random$r0_w_ctau
-      gw_temp <- ctau_temp / r0_w_temp
-      ctau_random <- quantile(gw_temp * data_random$R, 0.05)
-    } else {
-      ctau_random <- data$ctau
-    }
-    poss_k <- pseudo_pred$r_pseudo * gw_pseudo / ctau_random
-    k <- max(round(min(poss_k), 1) - 0.2, 1)
+create_predictions_boxplot <- function(dep_type, dep_level, box_num) {
+  dim1 <- c(10, 12)
+  if(box_num == "b1") {
+    dim2 <- dim1
+  } else if(box_num == "b2") {
+    dim2 <- c(6, 8)
   } else {
-    data_random <- RcppSimdJson::fload(paste0("data/logistic/", dep_level, "_", sample(1:100, size = 1),".json"))
-    levels_list <- list(low = 0.9, mid = 0.5, high = 0.1, wc_mid = 0.4, wc_low = 0.8)
-    gw_pseudo <- logistic_gauge(pseudo_pred$w_pseudo, as.numeric(levels_list[dep_level]))
-    if(all_angles) {
-      ctau_temp <- data_random$ctau
-      r0_w_temp <- data_random$r0_w_ctau
-      gw_temp <- ctau_temp / r0_w_temp
-      ctau_random <- quantile(gw_temp * data_random$R, 0.05)
-    } else {
-      ctau_random <- data$ctau
-    }
-    poss_k <- pseudo_pred$r_pseudo * gw_pseudo / ctau_random
-    k <- max(round(min(poss_k), 1) - 0.1, 1)
+    dim2 <- c(2, 4)
   }
   
-  plot_title <- paste0(dep_type, ", ", dep_level, ", (",paste(dim1, collapse = ","), ") x (", paste(dim2, collapse = ","),")", 
-                       ", k = ", k, ", ", gsub("_", "", angles_name), ", threshold = ", gsub("_", " ", thresh_name))
+  plot_filename <- paste0("boxplots_pred_probs/", dep_type, "/", 
+                          dep_level, "_", box_num, "_preds_boxplot_with_wc.pdf") 
+  rds_filename <- paste0("boxplots_pred_probs/", dep_type, "/rds_files/", dep_level, 
+                         "_",  box_num, "_preds_boxplot_with_wc.RDS")
+  
+  # make predictions for Lawer and Shaby method
+  ls_preds_tib <- weighted_preds_by_level(dep_type, dep_level, 
+                                          dim1, dim2) |> 
+    bind_rows() |>
+    mutate(scenario = stringr::str_to_title(gsub("_", ", ", gsub(paste0(dep_type, "_", dep_level, "_"), "", scenario))))
+  # 
+  # make predictions for Wadsworth and Campbell method
+  wc_preds_tib <- apply(split_wc_fits[[paste0(dep_type,".",dep_level)]], 1,
+                        function(row) tryCatch(make_preds(paste0("data/", dep_type, "/", dep_level, "_", row["datasets"], ".json"),
+                                     posterior_pars = as.numeric(unlist(row["mle"])),
+                                     gauge = row["gauge_name"],
+                                     dim1 = dim1,
+                                     dim2 = dim2), error=function(e) list(pred=NA))) |>
+                            lapply(function(x) x$pred) |>
+                            unlist() |>
+                            as_tibble() |>
+                            rename(preds = value) |>
+                            mutate(dataset = 1:100, scenario = 'W-C', method = NA)
 
+  all_preds <- ls_preds_tib |> rbind(wc_preds_tib)
+  
   # determine true probability
   if(dep_type == "gauss") {
-    levels_list <- list(low = 0.1, mid = 0.5, high = 0.9, wc = 0.8)
+    levels_list <- list(low = 0.1, mid = 0.5, high = 0.9)
     true_prob <- true_gauss_prob(dim1 = dim1, dim2 = dim2, dep = as.numeric(levels_list[dep_level]))
   } else {
-    levels_list <- list(low = 0.9, mid = 0.5, high = 0.1, wc_mid = 0.4, wc_low = 0.8)
+    levels_list <- list(low = 0.9, mid = 0.5, high = 0.1)
     true_prob <- true_logistic_prob(dim1 = dim1, dim2 = dim2, dep = as.numeric(levels_list[dep_level]))
   }
   
-  # make predictions
-  preds_tib <- weighted_preds_by_level(dep_type, dep_level, 
-                                       dim1, dim2, 
-                                       k = k, all_angles = all_angles, true_gauge = true_gauge) |> 
-    bind_rows() |>
-    mutate(scenario = stringr::str_to_title(gsub("_", ", ", gsub(paste0(dep_type, "_", dep_level, "_"), "", scenario))))
-  
   # create boxplot
-  temp_plot <- preds_tib |> ggplot(aes(x = scenario, y = bma_preds, fill = bma_method)) + 
+  plot_title <- paste0(dep_type, ", ", dep_level, ", (",paste(dim1, collapse = ","), ") x (", paste(dim2, collapse = ","),")")
+  temp_plot <- all_preds |> ggplot(aes(x = scenario, y = preds, fill = method)) +
     geom_boxplot() +
     geom_hline(yintercept = true_prob, col = "darkgrey", linetype = "longdash") +
     theme_classic() +
     ggtitle(plot_title) +
     xlab("Likelihood and Threshold") + ylab("Prediction probabilities") + labs(fill = "")
-  ggsave(gsub(".RDS", ".pdf", filename),
+  ggsave(plot_filename,
          plot = temp_plot,
          bg = 'transparent',
+         width = 8,
+         height = 7,
          dpi = 320)
-  saveRDS(temp_plot, filename)
-  print(paste0(filename, " has been saved"))
+  saveRDS(temp_plot, rds_filename)
+  print(paste0(plot_filename, " has been saved"))
 }
 
-dep_types <- c("gauss")
-dep_levels <- c("high", "mid", "low", "wc")
-boxes <- tibble(dim1 = list(c(10,12)), dim2 = list(c(10,12), c(6,8), c(2,4)))
-all_angles_vals <- c(T, F)
-true_gauge_vals <- c(T, F)
-all_combos_gauss <- expand_grid(dep_types, dep_levels, boxes, all_angles_vals, true_gauge_vals)
-system.time(apply(all_combos_gauss, 1,
-                  function(row) create_predictions_boxplot(dep_type = as.character(row["dep_types"]), 
-                                                           dep_level = as.character(row["dep_levels"]),
-                                                           dim1 = as.numeric(unlist(row["dim1"])), 
-                                                           dim2 = as.numeric(unlist(row["dim2"])),
-                                                           all_angles = as.logical(row["all_angles_vals"]), 
-                                                           true_gauge = as.logical(row["true_gauge_vals"]))))
+dep_types <- c("gauss", "logistic")
+dep_levels <- c("high", "mid", "low")
+boxes <- c("b1", "b2", "b3")
+all_combos <- expand_grid(dep_types, dep_levels, boxes)
+all_combos <- all_combos[12:18,]
 
+with_progress({
+  # Create a progress handler
+  p <- progressor(steps = nrow(all_combos))
+  
+  # Apply the function using apply and update the progress bar
+  apply(all_combos, 1, function(row) {
+    p()  # Update the progress bar
+    create_predictions_boxplot(dep_type = row["dep_types"], 
+                               dep_level = row["dep_levels"],
+                               box_num = row["boxes"])
+  })
+})
 
-dep_types <- c("logistic")
-dep_levels <- c("high", "mid", "low", "wc_mid", "wc_low")
-all_combos_logistic <- expand_grid(dep_types, dep_levels, boxes, all_angles_vals, true_gauge_vals)
-system.time(apply(all_combos_logistic, 1,
-                  function(row) create_predictions_boxplot(dep_type = as.character(row["dep_types"]), 
-                                                           dep_level = as.character(row["dep_levels"]),
-                                                           dim1 = as.numeric(unlist(row["dim1"])), 
-                                                           dim2 = as.numeric(unlist(row["dim2"])),
-                                                           all_angles = as.logical(row["all_angles_vals"]), 
-                                                           true_gauge = as.logical(row["true_gauge_vals"]))))
