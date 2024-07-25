@@ -20,4 +20,4 @@ source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate lawler
 
 Rscript --vanilla extract_params.R \
-${dep_type} ${gauge} ${likelihood} ${threshold} ${level}
+${dep_type} ${gauge_name} ${likelihood} ${threshold} ${level}
