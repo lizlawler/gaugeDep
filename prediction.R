@@ -109,7 +109,8 @@ make_preds <- function(data_file, posterior_pars, gauge, dim1, dim2, true_thresh
            r_pseudo = x1_pseudo + x2_pseudo)
   
   if(true_threshold & !wc) {
-    
+    ro_w <- r0_w_ctau
+  } else if(true_threshold & wc) {
     
   }
   # create threshold based on fitted gauge function (for LS and WC models)
