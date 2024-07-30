@@ -11,6 +11,7 @@ traceplots/
 shell_scripts/console_output/
 
 boxplots_pred_probs/
-!/stan/*.stan
-!/stan/*.stanfunctions
-!/stan/*.R
+stan/*
+!stan/*.stan
+!stan/*.stanfunctions
+!stan/*.R
