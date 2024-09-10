@@ -3,9 +3,9 @@ library(MCMCvis)
 library(posterior)
 library(tidyverse)
 
-files <- list.files(path = "stan/radial_angular/csv_fits/logistic/", pattern = "high_1_diff_dep_\\d{1}", full.names = TRUE)
+files <- list.files(path = "stan/radial_angular/csv_fits/gauss/", pattern = "mix_betas_\\d{1}.csv", full.names = TRUE)
 
-fit <- as_mcmc.list(as_cmdstan_fit(files)) |> as_draws_df()
+fit <- as_mcmc.list(as_cmdstan_fit(files))
 
 lines(density(fit$dep2), col = "blue")
 
