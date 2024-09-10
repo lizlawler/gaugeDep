@@ -54,35 +54,37 @@ data_and_fit <- function(dep_type, dep_level, dataset_num) {
 }
 
 ## uncomment the below lines of code to run Wadsworth and Campbell (2023) models --------
-# types <- c("gauss", "logistic")
-types <- "husler_reiss"
-levels <- c("low", "mid", "high")
-datasets <- 1:100
-all_combos <- expand_grid(types, levels, datasets)
+# # types <- c("gauss", "logistic")
+# types <- "husler_reiss"
+# levels <- c("low", "mid", "high")
+# datasets <- 1:100
+# all_combos <- expand_grid(types, levels, datasets)
+# 
+# # Enable global progression handlers
+# handlers(global = TRUE)
+# 
+# wc_results <- with_progress({
+#   # Create a progress handler
+#   p <- progressor(steps = nrow(all_combos))
+# 
+#   # Apply the function using pmap and update the progress bar
+#   pmap(list(all_combos$types, all_combos$levels, all_combos$datasets),
+#        ~{
+#          p()
+#          data_and_fit(..1, ..2, ..3)
+#        })
+# })
 
-# Enable global progression handlers
-handlers(global = TRUE)
+# all_combos <- all_combos |>
+#   mutate(gauge_name = map_chr(wc_results, "rowname"),
+#          mle = map(wc_results, "mle"))
+# saveRDS(all_combos, file = "wadsworth_campbell_hr_fits.RDS")
 
-wc_results <- with_progress({
-  # Create a progress handler
-  p <- progressor(steps = nrow(all_combos))
-
-  # Apply the function using pmap and update the progress bar
-  pmap(list(all_combos$types, all_combos$levels, all_combos$datasets),
-       ~{
-         p()
-         data_and_fit(..1, ..2, ..3)
-       })
-})
-
-all_combos <- all_combos |>
-  mutate(gauge_name = map_chr(wc_results, "rowname"),
-         mle = map(wc_results, "mle"))
-saveRDS(all_combos, file = "wadsworth_campbell_hr_fits.RDS")
-
-# wc_fits <- readRDS("wadsworth_campbell_fits.RDS")
-# split_wc_fits <- split(wc_fits, f = list(wc_fits$types, wc_fits$levels)) |> 
-#   lapply(function(y) y |> mutate(gauge_name = case_when(gauge_name == 'gauge_square' ~ 'rectangular',
-#                                                         gauge_name == 'gauge_gaussian' ~ 'gauss',
-#                                                         gauge_name == 'gauge_rvad' ~ 'logistic',
-#                                                         gauge_name == 'gauge_invlogistic' ~ 'inv_log')))
+wc_fits <- readRDS("wadsworth_campbell_fits.RDS")
+wc_hr_fits <- readRDS("wadsworth_campbell_hr_fits.RDS")
+wc_fits_all <- rbind(wc_fits, wc_hr_fits)
+split_wc_fits <- split(wc_fits_all, f = list(wc_fits_all$types, wc_fits_all$levels)) |>
+  lapply(function(y) y |> mutate(gauge_name = case_when(gauge_name == 'gauge_square' ~ 'rectangular',
+                                                        gauge_name == 'gauge_gaussian' ~ 'gauss',
+                                                        gauge_name == 'gauge_rvad' ~ 'logistic',
+                                                        gauge_name == 'gauge_invlogistic' ~ 'inv_log')))

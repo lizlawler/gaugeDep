@@ -96,6 +96,42 @@ husler_reiss <- function(N = 10000, dep = 1) {
   return(polar_euc_tib_hr(x, y))
 }
 
+
+husler_reiss <- function(N = 10000, dep = 1) {
+  x <- rbvevd(N, dep = dep, model = "hr")
+  u1 <- pgev(x[,1], loc = 0, scale = 1, shape = 0)
+  u2 <- pgev(x[,2], loc = 0, scale = 1, shape = 0)
+  x <- qexp(u1)
+  y <- qexp(u2)
+  return(cbind(x, y) |> as_tibble())
+}
+# 
+low_hr <- husler_reiss(dep = 0.25) |> mutate(dep = "dep = 0.25")
+mid_hr <- husler_reiss(dep = 2) |> mutate(dep = "dep = 2")
+high_hr <- husler_reiss(dep = 6) |> mutate(dep = "dep = 6")
+all_hr <- rbind(low_hr, mid_hr, high_hr) |> mutate(dep = as.factor(dep))
+
+ggplot(all_hr, aes(x=x, y=y,  color = dep)) + 
+  geom_point() + 
+  facet_wrap(. ~ dep, axes = "all", axis.labels = "all_x") +
+  theme_classic() +
+  theme(legend.position = "none",
+        panel.background = element_rect(fill='transparent'),
+        plot.background = element_rect(fill='transparent', color='transparent')) +
+  scale_x_continuous(expand = c(0,0)) +
+  scale_y_continuous(expand = c(0,0))
+
+
+ggsave("bma_update_deck/hr_set.pdf",
+       height = 3.5,
+       width = 10.5,
+       bg = 'transparent',
+       dpi = 320)
+# 
+# plot(high_hr, pch = 20)
+# points(mid_hr, pch = 20, col = "blue")
+# points(low_hr, pch = 20, col = "orange")
+
 ## Creation of stan data list -------------
 grab_top_n <- function(cloud_tib, n0 = 1, N = 10000) {
   tau <- (N-n0)/N
