@@ -16,15 +16,14 @@ ${stanc_exe} ${object}.stan --include-paths=${inc_path}
 cmdstan_model ${object}
 for level in "low" "mid" "high"
 do
-export gauge_name level
-parentjob=$(sbatch --parsable $1 --job-name ${gauge_name}_${level}_full_lhood_betas_mixture \
+for batch in 1 2 3 4
+do
+export gauge_name level batch
+sbatch --job-name ${gauge_name}_${level}_${batch}_full_lhood_betas_mixture \
 --output="./shell_scripts/console_output/%x_%j.txt" \
-shell_scripts/call_mixture_betas_sampler.sh)
+shell_scripts/call_mixture_betas_sampler.sh
 sleep 1
-sbatch --dependency=afterok:${parentjob} \
---job-name ${gauge_name}_${level}_mixture_betas_trace_and_params \
---output="./shell_scripts/console_output/%x_%j.txt" \
-shell_scripts/call_mixture_betas_params_extraction.sh
+done
 sleep 1
 done
 sleep 1

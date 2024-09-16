@@ -9,9 +9,15 @@ basedir="./stan/radial_angular/"
 cd ${basedir}
 model="bivar_cens_marg_${gauge_name}_mix_betas"
 
+start_i=$(( batch * 20 ))
+if [[ $batch -eq 4 ]]; then
+    end_i=100  # Ensure the last batch goes through 100
+else
+    end_i=$(( batch + 19 ))
+fi
+
 # run model with 3 chains
-for i in {1..100}
-do
+for(i = start_i; i < end_i; i++); do
 datafile="../../data/${gauge_name}/${level}_${i}.json"
 outbase="csv_fits/${gauge_name}/${level}_${i}"
 ./${model} sample num_chains=3 \
@@ -22,4 +28,3 @@ outbase="csv_fits/${gauge_name}/${level}_${i}"
 echo "Model has finished running all 3 chains for dataset number ${i}"
 sleep 1
 done
-echo "Model has finished running on all 100 datasets"
