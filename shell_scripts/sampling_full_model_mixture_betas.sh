@@ -17,7 +17,8 @@ else
 fi
 
 # run model with 3 chains
-for(i = start_i; i < end_i; i++); do
+for i in $(seq $start_i $end_i) 
+do
 datafile="../../data/${gauge_name}/${level}_${i}.json"
 outbase="csv_fits/${gauge_name}/${level}_${i}"
 ./${model} sample num_chains=3 \
