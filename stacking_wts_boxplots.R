@@ -4,6 +4,7 @@ library(tidyverse)
 library(RcppSimdJson)
 library(mvtnorm)
 library(evd)
+options(rlib_name_repair_verbosity = "quiet")
 
 # create function to reshape previously extracted stacking weights -------
 make_wts_df <- function(weights_file) {
@@ -36,15 +37,21 @@ make_wts_boxplot <- function(weights_file) {
     theme_classic() +
     ggtitle(plot_name) +
     xlab("Gauge function") + ylab("Stacking weights") + labs(fill = "BMA method")
-  pdf_name <- paste0("figures/boxplots_stacking_wts/",
-                     str_remove(basename(weights_file), ".RDS"), 
-                     "_boxplot.pdf")
-  ggsave(pdf_name,
-         plot = p,
-         dpi = 320,
-         bg = "transparent",
-         width = 15, height = 8)
-  print(paste0(pdf_name, " has been written to disk."))
+  # pdf_name <- paste0("figures/boxplots_stacking_wts/",
+  #                    str_remove(basename(weights_file), ".RDS"), 
+  #                    "_boxplot.pdf")
+  
+  rds_name <- paste0("figures/boxplots_stacking_wts/rds_files/",
+                     str_remove(basename(weights_file), ".RDS"),
+                     "_boxplot.rds")
+  # ggsave(pdf_name,
+  #        plot = p,
+  #        dpi = 320,
+  #        bg = "transparent",
+  #        width = 15, height = 8)
+  # print(paste0(pdf_name, " has been written to disk."))
+  saveRDS(p, file = rds_name)
+  print(paste0(rds_name, " has been written to disk."))
 }
 
 files_to_loop <- list.files(path = "stacking_weights/", pattern = ".RDS", full.names = TRUE)
