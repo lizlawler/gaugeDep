@@ -35,8 +35,8 @@ conf_model <- configureMCMC(sb_model)
 conf_model$addMonitors("alphastar", "betastar", "taustar", "probs", "z")
 modelMCMC <- buildMCMC(conf_model)
 
-cmodelMCMC <- compileNimble(modelMCMC, project = sb_model, dirName = "nimble/")
-model_run <- runMCMC(cmodelMCMC, niter = 15000, inits = sb_inits, nchains = 1)
+cmodelMCMC <- compileNimble(modelMCMC, project = sb_model)
+model_run <- runMCMC(cmodelMCMC, niter = 15000, nburnin = 5000, thin = 5, inits = sb_inits, nchains = 1)
 # means_medians_post <- model_run$summary |> as.data.frame() |> rownames_to_column() |> select(rowname, Mean, Median)
 
 z <- model_run[,grepl(pattern = "z\\[", colnames(model_run))]
