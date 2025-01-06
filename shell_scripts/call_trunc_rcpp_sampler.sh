@@ -17,7 +17,7 @@ export TEMPDIR=${TMPDIR}
 mkdir -p $TMPDIR
 
 source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
-conda activate lawler
+conda activate r_env
 
 Rscript --vanilla samplers/rcpp/radial_mcmc.R \
 ${dep_type} ${level} ${gauge_name} ${likelihood}
