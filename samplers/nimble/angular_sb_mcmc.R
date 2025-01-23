@@ -1,6 +1,7 @@
 args <- commandArgs(trailingOnly=TRUE)
 dep_type <- args[1]
 dep_level <- args[2]
+data_batch <- args[3]
 
 library(nimble)
 library(tidyr)
@@ -27,8 +28,18 @@ sb_code <- nimbleCode({
 })
 
 data_basename <- paste0("data/", dep_type, "/", dep_level, "_")
+batch_nums <- if(data_batch == 1) {
+  1:25
+} else if(data_batch == 2) {
+  26:50
+} else if(data_batch == 3) {
+  51:75
+} else {
+  76:100
+}
 
-for(data_num in 1:100) {
+for(i in seq_along(batch_nums)) {
+  data_num <- batch_nums[i]
   datafile <- paste0(data_basename, data_num, ".json")
   sb_data <- list(w = RcppSimdJson::fload(datafile)$W)
   sb_constants <- list(N = length(sb_data$w), L=10)
