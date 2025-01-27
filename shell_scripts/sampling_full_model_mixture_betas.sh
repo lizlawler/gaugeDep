@@ -13,7 +13,7 @@ start_i=$(( batch * 20 ))
 if [[ $batch -eq 4 ]]; then
     end_i=100  # Ensure the last batch goes through 100
 else
-    end_i=$(( batch + 19 ))
+    end_i=$(( batch * 20 + 19 ))
 fi
 
 # run model with 3 chains

@@ -6,7 +6,7 @@
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=24:00:00
+#SBATCH --time=01:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=eslawler@colostate.edu
 
@@ -16,8 +16,11 @@ export TEMP=${TMPDIR}
 export TEMPDIR=${TMPDIR}
 mkdir -p $TMPDIR
 
+start_i=$(( batch * 4 + 1 ))
+end_i=$(( start_i + 3 ))
+
 source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate r_env
 
-Rscript --vanilla samplers/rcpp/angular_sb_mcmc.R \
-${dep_type} ${level} ${batch}
+Rscript --vanilla samplers/nimble/angular_sb_mcmc.R \
+${dep_type} ${level} ${start_i} ${end_i}
