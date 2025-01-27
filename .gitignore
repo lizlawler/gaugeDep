@@ -7,6 +7,7 @@
 
 data/**/*.json
 *.csv
+*.qs
 traceplots/
 shell_scripts/console_output/
 
