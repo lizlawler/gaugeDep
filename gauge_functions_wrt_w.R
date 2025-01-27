@@ -13,22 +13,6 @@ gauss_gauge <- function(w, dep_par = 0.5) {
   }
 }
 
-w1 <- seq(0, 1, length.out = 200)
-gw <- gauss_gauge(w1, 0.9)
-plot(w1 / gw, (1-w1)/gw, pch = 20)
-
-w1 <- runif(7)
-w2 <- runif(7)
-w3 <- runif(7)
-w_mat <- cbind(w1, w2)
-row_sums_w <- rowSums(w_mat)
-w1 <- w1 / row_sums_w
-w2 <- w2 / row_sums_w
-w3 <- w3 / row_sums_w
-w_mat <- cbind(w1, w2) |> as.matrix(nrow = 15, ncol = 2)
-gauss_gauge(w_mat, 0.1)
-min_vals <- apply(w_mat, 1, min)
-
 logistic_gauge <- function(w, dep_par = 0.5) {
   gamma_inv <- 1 / dep_par
   if(!is.null(nrow(w))) {
@@ -40,12 +24,39 @@ logistic_gauge <- function(w, dep_par = 0.5) {
   }
 }
 
-inv_log_gauge <- function(w, dep_par = 0.5) ((w^(1/dep_par) + (1 - w)^(1/dep_par))^dep_par)
+inv_log_gauge <- function(w, dep_par = 0.5) {
+  gamma_inv <- 1 / dep_par
+  if(!is.null(nrow(w))) {
+    sum_part <- apply(w, 2, function(col) col^gamma_inv)
+    return(rowSums(sum_part)^dep_par)
+  } else {
+    return((w^gamma_inv + (1 - w)^gamma_inv)^dep_par)
+  }
+}
 
-asym_log_gauge <- function(w, dep_par = 0.5) {
+w1 <- seq(0, 1, length.out = 200)
+gw <- gauss_gauge(w1, 0.9)
+plot(w1 / gw, (1-w1)/gw, pch = 20)
+
+w1 <- runif(7)
+w2 <- runif(7)
+w3 <- runif(7)
+w_mat <- cbind(w1, w2, w3)
+row_sums_w <- rowSums(w_mat)
+w1 <- w1 / row_sums_w
+w2 <- w2 / row_sums_w
+w3 <- w3 / row_sums_w
+w_mat <- cbind(w1, w2, w3) |> as.matrix(nrow = 7, ncol = 3)
+gauss_gauge(w_mat, 0.1)
+gauss_gauge(w1, 0.1)
+inv_log_gauge(w_mat, 0.1)
+
+asym_log_gauge <- function(w, dep_par = 0.5, thetas) {
   r_inv <- 1/dep_par
   return(pmin((w + (1 - w)), (r_inv * pmax(w, (1 - w)) + (1-r_inv)*pmin(w,(1 - w)))))
 }
+
+
 
 dirichlet_gauge <- function(w, dep_par) {
   theta1 <- dep_par[1]
