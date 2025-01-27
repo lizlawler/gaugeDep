@@ -2,7 +2,7 @@ args <- commandArgs(trailingOnly=TRUE)
 dep_type <- args[1]
 dep_level <- args[2]
 data_start <- args[3]
-data_end <- args[3]
+data_end <- args[4]
 
 library(nimble)
 library(tidyr)
