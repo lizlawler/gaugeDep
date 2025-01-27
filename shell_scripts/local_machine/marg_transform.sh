@@ -17,8 +17,9 @@ og_dir=$(pwd)
 basedir="./samplers/stan/marg_transform/"
 cd ${basedir}
 model="fire_transform_${family}"
-for data in "og" "std"
-do
+# for data in "og" "std"
+# do
+data="og"
 datafile="../../../data/erc_fwi_${data}.json"
 outbase="csv_fits/redstone_${data}_${family}"
 
@@ -28,6 +29,6 @@ outbase="csv_fits/redstone_${data}_${family}"
                   init=0.01 \
                   output file=${outbase}.csv \
                   num_threads=3
-done
+                  
 cd ${og_dir}
 done

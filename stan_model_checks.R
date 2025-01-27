@@ -1,3 +1,3 @@
 library(cmdstanr)
-model <- cmdstan_model("stan/radial_angular/bivar_cens_marg_gauss_mix_betas.stan", compile = FALSE)
+model <- cmdstan_model("samplers/stan/marg_transform/fire_transform.stan", compile = FALSE)
 model$check_syntax(pedantic = TRUE)
