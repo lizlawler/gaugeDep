@@ -6,6 +6,8 @@ likelihood <- args[3]
 library(qs)
 library(posterior)
 library(loo)
+library(dplyr)
+library(tidyr)
 
 options(mc.cores = parallel::detectCores())
 angle_dens <- "sb"
