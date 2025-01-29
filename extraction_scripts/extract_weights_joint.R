@@ -1,8 +1,7 @@
 args <- commandArgs(trailingOnly=TRUE)
 dep_type <- args[1]
 dep_level <- args[2]
-gauge <- args[3]
-likelihood <- args[4]
+likelihood <- args[3]
 
 library(qs)
 library(posterior)
