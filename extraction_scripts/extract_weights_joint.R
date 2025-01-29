@@ -82,7 +82,7 @@ make_wts_df <- function(dep_type, dep_level, likelihood, angle_dens) {
     return(qread(wts_file))
   }
   
-  wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, data_num = x,
+  wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = dep_level, data_num = x,
                                                  likelihood = likelihood, angle_dens = angle_dens))
   gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
   temp <- wts |>
