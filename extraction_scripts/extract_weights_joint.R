@@ -96,7 +96,7 @@ make_wts_df <- function(dep_type, dep_level, likelihood, angle_dens) {
     mutate(dataset = rep(1:100, times = rep(6, 100)))
 
   qsave(temp, wts_file)
-  temp_joint
+  temp
 }
 
 mod_wts <- make_wts_df(dep_type = dep_type, dep_level = dep_level, likelihood = likelihood, angle_dens = angle_dens)
