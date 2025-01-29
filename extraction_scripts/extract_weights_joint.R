@@ -74,7 +74,7 @@ model_weights <- function(dep_type, dep_level, data_num, likelihood, angle_dens)
               "pseudobma_noboot" = pseudobma_noboot))
 }
 
-make_wts_df <- function(dep_type, dep_level, data_num, likelihood, angle_dens) {
+make_wts_df <- function(dep_type, dep_level, likelihood, angle_dens) {
   wts_file <- sprintf("fits_and_weights/wts_joint_model/%s_%s_%s_%s.qs",
                          dep_type, likelihood, angle_dens, dep_level)
   
@@ -83,8 +83,8 @@ make_wts_df <- function(dep_type, dep_level, data_num, likelihood, angle_dens) {
     return(qread(wts_file))
   }
   
-  wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, likelihood = likelihood, 
-                                                  threshold = threshold, dataset_num = x))
+  wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = level, data_num = x,
+                                                 likelihood = likelihood, angle_dens = angle_dens))
   gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
   temp <- wts |>
     bind_rows() |> 
@@ -98,4 +98,5 @@ make_wts_df <- function(dep_type, dep_level, data_num, likelihood, angle_dens) {
   temp_joint
 }
 
-
+mod_wts <- make_wts_df(dep_type = dep_type, dep_level = dep_level, likelihood = likelihood, angle_dens = angle_dens)
+print(sprintf("Model weights for %s, %s, %s, %s have been created and saved to disk", dep_type, dep_level, likelihood, angle_dens))
