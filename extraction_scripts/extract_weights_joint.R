@@ -67,7 +67,7 @@ model_weights <- function(dep_type, dep_level, data_num, likelihood, angle_dens)
   stacking <- stacking_weights(temp)
   pseudobma_boot <- pseudobma_weights(temp)
   pseudobma_noboot <- pseudobma_weights(temp, BB = FALSE)
-  print(paste0("Weights extracted for dataset: ", dataset_num))
+  print(paste0("Weights extracted for dataset: ", data_num))
   return(list("stacking" = stacking,
               "pseudobma_boot" = pseudobma_boot,
               "pseudobma_noboot" = pseudobma_noboot))
