@@ -45,7 +45,7 @@ for(data_num in 1:100) {
   
   results <- angular_loglik(angles = w, 
                             posterior_params = params)
-  qsave(x = results, file = paste0("samplers/rcpp/angular_vol_mcmc_fits/", dep_type, "/pw_loglik/", 
+  qsave(x = results, file = paste0("samplers/nimble/sb_mcmc_fits/", dep_type, "/pw_loglik/", 
                                    dep_level, "_", data_num, ".qs"))
   print(paste0("Successfully saved posterior pointwise loglikelihood for dataset number: ", data_num))
 }
