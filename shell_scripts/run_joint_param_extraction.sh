@@ -10,7 +10,7 @@ for dep_type in "gauss" "logistic"; do
     --output="./shell_scripts/console_output/%x_%j.txt" \
     shell_scripts/call_sb_params.sh
     sleep 1
-    for gauge_name in "gauss" "logistic" "inv_log" "asym_log" "dirichlet" "rectangular"; do
+    for gauge in "gauss" "logistic" "inv_log" "asym_log" "dirichlet" "rectangular"; do
       export dep_type level gauge
       sbatch --job-name ${dep_type}_${level}_${gauge}_vol_params \
       --output="./shell_scripts/console_output/%x_%j.txt" \
