@@ -11,21 +11,28 @@ data {
 }
 
 parameters {
-  vector[D] log_xi;
-  vector[D] log_kappa;
-  vector[D] log_sigma;
+  vector[D] xi_prime;
+  vector[D] kappa_prime;
+  vector[D] sigma;
 }
 
 transformed parameters{
-  vector<lower=0>[D] xi = exp(log_xi);
-  vector<lower=0>[D] kappa = exp(log_kappa);
-  vector<lower=0>[D] sigma = exp(log_sigma);
+  vector<lower=-1>[D] xi = log1p_exp(xi_prime) - 1;
+  vector<lower=0>[D] kappa = exp(kappa_prime);
+  // vector<lower=0>[D] sigma;
+  // // vector<lower=0>[D] sigma = exp(sigma_prime);
+  // 
+  // real max_sigma_erc = max(erc) * (-xi[1]);  
+  // real max_sigma_fwi = max(fwi) * (-xi[2]);  
+  // 
+  // sigma[1] = max_sigma_erc * exp(sigma_prime[1]);
+  // sigma[2] = max_sigma_fwi * exp(sigma_prime[2]);
 }
 
 model {
-  to_vector(log_xi) ~ std_normal();
-  to_vector(log_kappa) ~ std_normal();
-  to_vector(log_sigma) ~ std_normal();
+  to_vector(xi_prime) ~ std_normal();
+  to_vector(kappa_prime) ~ std_normal();
+  to_vector(sigma) ~ exponential();
   // likelihood
   for(n in 1:N) {
     target += egpd_lpdf(erc[n] | sigma[1], xi[1], kappa[1]);

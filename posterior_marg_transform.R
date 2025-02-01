@@ -6,11 +6,11 @@ library(posterior)
 source("egpd_functions.R")
 
 ## read in stan results
-read_fit <- function(location, dataset, egpd_family) {
+read_fit <- function(location) {
   csvfiles <- list.files(path = "samplers/stan/marg_transform/csv_fits/",
-                         pattern = paste0(location, "_", dataset, "_", egpd_family, "_\\d{1}.csv"),
+                         pattern = paste0(location, "_g1_exp_\\d{1}.csv"),
                          full.names = TRUE)
-  return(as_cmdstan_fit(csvfiles))
+  return(read_cmdstan_csv(csvfiles, variables = c("xi", "kappa", "sigma"))$post_warmup_draws)
 }
 
 extract_med_params <- function(cmdstan_obj) {
@@ -18,8 +18,8 @@ extract_med_params <- function(cmdstan_obj) {
     rename(draw = ".draw") |>
     select(!contains(c("log", "lp", "chain", "iter"))) |>
     pivot_longer(cols = -"draw") |> 
-    separate_wider_delim(name, delim = "[", names = c("param", "index")) |>
-    mutate(index = as.numeric(gsub("]", "", index)),
+    separate_wider_delim(name, delim = "\\[", names = c("param", "index")) |>
+    mutate(index = as.numeric(gsub("]\\", "", index)),
            index = case_when(index == 1 ~ "erc",
                              index == 2 ~ "fwi")) |> 
     group_by(param, index) |>
@@ -27,7 +27,36 @@ extract_med_params <- function(cmdstan_obj) {
     pivot_wider(names_from = param, values_from = post_med)
 }
 
-test_fit <- read_fit("redstone", "og", "g2")
+exp_fit <- read_fit("redstone") |> as_draws_df() |> 
+  rename(draw = ".draw") |>
+  select(!contains(c("log", "lp", "chain", "iter"))) |>
+  pivot_longer(cols = -"draw") |> 
+  separate_wider_delim(name, delim = "[", names = c("param", "index")) |>
+  mutate(index = as.numeric(gsub("]", "", index)),
+         index = case_when(index == 1 ~ "erc",
+                           index == 2 ~ "fwi")) |> 
+  group_by(param, index) |>
+  summarize(post_med = median(value)) |> ungroup() |>
+  pivot_wider(names_from = param, values_from = post_med)
+
+csvfiles <- list.files(path = "samplers/stan/marg_transform/csv_fits/",
+                                      pattern = paste0("redstone", "_g1_exp_\\d{1}.csv"),
+                                      full.names = TRUE)
+exp_fit_mcmc <- as_cmdstan_fit(csvfiles)
+
+mcmc <- coda::as.mcmc.list(test_fit)
+
+fitmcmc <- as_mcmc.list(exp_fit_mcmc)
+
+## uncomment the below if directly interfacing with RStudio server on a remote machine
+# options(bitmapType='cairo')
+
+print("Creating traceplot of rhos...")
+MCMCtrace(fitmcmc,
+          params = c('xi', 'kappa', 'sigma'), 
+          ind = TRUE, 
+          open_pdf = TRUE)
+
 test_params <- extract_med_params(test_fit)
 og_data <- RcppSimdJson::fload("data/erc_fwi_og.json")
 
@@ -81,6 +110,15 @@ read_extract_transform <- function(location, dataset, egpd_family) {
   return(tibble(erc = erc_exp, fwi = fwi_exp))
 }
 
+erc_unif <- g1_cdf(erc, test_fit$sigma[1], test_fit$xi[1], test_fit$kappa[1])
+hist(erc_unif)
+
+fwi_unif <- g1_cdf(fwi, test_fit$sigma[2], test_fit$xi[2], test_fit$kappa[2])
+hist(fwi_unif)
+
+
+
+points(erc, erc_exp)
 test_g1 <- read_extract_transform("redstone", "og", "g1")
 plot(test_g1/log(nrow(test_g1)), pch = 20, xlim = c(0,1), ylim = c(0,1))
 
