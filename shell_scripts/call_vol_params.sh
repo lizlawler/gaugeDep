@@ -19,5 +19,5 @@ mkdir -p $TMPDIR
 source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate r_env
 
-Rscript --vanilla extraction_scripts/extract_median_params_radial.R \
+Rscript --vanilla extraction_scripts/extract_median_params_angular_vol.R \
 ${dep_type} ${level} ${gauge}
