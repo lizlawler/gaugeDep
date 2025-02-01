@@ -10,7 +10,7 @@ library(dplyr)
 library(tidyr)
 
 options(mc.cores = parallel::detectCores())
-angle_dens <- "sb"
+angle_dens <- "vol"
 
 create_joint_loglik <- function(dep_type, dep_level, gauge, data_num, likelihood = "cens", angle_dens = "vol") {
   trunc <- (likelihood == "trunc")
