@@ -37,7 +37,7 @@ med_params <- create_tib_med_params_radial(dep_type = dep_type,
                                            gauge = gauge, 
                                            likelihood = likelihood)
 
-filepath <- sprintf("fits_and_weights/med_params_joint/%s_%s_%s_radial.qs", 
-                    dep_type, dep_level, likelihood)
+filepath <- sprintf("fits_and_weights/med_params_joint/%s_%s_%s_%s_radial.qs", 
+                    gauge, dep_type, dep_level, likelihood)
 qsave(med_params, filepath)
 print("Posterior medians of radial parameters have been successfully saved")
