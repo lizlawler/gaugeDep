@@ -1,38 +1,59 @@
-library(tidyverse)
-library(cmdstanr)
-library(posterior)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(purrr)
 library(evd)
-source("gauge_functions_wrt_w.R")
-source("gauge_functions_wrt_x.R")
 library(progressr) 
 library(RcppSimdJson)
+library(gaugeDependence)
+library(qs)
 
 options(rlib_name_repair_verbosity = "quiet")
 handlers("cli")
 
-trunc_gamma <- function(x, xmin, alpha, beta) {
-  unnorm_pdf <- dgamma(x, shape = alpha, rate = beta)
-  norm_cst <- pgamma(xmin, shape = alpha, rate = beta, lower.tail = F)
-  return(unnorm_pdf / norm_cst)
+gauge_functions <- list(
+  gauss = gauss_gauge,
+  inv_log = inv_log_gauge,
+  rectangular = rectangular_gauge,
+  logistic = logistic_gauge,
+  asym_log = asym_log_gauge,
+  dirichlet = dirichlet_gauge
+)
+
+# Function to get a gauge function by name
+get_gauge_function <- function(type_str) {
+  if (!type_str %in% names(gauge_functions)) {
+    stop("Unknown gauge type: ", type_str)
+  }
+  return(gauge_functions[[type_str]])
 }
 
-est_volume <- function(n = 100, pars = 0.5) {
+trunc_gamma <- function(x, xmin, alpha, beta) {
+  unnorm_pdf <- dgamma(x, shape = alpha, rate = beta, log = TRUE)
+  norm_cst <- pgamma(xmin, shape = alpha, rate = beta, lower.tail = F, log.p = TRUE)
+  return(exp(unnorm_pdf - norm_cst))
+}
+
+est_volume <- function(n = 100, pars, gauge_type) {
   temp <- seq(0, 1, length.out = n)
   grid <- expand.grid(temp, temp)
-  gx <- gauss_gauge_wrt_x(grid[,1], grid[,2], dep_par = pars)
+  gauge_fn <- get_gauge_function(gauge_type)
+  gx <- gauge_fn(grid[,1], grid[,2], pars)
   return(mean(gx <= 1))
 }
 
-dens_l1_norm <- function(w1, par_val) {
-  mc_vol <- est_volume(n = 100, par_val)
-  gw <- gauss_gauge(w1, par_val)
+star_dens <- function(w1, pars, gauge_type) {
+  w2 <- 1 - w1
+  mc_vol <- est_volume(n = 100, pars, gauge_type)
+  gauge_fn <- get_gauge_function(gauge_type)
+  gw <- gauge_fn(w1, w2, pars)
   return(1 / (gw^2 * 2 * mc_vol))
 }
 
-mix_dens <- function(w, chain_of_params) {
-  alphas <- as.numeric(chain_of_params[grepl("alpha_ang", names(chain_of_params))])
-  betas <- as.numeric(chain_of_params[grepl("beta_ang", names(chain_of_params))])
-  weights <- as.numeric(chain_of_params[grepl("weight", names(chain_of_params))])
+mix_dens <- function(w, mean_params) {
+  alphas <- as.numeric(mean_params[grepl("alphastar", names(mean_params))])
+  betas <- as.numeric(mean_params[grepl("betastar", names(mean_params))])
+  weights <- as.numeric(mean_params[grepl("probs", names(mean_params))])
   n <- length(weights)
   dens <- 0.0
   for(i in 1:n) {
@@ -72,18 +93,27 @@ gen_is_samples <- function(box = "b1", total_n = 5000) {
     as_tibble() |>
     rename(x1 = V1, x2 = V2) |>
     filter(x1 >= 0, x2 >= 0) |> # for B3, some samples may be < 0
-    mutate(r = x1 + x2, w1 = x1 / r)
+    mutate(r = x1 + x2, w1 = x1 / r, w2 = x2 / r)
   
   return(is_samp_mvn)
 }
 
 # probability calculation
-is_prob_pred <- function(imp_samples, post_params, box = "b1",
-                         renorm_gamma = TRUE, self_norm_is = FALSE,
-                         gauge, ang_dens = "star") {
+is_prob_pred <- function(imp_samples = NULL, 
+                         post_radial_params, 
+                         post_angular_params,
+                         box = "b1",
+                         renorm_gamma = TRUE, 
+                         self_norm_is = FALSE,
+                         gauge_type, 
+                         ang_dens = "star") {
+  
+  if(is.null(imp_samples)) {
+    imp_samples <- gen_is_samples(box = box)
+  }
   
   # grab gauge function
-  gauge_fcn <- get(paste0(gauge, "_gauge"))
+  gauge_fn <- get_gauge_function(gauge_type)
   
   # specify dimensions of box
   dim1 <- c(10, 12)
@@ -102,25 +132,25 @@ is_prob_pred <- function(imp_samples, post_params, box = "b1",
     )
   )
   
-  # pull posterior parameters
-  post_alpha <- post_params[["alpha"]]
-  post_dep_r <- post_params[[ifelse(ang_dens == "star", "dep_r", "dep")]]
+  post_radial_dep <- as.numeric(post_radial_params[2:(length(post_radial_params) - 1)])
+  post_radial_alpha <- post_radial_params[["alpha"]]
   
   # compute angular density
   ang_dens <- if (ang_dens == "star") {
-    dens_l1_norm(imp_samples$w1, post_params[["dep_w"]])
+    post_angular_dep <- as.numeric(post_angular_params[1:(length(post_angular_params) - 1)])
+    star_dens(imp_samples$w1, post_angular_dep, gauge_type)
   } else {
-    mix_dens(imp_samples$w1, post_params)
+    mix_dens(imp_samples$w1, post_angular_params)
   }
   
   # estimate RW density
-  gauge_vals <- gauge_fcn(imp_samples$w1, post_dep_r)
-  r0w <- qgamma(0.95, shape = post_alpha, rate = gauge_vals)
+  gauge_vals <- gauge_fn(imp_samples$w1, imp_samples$w2, post_radial_dep)
+  # r0w <- qgamma(0.95, shape = post_radial_params[["alpha"]], rate = gauge_vals)
   r_giv_w_dens <- if (renorm_gamma) {
-    r0w <- qgamma(0.95, shape = post_alpha, rate = gauge_vals)
-    trunc_gamma(imp_samples$r, r0w, alpha = post_alpha, beta = gauge_vals)
+    r0w <- qgamma(0.95, shape = post_radial_alpha, rate = gauge_vals)
+    trunc_gamma(imp_samples$r, r0w, alpha = post_radial_alpha, beta = gauge_vals)
   } else {
-    dgamma(imp_samples$r, shape = post_alpha, rate = gauge_vals)
+    dgamma(imp_samples$r, shape = post_radial_alpha, rate = gauge_vals)
   }
   
   rw_dens <- r_giv_w_dens * ang_dens
@@ -133,211 +163,163 @@ is_prob_pred <- function(imp_samples, post_params, box = "b1",
   # calculate fraction for IS part of probability calculation
   is_part <- numer / denom
   
-  # # numerator of vanilla IS and also self norm IS
-  # numer <- rw_dens[idx_in_box] / is_dens[idx_in_box]
-  # # account for self normalization, if necessary
-  # denom <- if (self_norm_is) sum(rw_dens / is_dens) else nrow(imp_samples)
-  # # calculate fraction for IS part of probability calculation
-  # is_wts <- numer / denom
-  
   # account for renormalization of radii density
   return(is_part * ifelse(renorm_gamma, 0.05, 1))
-  # return(is_wts * ifelse(renorm_gamma, 0.05, 1))
+}
+# 
+# test_radial <- qread("fits_and_weights/med_params_joint/dirichlet_gauss_high_trunc_radial.qs")
+# test_ang_sb <- qread("fits_and_weights/med_params_joint/gauss_high_ang_sb.qs")
+# test_ang_vol <- qread("fits_and_weights/med_params_joint/gauss_high_dirichlet_ang_vol.qs")
+# 
+# is_samps <- gen_is_samples("b1")
+# is_prob_pred(post_radial_params = test_radial[1,], post_angular_params = test_ang_vol[1,], 
+#              box = "b1", gauge_type = "dirichlet", ang_dens = "star")
+
+preds_by_gauge <- function(gauge, dep_type, dep_level, likelihood, box) {
+  post_radial <- qread(sprintf("fits_and_weights/med_params_joint/%s_%s_%s_%s_radial.qs",
+                               gauge, dep_type, dep_level, likelihood))
+  post_ang_sb <- qread(sprintf("fits_and_weights/med_params_joint/%s_%s_ang_sb.qs",
+                               dep_type, dep_level))
+  post_ang_star <- qread(sprintf("fits_and_weights/med_params_joint/%s_%s_%s_ang_vol.qs",
+                                 dep_type, dep_level, gauge))
+  
+  mix <- map2_dbl(1:100, 1:100, 
+                  ~ is_prob_pred(post_radial_params = post_radial[.x, ], 
+                                 post_angular_params = post_ang_sb[.y, ],
+                                 box = box, 
+                                 gauge_type = gauge, ang_dens = "mix"))
+  
+  star <- map2_dbl(1:100, 1:100, 
+                   ~ is_prob_pred(post_radial_params = post_radial[.x, ], 
+                                  post_angular_params = post_ang_star[.y, ],
+                                  box = box, 
+                                  gauge_type = gauge, 
+                                  ang_dens = "star"))
+  preds <- cbind(mix, star) |> as_tibble() |>
+    mutate(method = gauge,
+           dataset = 1:100)
+  # print(paste0("Predictions complete for gauge: ", gauge))
+  return(preds)
 }
 
-all_is_methods <- function(imp_samples, post_params, box = "b1",
-                           gauge, ang_dens = "star") {
-  vanilla_renorm <- is_prob_pred(imp_samples, post_params, box, TRUE, FALSE, gauge, ang_dens)
-  vanilla_unnorm <- is_prob_pred(imp_samples, post_params, box, FALSE, FALSE, gauge, ang_dens)
-  selfis_renorm <- is_prob_pred(imp_samples, post_params, box, TRUE, TRUE, gauge, ang_dens)
-  selfis_unnorm <- is_prob_pred(imp_samples, post_params, box, FALSE, TRUE, gauge, ang_dens)
-  return(tibble(is_method = c("vanilla_renorm", "vanilla_unnorm", "selfis_renorm", "selfis_unnorm"),
-                is_pred = c(vanilla_renorm, vanilla_unnorm, selfis_renorm, selfis_unnorm)))
+preds_by_dep_level_lhood <- function(dep_type, dep_level, likelihood, box) {
+  gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
+  return(lapply(gauge_library, function(x) preds_by_gauge(gauge = x, 
+                                                          dep_type = dep_type, 
+                                                          dep_level = dep_level, 
+                                                          likelihood = likelihood, 
+                                                          box = box)) |> 
+           bind_rows())
 }
 
+weighted_preds_by_lhood <- function(dep_type, dep_level, likelihood, box) {
+  # scenario <- sprintf("%s_%s_%s", 
+  #                     dep_type, likelihood, dep_level)
+  preds <- preds_by_dep_level_lhood(dep_type = dep_type, 
+                                    dep_level = dep_level, 
+                                    likelihood = likelihood, 
+                                    box = box) |>
+    pivot_longer(cols = c(mix, star), names_to = "ang_dens", values_to = "preds")
+  wts_star <- qread(sprintf("fits_and_weights/wts_joint_model/%s_%s_vol_%s.qs",
+                            dep_type, likelihood, dep_level)) |> mutate(ang_dens = "star")
+  wts_mix <- qread(sprintf("fits_and_weights/wts_joint_model/%s_%s_sb_%s.qs",
+                           dep_type, likelihood, dep_level)) |> mutate(ang_dens = "mix")
+  wts <- rbind(wts_star, wts_mix)
+  wtd_preds <- suppressMessages(preds |> left_join(wts) |>
+                                  mutate(stacking_preds = preds * stacking,
+                                         pseudo_boot = pseudobma_boot * preds,
+                                         pseudo_noboot = pseudobma_noboot * preds) |>
+                                  group_by(dataset, ang_dens) |>
+                                  summarize(stacking_predictions = sum(stacking_preds),
+                                            pseudobma_boot_preds = sum(pseudo_boot),
+                                            pseudobma_noboot_preds = sum(pseudo_noboot)) |>
+                                  ungroup())
+  boxplot_wts <- wtd_preds |> 
+    pivot_longer(cols = -c(dataset, ang_dens), names_to = "method", values_to = "preds") |>
+    mutate(method = case_when(grepl("stacking", method) ~ 'Stacking',
+                              grepl("noboot", method) ~ 'Pseudo-BMA',
+                              grepl("boot", method) ~ 'Pseudo-BMA+'),
+           method = as.factor(method),
+           ang_dens = paste0(likelihood, ", ", ang_dens))
+  return(boxplot_wts)
+}
 
-data <- fload("data/gauss/high_1.json")
-W <- data$W
-R <- data$R
-r0w <- data$r0_w_ctau
-beta_mixture_files <- list.files(path = paste0("stan/radial_angular/csv_fits/gauss/"),
-                                 pattern = paste0("high", "_", 1, "_\\d{1}.csv"), full.names = TRUE)
-beta_mixture_params <-  as_cmdstan_fit(beta_mixture_files) |> as_draws_df() |>
-  select(any_of(contains(c("weights", "alpha","beta", "dep", ".draw", ".chain")))) |>
-  group_by(.chain) |>
-  summarize(across(everything(), median)) |>
-  select(-.draw)
-beta_mixture_params_list <- split(beta_mixture_params, beta_mixture_params$.chain)
+weighted_preds_by_level <- function(dep_type, dep_level, box) {
+  lhood <- c("trunc", "cens")
+  all_wts <- lapply(lhood, function(x) weighted_preds_by_lhood(dep_type = dep_type, 
+                                                               dep_level = dep_level, 
+                                                               likelihood = x,
+                                                               box = box)) |> bind_rows()
+  return(all_wts)
+}
 
-is_samples <- gen_is_samples("b1", 5000)
-wts_vec_vanilla_renorm <- is_prob_pred(is_samples, beta_mixture_params_list[[1]], box = "b1", 
-                                       renorm_gamma = TRUE, self_norm_is = FALSE,
-                                       gauge = "gauss", ang_dens = "beta")
-wts_vec_vanilla_unnorm <- is_prob_pred(is_samples, beta_mixture_params_list[[1]], box = "b1", 
-                                       renorm_gamma = FALSE, self_norm_is = FALSE,
-                                       gauge = "gauss", ang_dens = "beta")
-wts_vec_selfis_renorm <- is_prob_pred(is_samples, beta_mixture_params_list[[1]], box = "b1", 
-                                       renorm_gamma = TRUE, self_norm_is = TRUE,
-                                       gauge = "gauss", ang_dens = "beta")
-wts_vec_selfis_unnorm <- is_prob_pred(is_samples, beta_mixture_params_list[[1]], box = "b1", 
-                                       renorm_gamma = FALSE, self_norm_is = TRUE,
-                                       gauge = "gauss", ang_dens = "beta")
-
-hist(wts_vec_vanilla_renorm, freq = FALSE, col = "red")
-hist(wts_vec_vanilla_unnorm, freq = FALSE, col = "green", add = TRUE)
-
-hist(wts_vec_selfis_renorm / 0.05, freq = FALSE, col = "purple")
-hist(wts_vec_selfis_unnorm, freq = FALSE, col = "orange", add = TRUE)
-
-posterior_predictions <- function(gauge, level, datanum, box = "b1", true_dep) {
-  # read in original data
-  data <- fload(json = paste0("./data/", gauge, "/", level, "_", datanum, ".json"))
-  W <- data$W
-  R <- data$R
-  r0w <- data$r0_w_ctau
-  
-  # extract parameters from angular density as mixture of betas
-  beta_mixture_files <- list.files(path = paste0("stan/radial_angular/csv_fits/", gauge, "/"),
-                                   pattern = paste0(level, "_", datanum, "_\\d{1}.csv"), full.names = TRUE)
-  beta_mixture_params <-  as_cmdstan_fit(beta_mixture_files) |> as_draws_df() |>
-    select(any_of(contains(c("weights", "alpha","beta", "dep", ".draw", ".chain")))) |>
-    group_by(.chain) |>
-    summarize(across(everything(), mean)) |>
-    select(-.draw)
-  beta_mixture_params_list <- split(beta_mixture_params, beta_mixture_params$.chain)
-  
-  # extract params from angular density as starshaped density
-  starshaped_fit <- readRDS(paste0("mcmc_samples/", gauge, "/", level, "_", datanum, ".rds"))
-  starshaped_params <- lapply(starshaped_fit, function(x) {
-    alpha <- median(x$alpha[10000:25000])
-    dep_w <- median(x$dep_w[10000:25000])
-    dep_r <- median(x$dep_r[10000:25000])
-    return(list(alpha = alpha, dep_w = dep_w, dep_r = dep_r))
-  }) |> bind_rows() |> mutate(chain = row_number())
-  
-  is_samples <- gen_is_samples(box = box, total_n = 5000)
-  all_preds <- list(starshaped = apply(starshaped_params, 1, function(row) {
-    all_is_methods(is_samples, post_params = row, box = box, gauge = gauge, ang_dens = "star") |>
-      mutate(chain = row[["chain"]], density = "star")
-  }) |> bind_rows(), 
-  beta_mix = lapply(beta_mixture_params_list, function(chain) {
-    all_is_methods(is_samples, post_params = chain, box = box, gauge = gauge, ang_dens = "beta") |>
-      mutate(chain = chain[[".chain"]], density = "beta")
-  }) |> bind_rows()) |> 
-    bind_rows() |> group_by(is_method, density) |> summarise(mean_pred = mean(is_pred))
+# create function that wraps everything to gether to make boxplot of predictions
+create_predictions_boxplot <- function(dep_type, dep_level, box) {
   
   dim1 <- c(10, 12)
-  dim2 <- case_when(
-    box == "b1" ~ dim1,
-    box == "b2" ~ c(6, 8),
-    TRUE ~ c(2, 4)
-  )
-  truth <- if(gauge == "gauss") {
-    true_gauss_prob(dim1, dim2, true_dep)
-  } else if(gauge == "logistic") {
-    true_bvevd_prob(dim1, dim2,true_dep, "log")
+  if(box == "b1") {
+    dim2 <- dim1
+  } else if(box == "b2") {
+    dim2 <- c(6, 8)
   } else {
-    true_bvevd_prob(dim1, dim2,true_dep, "hr")
+    dim2 <- c(2, 4)
   }
-  all_preds <- all_preds |> 
-    mutate("truth" = truth, 
-           "dep_level" = level,
-           "box" = box,
-           "dataset" = datanum,
-           "dep_type" = gauge)
-  return(all_preds)
+  
+  plot_filename <- sprintf("figures/is_preds_boxplots/joint/%s_%s_%s.pdf",
+                           dep_type, dep_level, box)
+  qs_filename <-  sprintf("figures/is_preds_boxplots/joint/plot_objects/%s_%s_%s.qs",
+                          dep_type, dep_level, box)
+  plot_title <- sprintf("%s, %s, (%s) x (%s)",
+                        dep_type, dep_level, paste(dim1, collapse = ","), paste(dim2, collapse = ","))
+  
+  preds_tib <- weighted_preds_by_level(dep_type = dep_type, 
+                                       dep_level = dep_level, 
+                                       box = box)
+  
+  # determine true probability
+  if(dep_type == "gauss") {
+    levels_list <- list(low = 0.1, mid = 0.5, high = 0.9)
+    true_prob <- true_gauss_prob(dim1 = dim1, dim2 = dim2, dep = as.numeric(levels_list[dep_level]))
+  } else if(dep_type == "logistic"){
+    levels_list <- list(low = 0.9, mid = 0.5, high = 0.1)
+    true_prob <- true_bvevd_prob(dim1 = dim1, dim2 = dim2, dep = as.numeric(levels_list[dep_level]), model_type = "log")
+  } else {
+    levels_list <- list(low = 0.25, mid = 2, high = 6)
+    true_prob <- true_bvevd_prob(dim1 = dim1, dim2 = dim2, dep = as.numeric(levels_list[dep_level]), model_type = "hr")
+  }
+  
+  # create boxplot
+  plot <- preds_tib |> ggplot(aes(x = ang_dens, y = preds, fill = method)) +
+    geom_boxplot() +
+    geom_hline(yintercept = true_prob, col = "darkgrey", linetype = "longdash") +
+    theme_classic() +
+    ggtitle(plot_title) + 
+    # scale_fill_discrete(breaks = ~ .x[!is.na(.x)]) +
+    xlab("Likelihood and Threshold") + ylab("Prediction probabilities") + labs(fill = "")
+  ggsave(plot_filename,
+         plot = plot,
+         bg = 'transparent',
+         width = 8,
+         height = 7,
+         dpi = 320)
+  qsave(plot, qs_filename)
+  print(paste0(plot_filename, " has been saved"))
 }
 
-test <- posterior_predictions("gauss", "high", 1, "b1", 0.9)
+dep_types <- c("gauss", "logistic")
+dep_levels <- c("high", "mid", "low")
+boxes <- c("b1", "b2", "b3")
+all_combos <- expand_grid(dep_types, dep_levels, boxes)
 
-all_combos <- expand_grid(dep_type = c("gauss", "logistic"), 
-                          levels = c("low","mid", "high"), 
-                          datanum = 1:100,
-                          boxes = c("b1", "b2", "b3")) |>
-  filter(!(dep_type == "gauss" & levels == "low" & datanum %in% c(32:39, 52:59, 72:79, 95:100)),
-         !(dep_type == "gauss" & levels == "mid" & datanum %in% 97:100),
-         !(dep_type == "gauss" & levels == "high" & datanum %in% c(35:39, 56:59, 73:79, 94:100)),
-         !(dep_type == "logistic" & levels == "low" & datanum %in% c(36:39, 54:59, 74:79, 95:100))) |>
-  mutate(true_val = case_when(dep_type == "gauss" & levels == "low" ~ 0.1,
-                              dep_type == "gauss" & levels == "high" ~ 0.9,
-                              dep_type == "logistic" & levels == "low" ~ 0.9,
-                              dep_type == "logistic" & levels == "high" ~ 0.1,
-                              levels == "mid" ~ 0.5))
-
-
-all_preds <- with_progress({
+with_progress({
   # Create a progress handler
   p <- progressor(steps = nrow(all_combos))
   
   # Apply the function using apply and update the progress bar
   apply(all_combos, 1, function(row) {
     p()  # Update the progress bar
-    posterior_predictions(gauge = row["dep_type"], level = row["levels"],
-                          datanum = as.numeric(row["datanum"]), box = row["boxes"],
-                          true_dep = as.numeric(row["true_val"]))
+    create_predictions_boxplot(dep_type = row["dep_types"],
+                               dep_level = row["dep_levels"],
+                               box = row["boxes"])
   })
-})
-
-all_preds_tib <- all_preds |> 
-  bind_rows()
-all_preds_tib <- all_preds_tib |> separate_wider_delim(cols = 'is_method', delim = "_", names = c("is_type", "norm_type"))
-all_preds_tib <- all_preds_tib |> mutate(is_type = as.factor(is_type))
-# |> 
-#   pivot_longer(cols = c(star, beta), names_to = "angular_density", values_to = "preds") |>
-#   mutate(angular_density = as.factor(angular_density))
-
-make_boxplot <- function(tibble, gauge, level, box_num) {
-  plot_title <- paste0(gauge, ", ", level, ", ", box_num)
-  sub_tib <- tibble |> filter(dep_type == gauge, dep_level == level, box == box_num)
-  p <- sub_tib |>
-    ggplot(aes(x = norm_type, y = mean_pred, fill = density)) + 
-    geom_boxplot() +
-    geom_hline(yintercept = unique(sub_tib$truth), col = "darkgrey", linetype = "longdash") +
-    facet_wrap(. ~ is_type) +
-    theme_classic() +
-    ggtitle(plot_title) +
-    xlab("Normalization") + ylab("Prediction probabilities") + labs(fill = "")
-  ggsave(paste0("boxplots_pred_probs/", gauge, "_", level, "_", box_num, "_unnorm_gamma.pdf"),
-         plot = p,
-         bg = 'transparent',
-         width = 8,
-         height = 7,
-         dpi = 320)
-  return(p)
-}
-
-make_boxplot(all_preds_tib, "gauss", "high", "b1")
-make_boxplot(all_preds_tib, "gauss", "high", "b2")
-make_boxplot(all_preds_tib, "gauss", "high", "b3")
-
-make_boxplot(all_preds_tib, "gauss", "mid", "b1")
-make_boxplot(all_preds_tib, "gauss", "mid", "b2")
-make_boxplot(all_preds_tib, "gauss", "mid", "b3")
-
-make_boxplot(all_preds_tib, "gauss", "low", "b1")
-make_boxplot(all_preds_tib, "gauss", "low", "b2")
-make_boxplot(all_preds_tib, "gauss", "low", "b3")
-
-
-make_boxplot(all_preds_tib, "logistic", "high", "b1")
-make_boxplot(all_preds_tib, "logistic", "high", "b2")
-make_boxplot(all_preds_tib, "logistic", "high", "b3")
-
-make_boxplot(all_preds_tib, "logistic", "mid", "b1")
-make_boxplot(all_preds_tib, "logistic", "mid", "b2")
-make_boxplot(all_preds_tib, "logistic", "mid", "b3")
-
-make_boxplot(all_preds_tib, "logistic", "low", "b1")
-make_boxplot(all_preds_tib, "logistic", "low", "b2")
-make_boxplot(all_preds_tib, "logistic", "low", "b3")
-
-
-plot <- make_boxplot(all_preds_tib, "gauss", "high", "b3")
-plot + coord_cartesian(ylim = c(0, 1e-6))
-all_plots <- expand_grid(types = c("gauss", "logistic"), 
-                         levels = c("low", "mid", "high"),
-                         boxes = c("b1", "b2", "b3"))
-
-apply(all_plots, 1, function(row) {
-  make_boxplot(all_preds_tib, gauge = row["types"], level = row["levels"], box_num = row["boxes"])
 })
