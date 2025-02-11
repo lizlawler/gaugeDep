@@ -31,7 +31,10 @@ sb_code <- nimbleCode({
 data_basename <- paste0("data/", dep_type, "/", dep_level, "_")
 for(i in data_start:data_end) {
   datafile <- paste0(data_basename, i, ".json")
-  sb_data <- list(w = RcppSimdJson::fload(datafile)$W)
+  data <- RcppSimdJson::fload(datafile)
+  idx <- data$idx
+  wexc <- data$W[idx]
+  sb_data <- list(w = wexc)
   sb_constants <- list(N = length(sb_data$w), L=10)
   sb_inits <- list(mustar = runif(sb_constants$L, 0, 1), 
                    taustar = rinvgamma(sb_constants$L, 1, 1), 
@@ -52,6 +55,6 @@ for(i in data_start:data_end) {
                      inits = sb_inits, nchains = 1)
 
   qsave(x = results, file = paste0("samplers/nimble/sb_mcmc_fits/", dep_type, "/", 
-                                   dep_level, "_", i, ".qs"))
+                                   dep_level, "_", i, "_wexc.qs"))
   print(paste0("Successfully saved MCMC stick breaking fit for dataset number: ", i))
 }

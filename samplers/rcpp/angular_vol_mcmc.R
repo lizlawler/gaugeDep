@@ -23,9 +23,8 @@ data_basename <- paste0("data/", dep_type, "/", dep_level, "_")
 for(data_num in 1:100) {
   datafile <- paste0(data_basename, data_num, ".json")
   data <- RcppSimdJson::fload(datafile)
-  w <- data$W
-  r <- data$R
-  r0w <- data$r0_w
+  idx <- data$idx
+  w <- data$W[idx]
   
   results <- angular_mcmc(angles = w, dim = 2, 
                           starting_theta = starting_vals, 
@@ -36,7 +35,7 @@ for(data_num in 1:100) {
                           n_thin = 5, 
                           adapt_cov = TRUE)
   qsave(x = results, file = paste0("samplers/rcpp/angular_vol_mcmc_fits/", dep_type, "/", 
-                                   gauge, "_", dep_level, "_", data_num, ".qs"))
+                                   gauge, "_", dep_level, "_", data_num, "_wexc.qs"))
   print(paste0("Successfully saved MCMC fit for dataset number: ", data_num))
 }
 
