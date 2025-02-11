@@ -1,0 +1,10 @@
+  // custom distribution functions for Half-Normal distribution
+  real half_norm_lpdf(real y, real sigma) {
+    if (sigma > 1e-15 && y > 1e-15) {
+      return 0.5 * log(2) - log(pi()) - log(sigma)  - pow(y, 2) / (2 * pow(sigma, 2));
+    }
+    else {
+      reject("sigma or y <=0; found sigma = ", sigma, " y = ", y);
+    }
+  }  
+
