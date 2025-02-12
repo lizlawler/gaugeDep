@@ -20,4 +20,4 @@ source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate r_env
 
 Rscript --vanilla extraction_scripts/extract_weights_joint.R \
-${dep_type} ${level} ${likelihood}
+${dep_type} ${level} ${dens}

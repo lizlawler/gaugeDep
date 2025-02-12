@@ -1,7 +1,8 @@
 args <- commandArgs(trailingOnly=TRUE)
 dep_type <- args[1]
 dep_level <- args[2]
-likelihood <- args[3]
+# likelihood <- args[3]
+angle_dens <- args[3]
 
 library(qs)
 library(posterior)
@@ -10,12 +11,15 @@ library(dplyr)
 library(tidyr)
 
 options(mc.cores = parallel::detectCores())
-angle_dens <- "vol"
+# angle_dens <- "vol"
+likelihood <- "trunc"
 
 create_joint_loglik <- function(dep_type, dep_level, gauge, data_num, likelihood = "cens", angle_dens = "vol") {
   trunc <- (likelihood == "trunc")
   vol <- (angle_dens == "vol")
-  loglik_file <- sprintf("samplers/joint_loglik/%s/%s/%s_%s_%s_%s.qs",
+  # loglik_file <- sprintf("samplers/joint_loglik/%s/%s/%s_%s_%s_%s.qs",
+  #                        dep_type, angle_dens, gauge, likelihood, dep_level, data_num)
+  loglik_file <- sprintf("samplers/joint_loglik/%s/%s/%s_%s_%s_%s_wexc.qs",
                          dep_type, angle_dens, gauge, likelihood, dep_level, data_num)
   
   # Check if joint loglikelihood file already exists
@@ -28,10 +32,14 @@ create_joint_loglik <- function(dep_type, dep_level, gauge, data_num, likelihood
                                dep_type, gauge, likelihood, dep_level, data_num))
   
   temp_angular <- if (vol) {
-    qread(sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs", 
+    # qread(sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs", 
+    #               dep_type, gauge, dep_level, data_num))
+    qread(sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/pw_loglik/%s_%s_%s_wexc.qs", 
                   dep_type, gauge, dep_level, data_num))
   } else {
-    qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s.qs", 
+    # qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s.qs", 
+    #               dep_type, dep_level, data_num))
+    qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s_wexc.qs", 
                   dep_type, dep_level, data_num))
   }
   
@@ -76,8 +84,10 @@ model_weights <- function(dep_type, dep_level, data_num, likelihood, angle_dens)
 }
 
 make_wts_df <- function(dep_type, dep_level, likelihood, angle_dens) {
-  wts_file <- sprintf("fits_and_weights/wts_joint_model/%s_%s_%s_%s.qs",
-                         dep_type, likelihood, angle_dens, dep_level)
+  # wts_file <- sprintf("fits_and_weights/wts_joint_model/%s_%s_%s_%s.qs",
+  #                        dep_type, likelihood, angle_dens, dep_level)
+  wts_file <- sprintf("fits_and_weights/wts_joint_model/%s_%s_%s_%s_wexc.qs",
+                      dep_type, likelihood, angle_dens, dep_level)
   
   # Check if joint loglikelihood file already exists
   if (file.exists(wts_file)) {
