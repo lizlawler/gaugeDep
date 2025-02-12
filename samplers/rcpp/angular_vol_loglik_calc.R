@@ -12,24 +12,26 @@ print(paste0("dep_type = ", dep_type))
 print(paste0("dep_level = ", dep_level))
 print(paste0("gauge = ", gauge))
 
-data_basename <- paste0("data/", dep_type, "/", dep_level, "_")
-params_basename <- paste0("samplers/rcpp/angular_vol_mcmc_fits/", 
-                          dep_type, "/",
-                          gauge, "_", dep_level, "_")
-
 for(data_num in 1:100) {
-  datafile <- paste0(data_basename, data_num, ".json")
-  paramsfile <- paste0(params_basename, data_num, ".qs")
+  datafile <- sprintf("data/%s/%s_%s.json", dep_type, dep_level, data_num)
+  # paramsfile <- sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/%s_%s_%s.qs",
+  #                       dep_type, gauge, dep_level, data_num)
+  paramsfile <- sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/%s_%s_%s_wexc.qs",
+                        dep_type, gauge, dep_level, data_num)
   data <- RcppSimdJson::fload(datafile)
   params <- qread(paramsfile)$samples
   params <- params[,1:(ncol(params) - 1)]
   w <- data$W
   
   results <- angular_loglik(angles = w, dim = 2,
-                          posterior_params = params, 
-                          gauge_type = gauge)
-  qsave(x = results, file = paste0("samplers/rcpp/angular_vol_mcmc_fits/", dep_type, "/pw_loglik/", 
-                                   gauge, "_", dep_level, "_", data_num, ".qs"))
+                            posterior_params = params, 
+                            gauge_type = gauge)
+  
+  # savename <- sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs", 
+  #                     dep_type, gauge, dep_level, data_num)
+  savename <- sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/pw_loglik/%s_%s_%s_wexc.qs", 
+                      dep_type, gauge, dep_level, data_num)
+  qsave(x = results, file = savename)
   print(paste0("Successfully saved posterior pointwise loglikelihood for dataset number: ", data_num))
 }
 

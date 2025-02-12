@@ -28,24 +28,26 @@ angular_loglik <- function(angles, posterior_params) {
   for(i in 1:n_iter) {
     pw_loglik[i, ] <- mix_lpdf(angles, probs[i,], alpha[i,], beta[i,])
   }
- return(pw_loglik) 
+  return(pw_loglik) 
 }
 
-data_basename <- paste0("data/", dep_type, "/", dep_level, "_")
-params_basename <- paste0("samplers/nimble/sb_mcmc_fits/", 
-                          dep_type, "/",
-                          dep_level, "_")
-
 for(data_num in 1:100) {
-  datafile <- paste0(data_basename, data_num, ".json")
-  paramsfile <- paste0(params_basename, data_num, ".qs")
+  datafile <- sprintf("data/%s/%s_%s.json", dep_type, dep_level, data_num)
+  # paramsfile <- sprintf("samplers/nimble/sb_mcmc_fits/%s/%s_%s.qs",
+  #                       dep_type, dep_level, data_num)
+  paramsfile <- sprintf("samplers/nimble/sb_mcmc_fits/%s/%s_%s_wexc.qs",
+                        dep_type, dep_level, data_num)
+  
   data <- RcppSimdJson::fload(datafile)
   params <- qread(paramsfile)
   w <- data$W
   
   results <- angular_loglik(angles = w, 
                             posterior_params = params)
-  qsave(x = results, file = paste0("samplers/nimble/sb_mcmc_fits/", dep_type, "/pw_loglik/", 
-                                   dep_level, "_", data_num, ".qs"))
+  # savename <- sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s.qs",
+  #                     dep_type, dep_level, data_num)
+  savename <- sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s_wexc.qs",
+                      dep_type, dep_level, data_num)
+  qsave(x = results, file = savename)
   print(paste0("Successfully saved posterior pointwise loglikelihood for dataset number: ", data_num))
 }
