@@ -6,42 +6,59 @@ library(qs)
 library(dplyr)
 library(tidyr)
 
-extract_median_params_ang <- function(dep_type, dep_level, data_num) {
-  # params <- qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/%s_%s.qs",
-  #                         dep_type, dep_level, data_num)) |> 
-  #   as_tibble() |>
-  #   select(matches("probs|alphastar|betastar")) 
-  
+# extract_median_params_ang <- function(dep_type, dep_level, data_num) {
+#   params <- qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/%s_%s.qs",
+#                           dep_type, dep_level, data_num)) |>
+#     as_tibble() |>
+#     select(matches("probs|alphastar|betastar"))
+# 
+#   return(params |>
+#            colMeans() |> 
+#            t() |>
+#            as_tibble() |>
+#            mutate(dataset = data_num))
+# }
+
+extract_params_ang <- function(dep_type, dep_level, data_num) {
   params <- qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/%s_%s_wexc.qs",
                           dep_type, dep_level, data_num)) |> 
     as_tibble() |>
     select(matches("probs|alphastar|betastar")) 
   
-  return(params |>
-           colMeans() |> 
-           t() |>
-           as_tibble() |>
-           mutate(dataset = data_num))
+  return(params)
 }
 
 
-create_tib_med_params_ang <- function(dep_type, dep_level) {
+# create_tib_med_params_ang <- function(dep_type, dep_level) {
+#   data_num <- 1:100
+#   tib_med_params <- sapply(data_num, 
+#                            function(x) extract_median_params_ang(dep_type = dep_type, 
+#                                                                  dep_level = dep_level,
+#                                                                  data_num = x), 
+#                            simplify = FALSE)
+#   return(tib_med_params |> bind_rows())
+# }
+
+create_list_params_ang <- function(dep_type, dep_level) {
   data_num <- 1:100
-  tib_med_params <- sapply(data_num, 
-                           function(x) extract_median_params_ang(dep_type = dep_type, 
-                                                                 dep_level = dep_level,
-                                                                 data_num = x), 
-                           simplify = FALSE)
-  return(tib_med_params |> bind_rows())
+  list_params <- lapply(data_num, 
+                        function(x) extract_params_ang(dep_type = dep_type, 
+                                                       dep_level = dep_level,
+                                                       data_num = x))
+  return(list_params)
 }
 
-med_params <- create_tib_med_params_ang(dep_type = dep_type, 
-                                        dep_level = dep_level)
+# med_params <- create_tib_med_params_ang(dep_type = dep_type, 
+#                                         dep_level = dep_level)
+all_iter_params <- create_list_params_ang(dep_type = dep_type, 
+                                          dep_level = dep_level)
 
 # filepath <- sprintf("fits_and_weights/med_params_joint/%s_%s_ang_sb.qs", 
 #                     dep_type, dep_level)
 filepath <- sprintf("fits_and_weights/med_params_joint/%s_%s_ang_sb_wexc.qs", 
                     dep_type, dep_level)
-qsave(med_params, filepath)
-print("Posterior means of stick breaking angular parameters have been successfully saved")
+# qsave(med_params, filepath)
+qsave(all_iter_params, filepath)
+# print("Posterior means of stick breaking angular parameters have been successfully saved")
+print("All iterations of stick breaking angular parameters have been successfully saved")
 
