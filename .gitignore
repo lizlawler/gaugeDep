@@ -5,7 +5,7 @@
 
 .DS_Store
 
-data/**/*.json
+*.json
 *.csv
 *.qs
 traceplots/
