@@ -1,8 +1,8 @@
 args <- commandArgs(trailingOnly=TRUE)
 dep_type <- args[1]
 dep_level <- args[2]
-# likelihood <- args[3]
-angle_dens <- args[3]
+likelihood <- args[3]
+angle_dens <- args[4]
 
 library(qs)
 library(posterior)
@@ -11,15 +11,11 @@ library(dplyr)
 library(tidyr)
 
 options(mc.cores = parallel::detectCores())
-# angle_dens <- "vol"
-likelihood <- "trunc"
 
-create_joint_loglik <- function(dep_type, dep_level, gauge, data_num, likelihood = "cens", angle_dens = "vol") {
+create_joint_loglik <- function(dep_type, dep_level, gauge, data_num, likelihood = "cens", angle_dens = "star") {
   trunc <- (likelihood == "trunc")
-  vol <- (angle_dens == "vol")
-  # loglik_file <- sprintf("samplers/joint_loglik/%s/%s/%s_%s_%s_%s.qs",
-  #                        dep_type, angle_dens, gauge, likelihood, dep_level, data_num)
-  loglik_file <- sprintf("samplers/joint_loglik/%s/%s/%s_%s_%s_%s_wexc.qs",
+  star <- (angle_dens == "star")
+  loglik_file <- sprintf("samplers/joint_loglik/%s/%s/%s_%s_%s_%s.qs",
                          dep_type, angle_dens, gauge, likelihood, dep_level, data_num)
   
   # Check if joint loglikelihood file already exists
@@ -31,15 +27,11 @@ create_joint_loglik <- function(dep_type, dep_level, gauge, data_num, likelihood
   temp_radial <- qread(sprintf("samplers/rcpp/radial_mcmc_fits/%s/pw_loglik/%s_%s_%s_%s.qs",
                                dep_type, gauge, likelihood, dep_level, data_num))
   
-  temp_angular <- if (vol) {
-    # qread(sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs", 
-    #               dep_type, gauge, dep_level, data_num))
-    qread(sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/pw_loglik/%s_%s_%s_wexc.qs", 
+  temp_angular <- if (star) {
+    qread(sprintf("samplers/rcpp/angular_star_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs",
                   dep_type, gauge, dep_level, data_num))
   } else {
-    # qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s.qs", 
-    #               dep_type, dep_level, data_num))
-    qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s_wexc.qs", 
+    qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s.qs",
                   dep_type, dep_level, data_num))
   }
   

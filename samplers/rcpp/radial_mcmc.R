@@ -9,10 +9,10 @@ library(dplyr)
 library(tidyr)
 library(qs)
 
-print(paste0("dep_type = ", dep_type))
-print(paste0("dep_level = ", dep_level))
-print(paste0("gauge = ", gauge))
-print(paste0("likelihood = ", likelihood))
+# print(paste0("dep_type = ", dep_type))
+# print(paste0("dep_level = ", dep_level))
+# print(paste0("gauge = ", gauge))
+# print(paste0("likelihood = ", likelihood))
 
 if(gauge != "dirichlet") {
   starting_vals <- c(rgamma(1, 4, 2), runif(1))
@@ -20,10 +20,9 @@ if(gauge != "dirichlet") {
   starting_vals <- c(rgamma(1, 4, 2), abs(rt(1, 4,ncp = 0))*4, abs(rt(1, 4,ncp = 0))*2)
 }
 
-data_basename <- paste0("data/", dep_type, "/", dep_level, "_")
-
-for(data_num in 1:100) {
-  datafile <- paste0(data_basename, data_num, ".json")
+for(data_num in 1:200) {
+  datafile <- sprintf("data/%s/%s_%s.json",
+                      dep_type, dep_level, data_num)
   data <- RcppSimdJson::fload(datafile)
   w <- data$W
   r <- data$R
@@ -44,8 +43,8 @@ for(data_num in 1:100) {
                                 n_burnin = 5000,
                                 n_thin = 5,
                                 adapt_cov = TRUE)
-  qsave(x = results, file = paste0("samplers/rcpp/radial_mcmc_fits/", dep_type, "/", 
-                                   gauge, "_", likelihood, "_", dep_level, "_", data_num, ".qs"))
+  qsave(x = results, file = sprintf("samplers/rcpp/radial_mcmc_fits/%s/%s_%s_%s_%s.qs",
+                                    dep_type, gauge, likelihood, dep_level, data_num))
   print(paste0("Successfully saved MCMC fit for dataset number: ", data_num))
 }
 
