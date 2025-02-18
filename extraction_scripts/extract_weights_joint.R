@@ -28,10 +28,10 @@ create_joint_loglik <- function(dep_type, dep_level, gauge, data_num, likelihood
                                dep_type, gauge, likelihood, dep_level, data_num))
   
   temp_angular <- if (star) {
-    qread(sprintf("samplers/rcpp/angular_star_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs",
+    qread(sprintf("samplers/rcpp/ang_star_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs",
                   dep_type, gauge, dep_level, data_num))
   } else {
-    qread(sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s.qs",
+    qread(sprintf("samplers/nimble/ang_mix_mcmc_fits/%s/pw_loglik/%s_%s.qs",
                   dep_type, dep_level, data_num))
   }
   
@@ -76,30 +76,29 @@ model_weights <- function(dep_type, dep_level, data_num, likelihood, angle_dens)
 }
 
 make_wts_df <- function(dep_type, dep_level, likelihood, angle_dens) {
-  # wts_file <- sprintf("fits_and_weights/wts_joint_model/%s_%s_%s_%s.qs",
-  #                        dep_type, likelihood, angle_dens, dep_level)
-  wts_file <- sprintf("fits_and_weights/wts_joint_model/%s_%s_%s_%s_wexc.qs",
+  wts_file <- sprintf("fits_and_weights/wts_joint_model/%s_%s_%s_%s.qs",
                       dep_type, likelihood, angle_dens, dep_level)
   
-  # Check if joint loglikelihood file already exists
+  # Check if BMA weights file already exists
   if (file.exists(wts_file)) {
     return(qread(wts_file))
   }
   
-  wts <- lapply(1:100, function(x) model_weights(dep_type = dep_type, dep_level = dep_level, data_num = x,
-                                                 likelihood = likelihood, angle_dens = angle_dens))
   gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
-  temp <- wts |>
+  wts <- lapply(1:200, function(x) model_weights(dep_type = dep_type, dep_level = dep_level, data_num = x,
+                                                 likelihood = likelihood, angle_dens = angle_dens)) |>
     bind_rows() |> 
-    mutate(method = rep(gauge_library, 100)) |>
+    mutate(method = rep(gauge_library, 200)) |>
     mutate(stacking = as.numeric(stacking),
            pseudobma_boot = as.numeric(pseudobma_boot),
            pseudobma_noboot = as.numeric(pseudobma_noboot)) |>
-    mutate(dataset = rep(1:100, times = rep(6, 100)))
-
-  qsave(temp, wts_file)
-  temp
+    mutate(dataset = rep(1:200, times = rep(6, 200)))
+  
+  qsave(wts, wts_file)
+  print(sprintf("Model weights for %s, %s, %s, %s have been created and saved to disk", dep_type, dep_level, likelihood, angle_dens))  
 }
 
-mod_wts <- make_wts_df(dep_type = dep_type, dep_level = dep_level, likelihood = likelihood, angle_dens = angle_dens)
-print(sprintf("Model weights for %s, %s, %s, %s have been created and saved to disk", dep_type, dep_level, likelihood, angle_dens))
+make_wts_df(dep_type = dep_type, 
+            dep_level = dep_level, 
+            likelihood = likelihood, 
+            angle_dens = angle_dens)
