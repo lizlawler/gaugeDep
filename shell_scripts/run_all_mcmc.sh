@@ -24,7 +24,7 @@ for dep_type in "gauss" "logistic"; do
     
     # Job to calculate pointwise loglikelihood after models have been fit
     job_id=$(sbatch --dependency=afterok:${mix_mcmc_dependency_list} \
-                    --parsable $1 --job-name ${dep_type}_${level}_angle_mix_loglik_calc \
+                    --parsable $1 --job-name ${dep_type}_${level}_angle_mix_loglik \
                     --output="./shell_scripts/console_output/%x_%j.txt" \
                     shell_scripts/call_angle_mix_loglik_calc.sh)
     loglik_job_ids+=("$job_id") # Collect IDs so model weights can be run automatically once all loglikelihoods have been calculated
@@ -44,6 +44,9 @@ for dep_type in "gauss" "logistic"; do
                            --output="./shell_scripts/console_output/%x_%j.txt" \
                            shell_scripts/call_angle_star_sampler.sh)
       sleep 1
+      
+      echo "Angular MCMC job ID for ${gauge}, ${dep_type}, ${level}: ${mcmc_job_id}"
+      echo "Submitting loglik job with dependency: afterok:${mcmc_job_id}"
       
       job_id=$(sbatch --dependency=afterok:${mcmc_job_id} \
                       --parsable $1 --job-name ${gauge}_${dep_type}_${level}_angle_star_loglik \
@@ -65,6 +68,9 @@ for dep_type in "gauss" "logistic"; do
                              --output="./shell_scripts/console_output/%x_%j.txt" \
                              shell_scripts/call_${likelihood}_radial_sampler.sh)
         sleep 1
+
+        echo "Radial MCMC job ID for ${gauge}, ${dep_type}, ${level}, ${likelihood}: ${mcmc_job_id}"
+        echo "Submitting loglik job with dependency: afterok:${mcmc_job_id}"
         
         job_id=$(sbatch --dependency=afterok:${mcmc_job_id} \
                         --parsable $1 --job-name ${gauge}_${likelihood}_${dep_type}_${level}_radial_loglik \
