@@ -6,7 +6,7 @@
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=12:00:00
+#SBATCH --time=01:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=eslawler@colostate.edu
 
@@ -19,5 +19,5 @@ mkdir -p $TMPDIR
 source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate r_env
 
-Rscript --vanilla samplers/rcpp/radial_mcmc.R \
-${dep_type} ${level} ${gauge_name} ${likelihood}
+Rscript --vanilla samplers/nimble/ang_mix_loglik_calc.R \
+${dep_type} ${level}

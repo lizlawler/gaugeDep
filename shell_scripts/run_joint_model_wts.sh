@@ -6,7 +6,7 @@
 for dep_type in "gauss" "logistic"; do
   for level in "low" "mid" "high"; do
     # for likelihood in "trunc" "cens"; do
-    for dens in "vol" "sb"; do
+    for dens in "star" "mix"; do
       export dep_type level dens
       sbatch --job-name ${dens}_${dep_type}_${level}_wts \
       --output="./shell_scripts/console_output/%x_%j.txt" \
