@@ -52,7 +52,7 @@ for(i in data_start:data_end) {
                      niter = 15000, nburnin = 5000, thin = 5, 
                      inits = sb_inits, nchains = 1)
 
-  qsave(x = results, file = sprintf("samplers/nimble/sb_mcmc_fits/%s/%s_%s.qs",
+  qsave(x = results, file = sprintf("samplers/nimble/ang_mix_mcmc_fits/%s/%s_%s.qs",
                                     dep_type, dep_level, i))
   print(paste0("Successfully saved MCMC stick breaking fit for dataset number: ", i))
 }

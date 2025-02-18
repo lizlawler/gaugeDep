@@ -14,7 +14,7 @@ print(paste0("gauge = ", gauge))
 
 for(data_num in 1:200) {
   datafile <- sprintf("data/%s/%s_%s.json", dep_type, dep_level, data_num)
-  paramsfile <- sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/%s_%s_%s.qs",
+  paramsfile <- sprintf("samplers/rcpp/ang_star_mcmc_fits/%s/%s_%s_%s.qs",
                         dep_type, gauge, dep_level, data_num)
   data <- RcppSimdJson::fload(datafile)
   params <- qread(paramsfile)$samples
@@ -25,7 +25,7 @@ for(data_num in 1:200) {
                             posterior_params = params, 
                             gauge_type = gauge)
   
-  savename <- sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs",
+  savename <- sprintf("samplers/rcpp/ang_star_mcmc_fits/%s/pw_loglik/%s_%s_%s.qs",
                       dep_type, gauge, dep_level, data_num)
   qsave(x = results, file = savename)
   print(paste0("Successfully saved posterior pointwise loglikelihood for dataset number: ", data_num))

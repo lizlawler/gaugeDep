@@ -31,9 +31,9 @@ angular_loglik <- function(angles, posterior_params) {
   return(pw_loglik) 
 }
 
-for(data_num in 1:100) {
+for(data_num in 1:200) {
   datafile <- sprintf("data/%s/%s_%s.json", dep_type, dep_level, data_num)
-  paramsfile <- sprintf("samplers/nimble/sb_mcmc_fits/%s/%s_%s.qs",
+  paramsfile <- sprintf("samplers/nimble/ang_mix_mcmc_fits/%s/%s_%s.qs",
                         dep_type, dep_level, data_num)
   
   data <- RcppSimdJson::fload(datafile)
@@ -42,7 +42,7 @@ for(data_num in 1:100) {
   
   results <- angular_loglik(angles = w, 
                             posterior_params = params)
-  savename <- sprintf("samplers/nimble/sb_mcmc_fits/%s/pw_loglik/%s_%s.qs",
+  savename <- sprintf("samplers/nimble/ang_mix_mcmc_fits/%s/pw_loglik/%s_%s.qs",
                       dep_type, dep_level, data_num)
   qsave(x = results, file = savename)
   print(paste0("Successfully saved posterior pointwise loglikelihood for dataset number: ", data_num))

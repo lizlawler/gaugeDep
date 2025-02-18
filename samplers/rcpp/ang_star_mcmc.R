@@ -32,7 +32,7 @@ for(data_num in 1:200) {
                           n_burnin = 5000, 
                           n_thin = 5, 
                           adapt_cov = TRUE)
-  qsave(x = results, file = sprintf("samplers/rcpp/angular_vol_mcmc_fits/%s/%s_%s_%s.qs",
+  qsave(x = results, file = sprintf("samplers/rcpp/ang_star_mcmc_fits/%s/%s_%s_%s.qs",
                                     dep_type, gauge, dep_level, data_num))
   print(paste0("Successfully saved MCMC fit for dataset number: ", data_num))
 }
