@@ -20,4 +20,4 @@ source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate r_env
 
 Rscript --vanilla samplers/rcpp/radial_mcmc.R \
-${dep_type} ${level} ${gauge_name} ${likelihood}
+${dep_type} ${level} ${gauge} ${likelihood}
