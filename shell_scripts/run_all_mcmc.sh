@@ -8,7 +8,7 @@ for dep_type in "gauss" "logistic"; do
   for level in "low" "mid" "high"; do
   
     mix_mcmc_job_ids=()  # Collect job IDs for angular mixture MCMC runs
-    for batch in {0..19}; do
+    for batch in {0..39}; do
       
       export dep_type level batch
       job_id=$(sbatch --parsable $1 --job-name ${dep_type}_${level}_${batch}_angle_mix_sampling \

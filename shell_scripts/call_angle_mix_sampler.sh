@@ -6,7 +6,7 @@
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=05:00:00
+#SBATCH --time=03:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=eslawler@colostate.edu
 
@@ -16,8 +16,8 @@ export TEMP=${TMPDIR}
 export TEMPDIR=${TMPDIR}
 mkdir -p $TMPDIR
 
-start_i=$(( batch * 10 + 1 ))
-end_i=$(( start_i + 9 ))
+start_i=$(( batch * 5 + 1 ))
+end_i=$(( start_i + 4 ))
 
 source /curc/sw/anaconda3/2023.09/etc/profile.d/conda.sh
 conda activate r_env
