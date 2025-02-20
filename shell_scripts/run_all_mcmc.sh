@@ -94,12 +94,18 @@ for dep_type in "gauss" "logistic"; do
     loglik_dependency_list=$(IFS=,; echo "${loglik_job_ids[*]}")
     
     for dens in "star" "mix"; do
+    
+      for likelihood in "trunc" "cens"; do
       
-      export dep_type level dens
-      sbatch --dependency=afterok:${loglik_dependency_list} \
-             --job-name ${dens}_${dep_type}_${level}_wts \
-             --output="./shell_scripts/console_output/%x_%j.txt" \
-             shell_scripts/call_joint_model_wts_extract.sh
+        export dep_type level likelihoood dens
+        sbatch --dependency=afterok:${loglik_dependency_list} \
+               --job-name ${dens}_${dep_type}_${level}_wts \
+               --output="./shell_scripts/console_output/%x_%j.txt" \
+               shell_scripts/call_joint_model_wts_extract.sh
+        sleep 1
+      
+      done
+      
       sleep 1
       
     done
