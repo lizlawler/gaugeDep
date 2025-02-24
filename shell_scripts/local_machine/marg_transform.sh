@@ -16,7 +16,7 @@ cd ${basedir}
 model="fwi_transform_mix"
 
 datafile="../../../data/erc_fwi.json"
-outbase="csv_fits/redstone_fwi_mix_trunc_expo"
+outbase="csv_fits/redstone_fwi_mix_trunc_expo_higher_ub"
 
 # run model with 3 chains
 ./${model} sample num_chains=3 \
