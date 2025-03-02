@@ -5,7 +5,14 @@
 #
 for dep_type in "gauss" "logistic"; do
 
-  for level in "low" "mid" "high"; do
+	# Set level options based on dep_type
+	if [ "$dep_type" == "gauss" ]; then
+		levels=("low" "mid" "high" "high_wc")
+	elif [ "$dep_type" == "logistic" ]; then
+		levels=("low" "mid" "high" "low_wc" "mid_wc")
+	fi
+
+	for level in "${levels[@]}"; do
   
     mix_mcmc_job_ids=()  # Collect job IDs for angular mixture MCMC runs
     for batch in {0..39}; do
@@ -97,7 +104,7 @@ for dep_type in "gauss" "logistic"; do
     
       for likelihood in "trunc" "cens"; do
       
-        export dep_type level likelihoood dens
+        export dep_type level likelihood dens
         sbatch --dependency=afterok:${loglik_dependency_list} \
                --job-name ${dens}_${dep_type}_${level}_wts \
                --output="./shell_scripts/console_output/%x_%j.txt" \

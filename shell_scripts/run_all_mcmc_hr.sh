@@ -96,7 +96,7 @@ for level in "low" "mid" "high"; do
     
     for likelihood in "trunc" "cens"; do
       
-      export dep_type level likelihoood dens
+      export dep_type level likelihood dens
       sbatch --dependency=afterok:${loglik_dependency_list} \
              --job-name ${dens}_${dep_type}_${level}_wts \
              --output="./shell_scripts/console_output/%x_%j.txt" \
