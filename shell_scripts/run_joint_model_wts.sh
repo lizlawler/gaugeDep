@@ -14,14 +14,20 @@ for dep_type in "gauss" "logistic" "husler_reiss"; do
 		levels=("low" "mid" "high")
 	fi
 
-	for likelihood in "trunc" "cens"; do
+	for level in "${levels[@]}"; do
 
-		for dens in "star" "mix"; do
+		for likelihood in "trunc" "cens"; do
 
-			export dep_type level likelihood dens
-			sbatch --job-name ${dens}_${dep_type}_${likelihood}_${level}_wts \
-				--output="./shell_scripts/console_output/%x_%j.txt" \
-				shell_scripts/call_joint_model_wts_extract.sh
+			for dens in "star" "mix"; do
+
+				export dep_type level likelihood dens
+				sbatch --job-name ${dens}_${dep_type}_${likelihood}_${level}_wts \
+					--output="./shell_scripts/console_output/%x_%j.txt" \
+					shell_scripts/call_joint_model_wts_extract.sh
+				sleep 1
+
+			done
+
 			sleep 1
 
 		done
