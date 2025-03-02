@@ -98,7 +98,7 @@ for level in "low" "mid" "high"; do
       
       export dep_type level likelihood dens
       sbatch --dependency=afterok:${loglik_dependency_list} \
-             --job-name ${dens}_${dep_type}_${level}_wts \
+             --job-name ${dens}_${dep_type}_${level}_${likelihood}_wts \
              --output="./shell_scripts/console_output/%x_%j.txt" \
              shell_scripts/call_joint_model_wts_extract.sh
       sleep 1
