@@ -182,7 +182,7 @@ gen_data_file <- function(N = 5000, n0 = 1, dep, cop_func, dep_level, iter) {
   # cmdstanr::write_stan_json(temp, paste0("data/", dep_type, "/", dep_level, "_", iter, ".json"))
 }
 
-dep_levels <- list(c(0.25, "low"), c(2, "mid"), c(6, "high"))
+dep_levels <- list(c(0.1, "low"), c(1, "mid"), c(3, "high"))
 for (j in seq_along(dep_levels)) {
   dep <- as.numeric(dep_levels[[j]][1])
   level <- dep_levels[[j]][2]
@@ -200,7 +200,21 @@ for (j in seq_along(dep_levels)) {
   }
 }
 
+dep <- 0.8
+level <- "high_wc"
+for ( i in 1:200) {
+  gen_data_file(5000, 250, dep, gauss, level, i)
+}
+
+dep <- 0.7
+level <- "high_wc"
+for ( i in 1:200) {
+  gen_data_file(5000, 250, dep, inv_log, level, i)
+}
+
+
 dep_levels <- list(c(0.1, "high"), c(0.5, "mid"), c(0.9, "low"))
+dep_levels <- list(c(0.4, "mid_wc"), c(0.8, "low_wc"))
 for (j in seq_along(dep_levels)) {
   dep <- as.numeric(dep_levels[[j]][1])
   level <- dep_levels[[j]][2]
