@@ -20,3 +20,5 @@ bma_update_deck/
 
 mcmc_samples/**/*.rds
 mcmc_samples/*.rds
+
+fits_and_weights/old/params/

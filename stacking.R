@@ -5,92 +5,83 @@ library(tidyr)
 library(tidyverse)
 library(loo)
 library(patchwork)
+library(qs)
 library(RcppSimdJson)
-
-## Gauge functions
-gauss_gauge <- function(x, y, rho = 0.5) {
-  top <- x + y - 2 * rho * sqrt(x * y)
-  return(top/(1-rho^2))
-}
-
-logistic_gauge <- function(x, y, r = 0.5) {
-  r_inv <- 1/r
-  return(r_inv * pmax(x, y) + (1-r_inv)*pmin(x,y))
-}
-
-inv_log_gauge <- function(x, y, r = 0.5) ((x^(1/r) + y^(1/r))^r)
-
-asym_log_gauge <- function(x, y, r = 0.5) {
-  r_inv <- 1/r
-  return(pmin((x + y), (r_inv * pmax(x, y) + (1-r_inv)*pmin(x,y))))
-}
-
-dirichlet_gauge <- function(x, y, theta1, theta2) {
-  return((1 + theta1 + theta2) * pmax(x, y) - (theta1 * x + theta2 * y))
-}
-
-rectangular_gauge <- function(x, y, dep) {
-  return(pmax((x - y) / dep, (y - x) / dep, (x+ y) / (2 - dep)))
-}
-
-extract_posterior_est <- function(dep_type, dep_level, gauge, threshold, likelihood, data_num) {
-  filepath <- paste0("stan/csv_fits/stacking/", dep_type, "/", gauge, "/")
-  csvfiles <- paste0(filepath,
-                     list.files(path = filepath, 
-                                pattern = paste0(dep_level, "_", data_num, "_", likelihood, "_", threshold, "_\\d{1}.csv")))
-  if (gauge != "dirichlet") {
-    temp <- read_cmdstan_csv(csvfiles, variables = "dep")$post_warmup_draws |> as_draws_df()
-    return(median(temp$dep))
-  } else {
-    temp <- read_cmdstan_csv(csvfiles, variables = c("theta1", "theta2"))$post_warmup_draws |> as_draws_df()
-    return(apply(temp[1:2], 2, median))
-  }
-}
+library(gaugeDependence)
+library(ggnewscale)
+# extract_posterior_est <- function(dep_type, dep_level, gauge, threshold, likelihood, data_num) {
+#   filepath <- sprintf("fits_and_weights/post_params_joint/%s_%s_%s_%s_radial.qs",
+#                       gauge, dep_type, dep_level, likelihood, )
+#   csvfiles <- paste0(filepath,
+#                      list.files(path = filepath, 
+#                                 pattern = paste0(dep_level, "_", data_num, "_", likelihood, "_", threshold, "_\\d{1}.csv")))
+#   if (gauge != "dirichlet") {
+#     temp <- read_cmdstan_csv(csvfiles, variables = "dep")$post_warmup_draws |> as_draws_df()
+#     return(median(temp$dep))
+#   } else {
+#     temp <- read_cmdstan_csv(csvfiles, variables = c("theta1", "theta2"))$post_warmup_draws |> as_draws_df()
+#     return(apply(temp[1:2], 2, median))
+#   }
+# }
 
 ## One dataset's gauge fits.  --------
-mock_data <- fload("data/gauss/high_36.json")
-R <- mock_data$R
-W <- mock_data$W
-rw_df <- cbind(R, W)
-xy_df <- cbind(W*R, R - (W*R)) |> as_tibble() |> rename(X = V1, Y = V2)
+data_num <- 36
+mock_data <- fload(sprintf("data/gauss/mid_%s.json", data_num))
+r <- mock_data$R
+w <- mock_data$W
+r0_w <- mock_data$r0_w
+rw_df <- cbind(r, w, r0_w) |> as_tibble() |> mutate(high = as.factor(r > r0_w))
 
-gauss_dep <- extract_posterior_est("gauss", "high", "gauss", "marg", "cens", 36)
-logistic_dep <- extract_posterior_est("gauss", "high", "logistic", "marg", "cens", 36)
-inv_log_dep <- extract_posterior_est("gauss", "high", "inv_log", "marg", "cens", 36)
-asym_log_dep <- extract_posterior_est("gauss", "high", "asym_log", "marg", "cens", 36)
-dirichlet_dep <- extract_posterior_est("gauss", "high", "dirichlet", "marg", "cens", 36)
-rectangular_dep <- extract_posterior_est("gauss", "high", "rectangular", "marg", "cens", 36)
+gauss_dep_cens <- qread("fits_and_weights/post_params_joint/gauss_gauss_mid_cens_radial.qs")$dep[data_num]
+logistic_dep_cens <- qread("fits_and_weights/post_params_joint/logistic_gauss_mid_cens_radial.qs")$dep[data_num]
+inv_log_dep_cens <- qread("fits_and_weights/post_params_joint/inv_log_gauss_mid_cens_radial.qs")$dep[data_num]
+asym_log_dep_cens <- qread("fits_and_weights/post_params_joint/asym_log_gauss_mid_cens_radial.qs")$dep[data_num]
+dirichlet_dep_cens <- as.numeric(qread("fits_and_weights/post_params_joint/dirichlet_gauss_mid_cens_radial.qs")[data_num, c("theta1", "theta2")])
+rectangular_dep_cens <- qread("fits_and_weights/post_params_joint/rectangular_gauss_mid_cens_radial.qs")$dep[data_num]
 
-w <- seq(0,1, length.out = nrow(rw_df))
-gw_gauss <- gauss_gauge(w, 1-w, gauss_dep)
-gw_logistic <- logistic_gauge(w, 1-w, logistic_dep)
-gw_inv_log <- inv_log_gauge(w, 1-w, inv_log_dep)
-gw_asym_log <- asym_log_gauge(w, 1-w, asym_log_dep)
-gw_dirichlet <- dirichlet_gauge(w, 1-w, as.numeric(dirichlet_dep[1]), as.numeric(dirichlet_dep[2]))
-gw_rectangular <- rectangular_gauge(w, 1-w, rectangular_dep)
+w_sim <- seq(0,1, length.out = nrow(rw_df))
+gw_gauss_cens <- gauss_gauge(w_sim, 1-w_sim, gauss_dep_cens)
+gw_logistic_cens <- logistic_gauge(w_sim, 1-w_sim, logistic_dep_cens)
+gw_inv_log_cens <- inv_log_gauge(w_sim, 1-w_sim, inv_log_dep_cens)
+gw_asym_log_cens <- asym_log_gauge(w_sim, 1-w_sim, asym_log_dep_cens)
+gw_dirichlet_cens <- dirichlet_gauge(w_sim, 1-w_sim, dirichlet_dep_cens)
+gw_rectangular_cens <- rectangular_gauge(w_sim, 1-w_sim, rectangular_dep_cens)
 
-all_fits <- rw_df |> as_tibble() |> cbind(xy_df, w, gw_gauss, gw_logistic, gw_inv_log, gw_asym_log, gw_dirichlet, gw_rectangular) |> 
+all_fits <- rw_df |> as_tibble() |> cbind(w_sim, gw_gauss_cens, gw_logistic_cens, gw_inv_log_cens, gw_asym_log_cens, gw_dirichlet_cens, gw_rectangular_cens) |> 
   pivot_longer(cols = 6:11, names_to = "gauge_fit", values_to = "values") |>
-  mutate(gauge_fit = case_when(gauge_fit == 'gw_logistic' ~ 'Logistic',
-                               gauge_fit == 'gw_gauss' ~ 'Gaussian',
-                               gauge_fit == 'gw_inv_log' ~ 'Inv. logistic',
-                               gauge_fit == 'gw_asym_log' ~ 'Asym. logistic',
-                               gauge_fit == 'gw_dirichlet' ~ 'Dirichlet',
-                               gauge_fit == 'gw_rectangular' ~ 'Rectangular',
+  mutate(gauge_fit = case_when(gauge_fit == 'gw_logistic_cens' ~ 'Logistic',
+                               gauge_fit == 'gw_gauss_cens' ~ 'Gaussian',
+                               gauge_fit == 'gw_inv_log_cens' ~ 'Inv. logistic',
+                               gauge_fit == 'gw_asym_log_cens' ~ 'Asym. logistic',
+                               gauge_fit == 'gw_dirichlet_cens' ~ 'Dirichlet',
+                               gauge_fit == 'gw_rectangular_cens' ~ 'Rectangular',
                                .default = gauge_fit))
-rw_fits <- all_fits |> ggplot(aes(x = W, y = R/log(10000))) + geom_point(color="black", size = 1) +
-  geom_path(aes(x = w, y = 1/values, group = gauge_fit, color = gauge_fit), linewidth = 1) +
+cols <- c("lightblue", "blue")
+
+rw_fits_cens <- all_fits |> ggplot(aes(x = w, y = r/log(10000), color = high)) + 
+  
+  # points above and below the threshold
+  geom_point(alpha=0.8, aes(color = high)) +
+  scale_color_manual(values = cols, guide = "none") +
+  
+  new_scale_color() + # need this to use a different scale for the gauge function fits
+  
+  # fits of all 6 gauge functions
+  geom_path(aes(x = w_sim, y = 1/values, group = gauge_fit, color = gauge_fit), linewidth = 1) +
+  scale_color_brewer(palette = "Dark2", guide = "none") +
+  
   theme_classic() +
-  scale_x_continuous(limits = c(0, 1.01), expand = c(0,0)) + scale_y_continuous(limits = c(0, 2.01), expand = c(0,0)) + 
+  scale_x_continuous(limits = c(0, 1.01), expand = expansion(mult = c(0,0))) + 
+  scale_y_continuous(limits = c(0, 2.01), expand = expansion(mult = c(0,0))) + 
   theme(legend.position = c(0.9, 0.9),
         panel.background = element_rect(fill='transparent'),
         plot.background = element_rect(fill='transparent', color='transparent'),
         legend.background = element_rect(fill='transparent', color='transparent'),
-        legend.text = element_text(size = rel(1.3)),
-        axis.text = element_text(size = rel(1.3)),
-        axis.title = element_text(size = rel(1.3))) +
-  xlab("w") + ylab("r/log(n)") +labs(color = "") +
-  scale_color_brewer(palette = "Dark2")
+        legend.text = element_text(size = rel(1.2)),
+        axis.text = element_text(size = rel(1.2)),
+        axis.title = element_text(size = rel(1.2))) +
+  xlab(expression("W"["1"])) + ylab("R/log(n)") + labs(color = "")
+
 
 xy_fits <- all_fits |> ggplot(aes(x = X/log(10000), y = Y/log(10000))) + geom_point(color="black", size = 1) +
   geom_path(aes(x = w/values, y = (1-w)/values, group = gauge_fit, color = gauge_fit), linewidth = 1) +

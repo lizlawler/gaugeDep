@@ -80,8 +80,8 @@ data_and_fit <- function(dep_type, dep_level, dataset_num) {
 #          mle = map(wc_results, "mle"))
 # saveRDS(all_combos, file = "wadsworth_campbell_hr_fits.RDS")
 
-wc_fits <- readRDS("wadsworth_campbell_fits.RDS")
-wc_hr_fits <- readRDS("wadsworth_campbell_hr_fits.RDS")
+wc_fits <- readRDS("fits_and_weights/old/wadsworth_campbell_fits.RDS")
+wc_hr_fits <- readRDS("fits_and_weights/old/wadsworth_campbell_hr_fits.RDS")
 wc_fits_all <- rbind(wc_fits, wc_hr_fits)
 split_wc_fits <- split(wc_fits_all, f = list(wc_fits_all$types, wc_fits_all$levels)) |>
   lapply(function(y) y |> mutate(gauge_name = case_when(gauge_name == 'gauge_square' ~ 'rectangular',
