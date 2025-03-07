@@ -1,5 +1,5 @@
 #!/bin/zsh
-# shell script to test model
+# shell script to perform marginal transformation
 #
 source  /Users/lizlawler/.zshrc
 conda activate stan
@@ -16,7 +16,7 @@ cd ${basedir}
 model="fwi_transform_mix"
 
 datafile="../../../data/erc_fwi.json"
-outbase="csv_fits/redstone_fwi_mix_trunc_expo_higher_ub"
+outbase="csv_fits/redstone_fwi_mix_trunc_expo_ub80"
 
 # run model with 3 chains
 ./${model} sample num_chains=3 \
