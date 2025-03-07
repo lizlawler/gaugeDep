@@ -4,40 +4,41 @@ namespace fwi_transform_mix_model_namespace {
 using stan::model::model_base_crtp;
 using namespace stan::math;
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 157> locations_array__ =
+static constexpr std::array<const char*, 166> locations_array__ =
   {" (found before start of program)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 17, column 2 to column 19)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 20, column 2 to column 16)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 21, column 2 to column 19)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 22, column 2 to column 19)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 28, column 2 to column 22)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 32, column 2 to column 46)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 34, column 2 to column 41)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 35, column 2 to column 27)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 41, column 4 to column 34)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 40, column 9 to line 42, column 3)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 38, column 4 to column 42)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 39, column 4 to column 50)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 37, column 13 to line 40, column 3)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 37, column 2 to line 42, column 3)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 47, column 9 to column 10)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 47, column 2 to column 35)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 49, column 2 to column 26)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 50, column 2 to column 29)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 51, column 2 to column 29)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 56, column 2 to column 25)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 59, column 11 to column 12)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 59, column 4 to column 30)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 60, column 4 to column 56)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 63, column 4 to column 47)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 64, column 4 to column 31)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 58, column 17 to line 65, column 3)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 58, column 2 to line 65, column 3)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 8, column 2 to column 17)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 9, column 18 to column 19)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 9, column 2 to column 25)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 13, column 2 to column 21)",
-  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 17, column 10 to column 11)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 19, column 2 to column 19)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 22, column 2 to column 16)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 23, column 2 to column 19)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 24, column 2 to column 19)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 30, column 2 to column 21)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 34, column 2 to column 46)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 36, column 2 to column 41)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 37, column 2 to column 27)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 43, column 4 to column 34)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 42, column 9 to line 44, column 3)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 40, column 4 to column 42)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 41, column 4 to column 50)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 39, column 13 to line 42, column 3)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 39, column 2 to line 44, column 3)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 49, column 9 to column 10)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 49, column 2 to column 35)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 51, column 2 to column 26)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 52, column 2 to column 29)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 53, column 2 to column 29)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 58, column 2 to column 24)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 61, column 11 to column 12)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 61, column 4 to column 30)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 62, column 4 to column 56)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 66, column 4 to column 56)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 68, column 4 to column 31)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 60, column 17 to line 69, column 3)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 60, column 2 to line 69, column 3)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 9, column 2 to column 17)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 10, column 18 to column 19)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 10, column 2 to column 25)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 14, column 2 to column 21)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 15, column 2 to column 31)",
+  " (in 'samplers/stan/marg_transform/fwi_transform_mix.stan', line 19, column 10 to column 11)",
   " (in 'samplers/stan/marg_transform/gpd_fcns.stanfunctions', line 3, column 4, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 2, column 2)",
   " (in 'samplers/stan/marg_transform/gpd_fcns.stanfunctions', line 14, column 6, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 2, column 2)",
   " (in 'samplers/stan/marg_transform/gpd_fcns.stanfunctions', line 13, column 9, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 2, column 2)",
@@ -161,7 +162,15 @@ static constexpr std::array<const char*, 157> locations_array__ =
   " (in 'samplers/stan/marg_transform/half_norm_fcns.stanfunctions', line 4, column 6, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 4, column 2)",
   " (in 'samplers/stan/marg_transform/half_norm_fcns.stanfunctions', line 3, column 36, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 4, column 2)",
   " (in 'samplers/stan/marg_transform/half_norm_fcns.stanfunctions', line 3, column 4, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 4, column 2)",
-  " (in 'samplers/stan/marg_transform/half_norm_fcns.stanfunctions', line 2, column 42, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 4, column 2)"};
+  " (in 'samplers/stan/marg_transform/half_norm_fcns.stanfunctions', line 2, column 42, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 4, column 2)",
+  " (in 'samplers/stan/marg_transform/trunc_expo_fcns.stanfunctions', line 6, column 6, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 5, column 2)",
+  " (in 'samplers/stan/marg_transform/trunc_expo_fcns.stanfunctions', line 7, column 6, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 5, column 2)",
+  " (in 'samplers/stan/marg_transform/trunc_expo_fcns.stanfunctions', line 8, column 6, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 5, column 2)",
+  " (in 'samplers/stan/marg_transform/trunc_expo_fcns.stanfunctions', line 5, column 11, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 5, column 2)",
+  " (in 'samplers/stan/marg_transform/trunc_expo_fcns.stanfunctions', line 4, column 6, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 5, column 2)",
+  " (in 'samplers/stan/marg_transform/trunc_expo_fcns.stanfunctions', line 3, column 17, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 5, column 2)",
+  " (in 'samplers/stan/marg_transform/trunc_expo_fcns.stanfunctions', line 3, column 4, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 5, column 2)",
+  " (in 'samplers/stan/marg_transform/trunc_expo_fcns.stanfunctions', line 2, column 53, included from\n'samplers/stan/marg_transform/fwi_transform_mix.stan', line 5, column 2)"};
 template <bool propto__, typename T0__, typename T1__, typename T2__,
           stan::require_all_t<stan::math::disjunction<stan::is_autodiff<T0__>,
                                                       std::is_floating_point<T0__>>,
@@ -327,6 +336,16 @@ template <bool propto__, typename T0__, typename T1__,
                                                       std::is_floating_point<T1__>>>* = nullptr>
 stan::promote_args_t<T0__, T1__>
 half_norm_lpdf(const T0__& y, const T1__& sigma, std::ostream* pstream__);
+template <bool propto__, typename T0__, typename T1__, typename T2__,
+          stan::require_all_t<stan::math::disjunction<stan::is_autodiff<T0__>,
+                                                      std::is_floating_point<T0__>>,
+                              stan::math::disjunction<stan::is_autodiff<T1__>,
+                                                      std::is_floating_point<T1__>>,
+                              stan::math::disjunction<stan::is_autodiff<T2__>,
+                                                      std::is_floating_point<T2__>>>* = nullptr>
+stan::promote_args_t<T0__, T1__, T2__>
+trunc_expo_lpdf(const T0__& y, const T1__& ymax, const T2__& rate,
+                std::ostream* pstream__);
 // real gpareto_lpdf(real, real, real)
 template <bool propto__, typename T0__, typename T1__, typename T2__,
           stan::require_all_t<stan::math::disjunction<stan::is_autodiff<T0__>,
@@ -347,13 +366,13 @@ gpareto_lpdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ inv_xi = DUMMY_VAR__;
-    current_statement__ = 33;
+    current_statement__ = 34;
     inv_xi = stan::math::inv(xi);
-    current_statement__ = 44;
+    current_statement__ = 45;
     if ((stan::math::primitive_value(stan::math::logical_lt(xi, 0)) &&
         stan::math::primitive_value(
           stan::math::logical_gt((y / sigma), -(inv_xi))))) {
-      current_statement__ = 42;
+      current_statement__ = 43;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "xi<0 and y/sigma > -1/xi; found -1/xi = ");
@@ -362,21 +381,21 @@ gpareto_lpdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
       stan::math::stan_print(&errmsg_stream__, (y / sigma));
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 41;
+      current_statement__ = 42;
       if (stan::math::logical_lt(sigma, 1e-15)) {
-        current_statement__ = 39;
+        current_statement__ = 40;
         std::stringstream errmsg_stream__;
         stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma = ");
         stan::math::stan_print(&errmsg_stream__, sigma);
         throw std::domain_error(errmsg_stream__.str());
       } else {
-        current_statement__ = 38;
+        current_statement__ = 39;
         if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-          current_statement__ = 36;
+          current_statement__ = 37;
           return ((-((1 + inv_xi)) * stan::math::log1p((xi * (y / sigma)))) -
                  stan::math::log(sigma));
         } else {
-          current_statement__ = 34;
+          current_statement__ = 35;
           return (-(stan::math::log(sigma)) - (y / sigma));
         }
       }
@@ -408,13 +427,13 @@ gpareto_cdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ inv_xi = DUMMY_VAR__;
-    current_statement__ = 46;
+    current_statement__ = 47;
     inv_xi = stan::math::inv(xi);
-    current_statement__ = 57;
+    current_statement__ = 58;
     if ((stan::math::primitive_value(stan::math::logical_lt(xi, 0)) &&
         stan::math::primitive_value(
           stan::math::logical_gt((y / sigma), -(inv_xi))))) {
-      current_statement__ = 55;
+      current_statement__ = 56;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "xi<0 and y/sigma > -1/xi; found -1/xi = ");
@@ -423,22 +442,22 @@ gpareto_cdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
       stan::math::stan_print(&errmsg_stream__, (y / sigma));
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 54;
+      current_statement__ = 55;
       if (stan::math::logical_lt(sigma, 1e-15)) {
-        current_statement__ = 52;
+        current_statement__ = 53;
         std::stringstream errmsg_stream__;
         stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma = ");
         stan::math::stan_print(&errmsg_stream__, sigma);
         throw std::domain_error(errmsg_stream__.str());
       } else {
-        current_statement__ = 51;
+        current_statement__ = 52;
         if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-          current_statement__ = 49;
+          current_statement__ = 50;
           return stan::math::exp(
                    stan::math::log1m_exp((-(inv_xi) *
                      stan::math::log1p((xi * (y / sigma))))));
         } else {
-          current_statement__ = 47;
+          current_statement__ = 48;
           return stan::math::exp(stan::math::log1m_exp((-(y) / sigma)));
         }
       }
@@ -470,13 +489,13 @@ gpareto_lcdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ inv_xi = DUMMY_VAR__;
-    current_statement__ = 59;
+    current_statement__ = 60;
     inv_xi = stan::math::inv(xi);
-    current_statement__ = 70;
+    current_statement__ = 71;
     if ((stan::math::primitive_value(stan::math::logical_lt(xi, 0)) &&
         stan::math::primitive_value(
           stan::math::logical_gt((y / sigma), -(inv_xi))))) {
-      current_statement__ = 68;
+      current_statement__ = 69;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "xi<0 and y/sigma > -1/xi; found -1/xi = ");
@@ -485,21 +504,21 @@ gpareto_lcdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
       stan::math::stan_print(&errmsg_stream__, (y / sigma));
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 67;
+      current_statement__ = 68;
       if (stan::math::logical_lt(sigma, 1e-15)) {
-        current_statement__ = 65;
+        current_statement__ = 66;
         std::stringstream errmsg_stream__;
         stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma = ");
         stan::math::stan_print(&errmsg_stream__, sigma);
         throw std::domain_error(errmsg_stream__.str());
       } else {
-        current_statement__ = 64;
+        current_statement__ = 65;
         if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-          current_statement__ = 62;
+          current_statement__ = 63;
           return stan::math::log1m_exp((-(inv_xi) *
                    stan::math::log1p((xi * (y / sigma)))));
         } else {
-          current_statement__ = 60;
+          current_statement__ = 61;
           return stan::math::log1m_exp((-(y) / sigma));
         }
       }
@@ -531,13 +550,13 @@ gpareto_lccdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ inv_xi = DUMMY_VAR__;
-    current_statement__ = 72;
+    current_statement__ = 73;
     inv_xi = stan::math::inv(xi);
-    current_statement__ = 83;
+    current_statement__ = 84;
     if ((stan::math::primitive_value(stan::math::logical_lt(xi, 0)) &&
         stan::math::primitive_value(
           stan::math::logical_gt((y / sigma), -(inv_xi))))) {
-      current_statement__ = 81;
+      current_statement__ = 82;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "xi<0 and y/sigma > -1/xi; found -1/xi = ");
@@ -546,20 +565,20 @@ gpareto_lccdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
       stan::math::stan_print(&errmsg_stream__, (y / sigma));
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 80;
+      current_statement__ = 81;
       if (stan::math::logical_lt(sigma, 1e-15)) {
-        current_statement__ = 78;
+        current_statement__ = 79;
         std::stringstream errmsg_stream__;
         stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma = ");
         stan::math::stan_print(&errmsg_stream__, sigma);
         throw std::domain_error(errmsg_stream__.str());
       } else {
-        current_statement__ = 77;
+        current_statement__ = 78;
         if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-          current_statement__ = 75;
+          current_statement__ = 76;
           return (-(inv_xi) * stan::math::log1p((xi * (y / sigma))));
         } else {
-          current_statement__ = 73;
+          current_statement__ = 74;
           return (-(y) / sigma);
         }
       }
@@ -590,23 +609,23 @@ gpareto_icdf(const T0__& p, const T1__& sigma, const T2__& xi, std::ostream*
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 89;
+    current_statement__ = 90;
     if (stan::math::logical_lt(sigma, 1e-15)) {
-      current_statement__ = 88;
+      current_statement__ = 89;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma =");
       stan::math::stan_print(&errmsg_stream__, sigma);
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 87;
+      current_statement__ = 88;
       if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-        current_statement__ = 86;
+        current_statement__ = 87;
         return stan::math::exp(
                  ((stan::math::log(
                      (stan::math::exp((-(xi) * stan::math::log1m(p))) - 1)) +
                  stan::math::log(sigma)) - stan::math::log(xi)));
       } else {
-        current_statement__ = 85;
+        current_statement__ = 86;
         return (-(sigma) * stan::math::log1m(p));
       }
     }
@@ -636,14 +655,14 @@ egpd_lpdf(const T0__& y, const T1__& sigma, const T2__& xi, const T3__&
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 95;
+    current_statement__ = 96;
     if (stan::math::logical_gt(kappa, 1e-15)) {
-      current_statement__ = 93;
+      current_statement__ = 94;
       return ((stan::math::log(kappa) + ((kappa - 1) *
              gpareto_lcdf(y, sigma, xi, pstream__))) +
              gpareto_lpdf<false>(y, sigma, xi, pstream__));
     } else {
-      current_statement__ = 91;
+      current_statement__ = 92;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -677,12 +696,12 @@ egpd_cdf(const T0__& y, const T1__& sigma, const T2__& xi, const T3__& kappa,
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 101;
+    current_statement__ = 102;
     if (stan::math::logical_gt(kappa, 1e-15)) {
-      current_statement__ = 99;
+      current_statement__ = 100;
       return stan::math::exp((kappa * gpareto_lcdf(y, sigma, xi, pstream__)));
     } else {
-      current_statement__ = 97;
+      current_statement__ = 98;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -716,12 +735,12 @@ egpd_lcdf(const T0__& y, const T1__& sigma, const T2__& xi, const T3__&
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 107;
+    current_statement__ = 108;
     if (stan::math::logical_gt(kappa, 1e-15)) {
-      current_statement__ = 105;
+      current_statement__ = 106;
       return (kappa * gpareto_lcdf(y, sigma, xi, pstream__));
     } else {
-      current_statement__ = 103;
+      current_statement__ = 104;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -755,13 +774,13 @@ egpd_lccdf(const T0__& y, const T1__& sigma, const T2__& xi, const T3__&
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 113;
+    current_statement__ = 114;
     if (stan::math::logical_gt(kappa, 1e-15)) {
-      current_statement__ = 111;
+      current_statement__ = 112;
       return stan::math::log1m_exp((kappa *
                gpareto_lcdf(y, sigma, xi, pstream__)));
     } else {
-      current_statement__ = 109;
+      current_statement__ = 110;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -795,16 +814,16 @@ egpd_icdf(const T0__& u_adj, const T1__& sigma, const T2__& xi, const T3__&
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 120;
+    current_statement__ = 121;
     if (stan::math::logical_gt(kappa, 1e-15)) {
       local_scalar_t__ p = DUMMY_VAR__;
-      current_statement__ = 117;
+      current_statement__ = 118;
       p = stan::math::exp((stan::math::exp(-(stan::math::log(kappa))) *
             stan::math::log(u_adj)));
-      current_statement__ = 118;
+      current_statement__ = 119;
       return gpareto_icdf(p, sigma, xi, pstream__);
     } else {
-      current_statement__ = 115;
+      current_statement__ = 116;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -841,45 +860,45 @@ egpd_rng(const T0__& n, const T1__& ymin, const T2__& sigma, const T3__& xi,
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ cst = DUMMY_VAR__;
-    current_statement__ = 122;
-    cst = egpd_cdf(ymin, sigma, xi, kappa, pstream__);
     current_statement__ = 123;
+    cst = egpd_cdf(ymin, sigma, xi, kappa, pstream__);
+    current_statement__ = 124;
     stan::math::validate_non_negative_index("rng_val", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> rng_val =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 125;
+    current_statement__ = 126;
     stan::math::validate_non_negative_index("alpha", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> alpha =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 126;
+    current_statement__ = 127;
     stan::model::assign(alpha, stan::math::rep_vector(0, n),
       "assigning variable alpha");
-    current_statement__ = 127;
+    current_statement__ = 128;
     stan::math::validate_non_negative_index("beta", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> beta =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 128;
+    current_statement__ = 129;
     stan::model::assign(beta, stan::math::rep_vector(1, n),
       "assigning variable beta");
-    current_statement__ = 129;
+    current_statement__ = 130;
     stan::math::validate_non_negative_index("u", "n", n);
     std::vector<local_scalar_t__> u =
       std::vector<local_scalar_t__>(n, DUMMY_VAR__);
-    current_statement__ = 130;
+    current_statement__ = 131;
     stan::model::assign(u, stan::math::uniform_rng(alpha, beta, base_rng__),
       "assigning variable u");
-    current_statement__ = 134;
+    current_statement__ = 135;
     for (int i = 1; i <= n; ++i) {
       local_scalar_t__ u_adj = DUMMY_VAR__;
-      current_statement__ = 131;
+      current_statement__ = 132;
       u_adj = ((stan::model::rvalue(u, "u", stan::model::index_uni(i)) * (1 -
         cst)) + cst);
-      current_statement__ = 132;
+      current_statement__ = 133;
       stan::model::assign(rng_val,
         egpd_icdf(u_adj, sigma, xi, kappa, pstream__),
         "assigning variable rng_val", stan::model::index_uni(i));
     }
-    current_statement__ = 135;
+    current_statement__ = 136;
     return rng_val;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -910,12 +929,12 @@ egpd_trunc_lpdf(const T0__& y, const T1__& ymin, const T2__& sigma,
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ lpdf = DUMMY_VAR__;
-    current_statement__ = 137;
+    current_statement__ = 138;
     lpdf = egpd_lpdf<false>(y, sigma, xi, kappa, pstream__);
     local_scalar_t__ cst = DUMMY_VAR__;
-    current_statement__ = 138;
-    cst = egpd_lccdf(ymin, sigma, xi, kappa, pstream__);
     current_statement__ = 139;
+    cst = egpd_lccdf(ymin, sigma, xi, kappa, pstream__);
+    current_statement__ = 140;
     return (lpdf - cst);
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -953,30 +972,30 @@ prob_forecast(const T0__& n_int, const T1__& int_pts_arg__, const T2__& ymin,
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 141;
+    current_statement__ = 142;
     stan::math::validate_non_negative_index("pred_probs", "n_int", n_int);
     Eigen::Matrix<local_scalar_t__,-1,1> pred_probs =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n_int, DUMMY_VAR__);
     local_scalar_t__ numer_cst = DUMMY_VAR__;
-    current_statement__ = 143;
+    current_statement__ = 144;
     numer_cst = egpd_cdf(ymin, sigma, xi, kappa, pstream__);
     local_scalar_t__ denom_cst = DUMMY_VAR__;
-    current_statement__ = 144;
+    current_statement__ = 145;
     denom_cst = stan::math::exp(egpd_lccdf(ymin, sigma, xi, kappa, pstream__));
-    current_statement__ = 148;
+    current_statement__ = 149;
     for (int n = 1; n <= n_int; ++n) {
       local_scalar_t__ unnorm_pred_prob = DUMMY_VAR__;
-      current_statement__ = 145;
+      current_statement__ = 146;
       unnorm_pred_prob = egpd_cdf(
                            stan::model::rvalue(int_pts, "int_pts",
                              stan::model::index_uni(n)), sigma, xi, kappa,
                            pstream__);
-      current_statement__ = 146;
+      current_statement__ = 147;
       stan::model::assign(pred_probs, ((unnorm_pred_prob - numer_cst) /
         denom_cst), "assigning variable pred_probs",
         stan::model::index_uni(n));
     }
-    current_statement__ = 149;
+    current_statement__ = 150;
     return pred_probs;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -998,15 +1017,15 @@ half_norm_lpdf(const T0__& y, const T1__& sigma, std::ostream* pstream__) {
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 155;
+    current_statement__ = 156;
     if ((stan::math::primitive_value(stan::math::logical_gt(sigma, 1e-15)) &&
         stan::math::primitive_value(stan::math::logical_gt(y, 1e-15)))) {
-      current_statement__ = 153;
+      current_statement__ = 154;
       return ((((0.5 * stan::math::log(2)) -
              stan::math::log(stan::math::pi())) - stan::math::log(sigma)) -
              (stan::math::pow(y, 2) / (2 * stan::math::pow(sigma, 2))));
     } else {
-      current_statement__ = 151;
+      current_statement__ = 152;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "sigma or y <=0; found sigma = ");
@@ -1019,11 +1038,49 @@ half_norm_lpdf(const T0__& y, const T1__& sigma, std::ostream* pstream__) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
   }
 }
+// real trunc_expo_lpdf(real, real, real)
+template <bool propto__, typename T0__, typename T1__, typename T2__,
+          stan::require_all_t<stan::math::disjunction<stan::is_autodiff<T0__>,
+                                                      std::is_floating_point<T0__>>,
+                              stan::math::disjunction<stan::is_autodiff<T1__>,
+                                                      std::is_floating_point<T1__>>,
+                              stan::math::disjunction<stan::is_autodiff<T2__>,
+                                                      std::is_floating_point<T2__>>>*>
+stan::promote_args_t<T0__, T1__, T2__>
+trunc_expo_lpdf(const T0__& y, const T1__& ymax, const T2__& rate,
+                std::ostream* pstream__) {
+  using local_scalar_t__ = stan::promote_args_t<T0__, T1__, T2__>;
+  int current_statement__ = 0;
+  // suppress unused var warning
+  (void) current_statement__;
+  local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+  // suppress unused var warning
+  (void) DUMMY_VAR__;
+  try {
+    current_statement__ = 164;
+    if (stan::math::logical_gt(y, ymax)) {
+      current_statement__ = 162;
+      return stan::math::negative_infinity();
+    } else {
+      local_scalar_t__ lpdf = DUMMY_VAR__;
+      current_statement__ = 158;
+      lpdf = stan::math::exponential_lpdf<false>(y, rate);
+      local_scalar_t__ cst = DUMMY_VAR__;
+      current_statement__ = 159;
+      cst = stan::math::exponential_lcdf(ymax, rate);
+      current_statement__ = 160;
+      return (lpdf - cst);
+    }
+  } catch (const std::exception& e) {
+    stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+  }
+}
 class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_model> {
  private:
   int N;
   Eigen::Matrix<double,-1,1> fwi_data__;
   int K;
+  double fwi_trunc;
   Eigen::Map<Eigen::Matrix<double,-1,1>> fwi{nullptr, 0};
  public:
   ~fwi_transform_mix_model() {}
@@ -1081,9 +1138,16 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
       K = std::numeric_limits<int>::min();
       current_statement__ = 31;
       K = 2;
+      current_statement__ = 32;
+      fwi_trunc = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 32;
+      fwi_trunc = 80;
       current_statement__ = 31;
       stan::math::check_greater_or_equal(function__, "K", K, 1);
       current_statement__ = 32;
+      stan::math::check_greater_or_equal(function__, "fwi_trunc", fwi_trunc,
+        0);
+      current_statement__ = 33;
       stan::math::validate_positive_index("theta", "K", K);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1135,10 +1199,10 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
       local_scalar_t__ sigma_prime = DUMMY_VAR__;
       current_statement__ = 4;
       sigma_prime = in__.template read<local_scalar_t__>();
-      local_scalar_t__ scale = DUMMY_VAR__;
+      local_scalar_t__ rate = DUMMY_VAR__;
       current_statement__ = 5;
-      scale = in__.template read_constrain_lb<local_scalar_t__,
-                jacobian__>(0, lp__);
+      rate = in__.template read_constrain_lb<local_scalar_t__, jacobian__>(0,
+               lp__);
       local_scalar_t__ xi = DUMMY_VAR__;
       current_statement__ = 6;
       xi = (stan::math::log1p_exp(xi_prime) - 1);
@@ -1179,7 +1243,7 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
         current_statement__ = 19;
         lp_accum__.add(stan::math::normal_lpdf<propto__>(sigma_prime, 0, 4));
         current_statement__ = 20;
-        lp_accum__.add(stan::math::lognormal_lpdf<propto__>(scale, 0, 2));
+        lp_accum__.add(stan::math::lognormal_lpdf<propto__>(rate, 0, 2));
         current_statement__ = 27;
         for (int n = 1; n <= N; ++n) {
           current_statement__ = 21;
@@ -1198,9 +1262,10 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
           current_statement__ = 24;
           stan::model::assign(lps,
             (stan::model::rvalue(lps, "lps", stan::model::index_uni(2)) +
-            stan::math::exponential_lpdf<false>(
+            trunc_expo_lpdf<false>(
               stan::model::rvalue(fwi, "fwi", stan::model::index_uni(n)),
-              scale)), "assigning variable lps", stan::model::index_uni(2));
+              fwi_trunc, rate, pstream__)), "assigning variable lps",
+            stan::model::index_uni(2));
           current_statement__ = 25;
           lp_accum__.add(stan::math::log_sum_exp(lps));
         }
@@ -1249,10 +1314,10 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
       local_scalar_t__ sigma_prime = DUMMY_VAR__;
       current_statement__ = 4;
       sigma_prime = in__.template read<local_scalar_t__>();
-      local_scalar_t__ scale = DUMMY_VAR__;
+      local_scalar_t__ rate = DUMMY_VAR__;
       current_statement__ = 5;
-      scale = in__.template read_constrain_lb<local_scalar_t__,
-                jacobian__>(0, lp__);
+      rate = in__.template read_constrain_lb<local_scalar_t__, jacobian__>(0,
+               lp__);
       local_scalar_t__ xi = DUMMY_VAR__;
       current_statement__ = 6;
       xi = (stan::math::log1p_exp(xi_prime) - 1);
@@ -1293,7 +1358,7 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
         current_statement__ = 19;
         lp_accum__.add(stan::math::normal_lpdf<propto__>(sigma_prime, 0, 4));
         current_statement__ = 20;
-        lp_accum__.add(stan::math::lognormal_lpdf<propto__>(scale, 0, 2));
+        lp_accum__.add(stan::math::lognormal_lpdf<propto__>(rate, 0, 2));
         current_statement__ = 27;
         for (int n = 1; n <= N; ++n) {
           current_statement__ = 21;
@@ -1312,9 +1377,10 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
           current_statement__ = 24;
           stan::model::assign(lps,
             (stan::model::rvalue(lps, "lps", stan::model::index_uni(2)) +
-            stan::math::exponential_lpdf<false>(
+            trunc_expo_lpdf<false>(
               stan::model::rvalue(fwi, "fwi", stan::model::index_uni(n)),
-              scale)), "assigning variable lps", stan::model::index_uni(2));
+              fwi_trunc, rate, pstream__)), "assigning variable lps",
+            stan::model::index_uni(2));
           current_statement__ = 25;
           lp_accum__.add(stan::math::log_sum_exp(lps));
         }
@@ -1375,10 +1441,10 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
       double sigma_prime = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 4;
       sigma_prime = in__.template read<local_scalar_t__>();
-      double scale = std::numeric_limits<double>::quiet_NaN();
+      double rate = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 5;
-      scale = in__.template read_constrain_lb<local_scalar_t__,
-                jacobian__>(0, lp__);
+      rate = in__.template read_constrain_lb<local_scalar_t__, jacobian__>(0,
+               lp__);
       double xi = std::numeric_limits<double>::quiet_NaN();
       double kappa = std::numeric_limits<double>::quiet_NaN();
       double sigma_egpd = std::numeric_limits<double>::quiet_NaN();
@@ -1386,7 +1452,7 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
       out__.write(xi_prime);
       out__.write(kappa_prime);
       out__.write(sigma_prime);
-      out__.write(scale);
+      out__.write(rate);
       if (stan::math::logical_negation(
             (stan::math::primitive_value(emit_transformed_parameters__) ||
             stan::math::primitive_value(emit_generated_quantities__)))) {
@@ -1461,10 +1527,10 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
       current_statement__ = 4;
       sigma_prime = in__.read<local_scalar_t__>();
       out__.write(sigma_prime);
-      local_scalar_t__ scale = DUMMY_VAR__;
+      local_scalar_t__ rate = DUMMY_VAR__;
       current_statement__ = 5;
-      scale = in__.read<local_scalar_t__>();
-      out__.write_free_lb(0, scale);
+      rate = in__.read<local_scalar_t__>();
+      out__.write_free_lb(0, rate);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -1495,7 +1561,7 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
       context__.validate_dims("parameter initialization", "sigma_prime",
         "double", std::vector<size_t>{});
       current_statement__ = 5;
-      context__.validate_dims("parameter initialization", "scale", "double",
+      context__.validate_dims("parameter initialization", "rate", "double",
         std::vector<size_t>{});
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
@@ -1525,10 +1591,10 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
       current_statement__ = 4;
       sigma_prime = context__.vals_r("sigma_prime")[(1 - 1)];
       out__.write(sigma_prime);
-      local_scalar_t__ scale = DUMMY_VAR__;
+      local_scalar_t__ rate = DUMMY_VAR__;
       current_statement__ = 5;
-      scale = context__.vals_r("scale")[(1 - 1)];
-      out__.write_free_lb(0, scale);
+      rate = context__.vals_r("rate")[(1 - 1)];
+      out__.write_free_lb(0, rate);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -1538,7 +1604,7 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
                   emit_transformed_parameters__ = true, const bool
                   emit_generated_quantities__ = true) const {
     names__ = std::vector<std::string>{"theta", "xi_prime", "kappa_prime",
-                "sigma_prime", "scale"};
+                "sigma_prime", "rate"};
     if (emit_transformed_parameters__) {
       std::vector<std::string> temp{"xi", "kappa", "sigma_egpd"};
       names__.reserve(names__.size() + temp.size());
@@ -1574,7 +1640,7 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
     param_names__.emplace_back(std::string() + "xi_prime");
     param_names__.emplace_back(std::string() + "kappa_prime");
     param_names__.emplace_back(std::string() + "sigma_prime");
-    param_names__.emplace_back(std::string() + "scale");
+    param_names__.emplace_back(std::string() + "rate");
     if (emit_transformed_parameters__) {
       param_names__.emplace_back(std::string() + "xi");
       param_names__.emplace_back(std::string() + "kappa");
@@ -1593,7 +1659,7 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
     param_names__.emplace_back(std::string() + "xi_prime");
     param_names__.emplace_back(std::string() + "kappa_prime");
     param_names__.emplace_back(std::string() + "sigma_prime");
-    param_names__.emplace_back(std::string() + "scale");
+    param_names__.emplace_back(std::string() + "rate");
     if (emit_transformed_parameters__) {
       param_names__.emplace_back(std::string() + "xi");
       param_names__.emplace_back(std::string() + "kappa");
@@ -1602,10 +1668,10 @@ class fwi_transform_mix_model final : public model_base_crtp<fwi_transform_mix_m
     if (emit_generated_quantities__) {}
   }
   inline std::string get_constrained_sizedtypes() const {
-    return std::string("[{\"name\":\"theta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(K) + "},\"block\":\"parameters\"},{\"name\":\"xi_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"kappa_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"scale\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"xi\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"kappa\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"sigma_egpd\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]");
+    return std::string("[{\"name\":\"theta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(K) + "},\"block\":\"parameters\"},{\"name\":\"xi_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"kappa_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"rate\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"xi\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"kappa\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"sigma_egpd\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]");
   }
   inline std::string get_unconstrained_sizedtypes() const {
-    return std::string("[{\"name\":\"theta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string((K -1)) + "},\"block\":\"parameters\"},{\"name\":\"xi_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"kappa_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"scale\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"xi\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"kappa\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"sigma_egpd\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]");
+    return std::string("[{\"name\":\"theta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string((K -1)) + "},\"block\":\"parameters\"},{\"name\":\"xi_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"kappa_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma_prime\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"rate\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"xi\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"kappa\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"sigma_egpd\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]");
   }
   // Begin method overload boilerplate
   template <typename RNG> inline void

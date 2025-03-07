@@ -1,0 +1,10 @@
+  // custom distribution functions for truncated exponential distribution
+  real trunc_expo_lpdf(real y, real ymax, real rate) {
+    if(y > ymax) {
+      return negative_infinity();
+    } else {
+      real lpdf = exponential_lpdf(y | rate);
+      real cst = exponential_lcdf(ymax | rate);
+      return lpdf - cst;
+    }
+  }  

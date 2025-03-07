@@ -40,8 +40,8 @@ exp_fit <- read_fit("redstone") |> as_draws_df() |>
   pivot_wider(names_from = param, values_from = post_med)
 
 csvfiles <- list.files(path = "samplers/stan/marg_transform/csv_fits/",
-                                      pattern = paste0("redstone", "_g1_exp_\\d{1}.csv"),
-                                      full.names = TRUE)
+                       pattern = paste0("redstone", "_g1_exp_\\d{1}.csv"),
+                       full.names = TRUE)
 exp_fit_mcmc <- as_cmdstan_fit(csvfiles)
 
 mcmc <- coda::as.mcmc.list(test_fit)
@@ -150,7 +150,7 @@ fit_mcmc <- as_mcmc.list(fit)
 
 MCMCtrace(fit_mcmc, ind = TRUE)
 extract_med_params <- function()
-post_params <- fit |> as_draws_df() |> 
+  post_params <- fit |> as_draws_df() |> 
   rename(draw = ".draw") |>
   select(!contains(c("log", "lp", "chain", "iter"))) |>
   pivot_longer(cols = -"draw") |> 

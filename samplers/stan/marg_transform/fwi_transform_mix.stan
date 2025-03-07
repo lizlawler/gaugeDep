@@ -2,6 +2,7 @@ functions {
   #include gpd_fcns.stanfunctions
   #include g1_fcns.stanfunctions
   #include half_norm_fcns.stanfunctions
+  #include trunc_expo_fcns.stanfunctions
 }
 
 data {
@@ -11,6 +12,7 @@ data {
 
 transformed data {
   int<lower=1> K = 2;
+  real<lower=0> fwi_trunc = 80;
 }
 
 parameters {
@@ -25,7 +27,7 @@ parameters {
   // real<lower=0> mu;
   // real<lower=0> sigma_norm;
   // exponential distribution params
-  real<lower=0> scale;
+  real<lower=0> rate;
 }
 
 transformed parameters{
@@ -53,14 +55,16 @@ model {
   
   // mu ~ normal(9, 10);
   // sigma_norm ~ lognormal(0, 2);
-  scale ~ lognormal(0,2);
+  rate ~ lognormal(0,2);
   
   for (n in 1:N) {
     vector[K] lps = log_theta;
     lps[1] += egpd_lpdf(fwi[n] | sigma_egpd, xi, kappa);
     // lps[2] += half_norm_lpdf(fwi[n] | sigma_norm);
     // lps[2] += normal_lpdf(fwi[n] | mu, sigma_norm);
-    lps[2] += exponential_lpdf(fwi[n] | scale);
+    // lps[2] += exponential_lpdf(fwi[n] | scale);
+    lps[2] += trunc_expo_lpdf(fwi[n] | fwi_trunc, rate);
+    // lps[2] += exponential_lpdf(fwi[n] | rate) - exponential_lcdf(fwi_trunc | rate);
     target += log_sum_exp(lps);
   }
 }
