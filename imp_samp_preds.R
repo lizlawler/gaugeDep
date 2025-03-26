@@ -8,6 +8,7 @@ library(RcppSimdJson)
 library(gaugeDependence)
 library(qs)
 library(grafify)
+library(stringr)
 
 options(rlib_name_repair_verbosity = "quiet")
 handlers("cli")
@@ -175,56 +176,6 @@ is_prob_pred <- function(imp_samples = NULL,
   
   return(sum(wts[idx_in_box]) / nrow(imp_samples) * 0.05)
 }
-# 
-# test_radial <- qread("fits_and_weights/post_params_joint/gauss_gauss_high_wc_trunc_radial.qs")
-# test_ang_mix <- qread("fits_and_weights/post_params_joint/gauss_high_wc_ang_mix.qs")
-# test_ang_star <- qread("fits_and_weights/post_params_joint/gauss_high_wc_gauss_ang_star.qs")
-# 
-# box <- "b3"
-# dim1 <- c(10, 12)
-# dim2 <- case_when(
-#   box == "b1" ~ dim1,
-#   box == "b2" ~ c(6, 8),
-#   TRUE ~ c(2, 4)
-# )
-
-# is_samps <- gen_is_samples(box,total_n = 50000)
-# data_num <- 40
-# data <- RcppSimdJson::fload(sprintf("data/gauss/high_wc_%s.json", data_num))
-# r <- data$R
-# w <- data$W
-# ang_dens <- mix_dens(is_samps$w1, test_ang_mix[data_num,])
-# gw <- gauss_gauge(is_samps$w1, is_samps$w2, test_radial$dep[data_num])
-# r0w <- qgamma(0.95, test_radial$alpha[data_num], gw)
-# r_giv_w <- trunc_gamma(is_samps$r, r0w, test_radial$alpha[data_num], gw)
-# rw_dens <- r_giv_w * ang_dens
-# is_dens <- mvtnorm::dmvnorm(is_samps[, 1:2], mean = c(mean(dim1), mean(dim2)), sigma = 2 * diag(2)) * is_samps$r
-# wts <- rw_dens / is_dens
-# 
-# sir_idx <- sample(1:nrow(is_samps),size = 3333, replace = FALSE, prob = wts)
-# plot(r * w, r * (1-w), pch = 20, xlim = c(0,16), ylim = c(0,16))
-# points(is_samps$x1, is_samps$x2,pch = 20, col = "blue")
-# points(is_samps$x1[sir_idx], is_samps$x2[sir_idx], col = "red", pch = 20)
-# idx_in_box<- which(
-#   with(
-#     is_samps[sir_idx,],
-#     between(r, dim1[1] / w1, dim1[2] / w1) &
-#       between(r, dim2[1] / (1-w1), dim2[2] / (1-w1)))
-# )
-# 
-# points(is_samps$x1[sir_idx][idx_in_box], is_samps$x2[sir_idx][idx_in_box], col = "orange", pch = 20)
-# # 
-# sum(wts[sir_idx][idx_in_box]) / length(sir_idx) * 0.05
-# true_gauss_prob(dim1, dim2, 0.8)
-# 
-# idx_in_box_is <- which(
-#   with(
-#     is_samps,
-#     between(r, dim1[1] / w1, dim1[2] / w1) &
-#       between(r, dim2[1] / (1-w1), dim2[2] / (1-w1)))
-# )
-# 
-# sum(wts[idx_in_box_is]) / length(wts) * 0.05
 
 preds_by_gauge <- function(gauge, dep_type, dep_level, likelihood, box, sir = FALSE) {
   post_radial <- qread(sprintf("fits_and_weights/post_params_joint/%s_%s_%s_%s_radial.qs",
@@ -258,8 +209,6 @@ preds_by_gauge <- function(gauge, dep_type, dep_level, likelihood, box, sir = FA
   return(preds)
 }
 
-# test <- preds_by_gauge("gauss", "gauss", "high", "trunc", "b1")
-
 preds_by_dep_level_lhood <- function(dep_type, dep_level, likelihood, box, sir = FALSE) {
   gauge_library <- c("gauss", "logistic", "inv_log", "asym_log", "dirichlet", "rectangular")
   return(lapply(gauge_library, function(x) preds_by_gauge(gauge = x, 
@@ -272,7 +221,7 @@ preds_by_dep_level_lhood <- function(dep_type, dep_level, likelihood, box, sir =
 }
 
 weighted_preds_by_lhood <- function(dep_type, dep_level, likelihood, box, sir = FALSE) {
-
+  
   preds <- preds_by_dep_level_lhood(dep_type = dep_type, 
                                     dep_level = dep_level, 
                                     likelihood = likelihood, 
@@ -325,17 +274,11 @@ create_predictions_boxplot <- function(dep_type, dep_level, box, sir = FALSE) {
     dim2 <- c(2, 4)
   }
   
-  plot_filename <- sprintf("figures/is_preds_boxplots/joint/%s_%s_%s.pdf",
-                           dep_type, dep_level, box)
-  qs_filename <-  sprintf("figures/is_preds_boxplots/joint/plot_objects/%s_%s_%s.qs",
-                          dep_type, dep_level, box)
-  plot_title <- sprintf("%s, %s, (%s) x (%s)",
-                        dep_type, dep_level, paste(dim1, collapse = ","), paste(dim2, collapse = ","))
-  
   preds_tib <- weighted_preds_by_level(dep_type = dep_type, 
                                        dep_level = dep_level, 
                                        box = box,
                                        sir = sir)
+  qsave(preds_tib, sprintf("figures/is_preds_boxplots/joint/pred_tibbles/%s_%s_%s.qs",dep_type, dep_level, box))
   
   # determine true probability
   if(dep_type == "gauss") {
@@ -350,10 +293,11 @@ create_predictions_boxplot <- function(dep_type, dep_level, box, sir = FALSE) {
   }
   
   # create boxplot
-  plot <- preds_tib |> ggplot(aes(x = ang_dens, y = preds, fill = method)) +
+  plot <- preds_tib |> ggplot(aes(x = ang_dens, y = pmax(preds, .Machine$double.eps), fill = method)) +
     geom_boxplot() +
-    geom_hline(yintercept = true_prob, col = "darkgrey", linetype = "longdash") +
-    ggtitle(plot_title) + 
+    geom_hline(yintercept = pmax(true_prob, .Machine$double.eps), col = "darkgrey", linetype = "longdash") +
+    scale_y_log10() +
+    ggtitle(sprintf("%s, %s, (%s) x (%s)", dep_type, dep_level, paste(dim1, collapse = ","), paste(dim2, collapse = ","))) + 
     theme_classic() +
     theme(panel.background = element_rect(fill='transparent', color='transparent'),
           plot.background = element_rect(fill='transparent', color='transparent'),
@@ -366,31 +310,33 @@ create_predictions_boxplot <- function(dep_type, dep_level, box, sir = FALSE) {
     labs(fill = "BMA method") +
     scale_x_discrete(labels=c("Cens., Mix", "Cens., Star", "Trunc., Mix", "Trunc., Star")) +
     xlab("Likelihood, Angular Density") + ylab("Prediction probabilities")
-  ggsave(plot_filename,
+  ggsave(sprintf("figures/is_preds_boxplots/joint/%s_%s_%s.pdf", dep_type, dep_level, box),
          plot = plot,
          bg = 'transparent',
          width = 8,
          height = 7,
          dpi = 320)
-  qsave(plot, qs_filename)
-  print(paste0(plot_filename, " has been saved"))
+  qsave(plot, sprintf("figures/is_preds_boxplots/joint/plot_objects/%s_%s_%s.qs",dep_type, dep_level, box))
+  print(sprintf("Boxplot for %s %s, in box %s has been saved", dep_level, dep_type, box))
+  
+  mse_table <- preds_tib |> 
+    mutate(truth = true_prob,
+           diff = preds - truth) |>
+    group_by(method, ang_dens) |>
+    summarise(mse = mean(diff^2)) |>
+    ungroup() |>
+    mutate(log_mse = log(mse)) |>
+    arrange(mse)
+  qsave(mse_table, sprintf("figures/is_preds_boxplots/joint/mse_tables/%s_%s_%s.qs",dep_type, dep_level, box))
 }
 
-create_predictions_boxplot("gauss","mid", "b1")
-create_predictions_boxplot("gauss","mid", "b2")
-create_predictions_boxplot("gauss","mid", "b3")
-
-dep_types <- c("gauss", "logistic")
-dep_levels <- c("high_wc", "mid_wc", "low_wc")
+dep_types <- c("gauss", "logistic", "husler_reiss")
+dep_levels <- c("high_wc", "mid_wc", "low_wc", "high", "mid", "low")
 boxes <- c("b1", "b2", "b3")
 all_combos <- expand_grid(dep_types, dep_levels, boxes)
-all_combos <- all_combos |> filter(!(dep_types == "gauss" & dep_levels != "high_wc"),
-                                   !(dep_types == "logistic" & dep_levels == "high_wc"))
-
-dep_types <- c("husler_reiss")
-dep_levels <- c("high", "mid", "low")
-boxes <- c("b1", "b2", "b3")
-all_combos <- expand_grid(dep_types, dep_levels, boxes)
+all_combos <- all_combos |> filter(!(dep_types == "gauss" & dep_levels %in% c("low_wc", "mid_wc")),
+                                   !(dep_types == "logistic" & dep_levels == "high_wc"),
+                                   (!(dep_types == "husler_reiss" & str_detect(dep_levels, "wc"))))
 
 with_progress({
   # Create a progress handler
