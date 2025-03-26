@@ -11,6 +11,7 @@ library(mvtnorm)
 library(tidyr)
 library(dplyr)
 library(PWLExtremes)
+library(qs)
 source("samplers/campbell_wadsworth/mod_sim2d.R")
 
 par.locs = seq(0,1,length.out=11)
@@ -63,11 +64,7 @@ make_preds <- function(n = 50000, k = 1, box, radial_mle, angular_mle, par.locs,
   return(prob.est)
 }
 
-dep_type <- "gauss"
-dep_level <- "mid"
-i <- 11
 for(i in data_start:data_end) {
-  start <- Sys.time()
   data <- RcppSimdJson::fload(sprintf("data/%s/%s_%s.json", dep_type, dep_level, i))
   
   # obtain radii and angles
@@ -98,11 +95,11 @@ for(i in data_start:data_end) {
     pred <- make_preds(n = 50000, k = k, box = x, 
                        radial_mle = model.fit.R.bounded$mle, angular_mle = model.fit.W$fW.mle,
                        par.locs = par.locs, r = r, w = w, rexc = rexc)
-    return(tibble(k = k, box = x, pred = pred))
+    return(tibble(k = k, box = x, pred = pred, dataset = i))
   }, simplify = FALSE) |> bind_rows()
-  end <- Sys.time()
   
-  # qsave(x = results, file = sprintf("samplers/nimble/ang_mix_mcmc_fits/%s/%s_%s.qs",
-  #                                   dep_type, dep_level, i))
-  # print(paste0("Successfully saved MCMC stick breaking fit for dataset number: ", i))
+  results <- list(preds = preds_by_box, radial_mle = model.fit.R.bounded$mle, angular_mle = model.fit.W$fW.mle)
+  qsave(x = results, file = sprintf("samplers/campbell_wadsworth/mle_and_preds/%s/%s_%s.qs",
+                                    dep_type, dep_level, i))
+  print(paste0("Successfully saved Campbell-Wadsworth fit for dataset number: ", i))
 }
