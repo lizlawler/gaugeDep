@@ -4,7 +4,7 @@
 # cycle through loop and launch sbatch for every combination
 #
 dep_type="husler_reiss"
-for level in "mid" " high"; do
+for level in "mid" "high"; do
 
 	if [ "$level" == "high" ]; then
 		batches=({37..40} {78..80} {118..120} {157..160} {198..200})
