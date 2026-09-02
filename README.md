@@ -275,13 +275,9 @@ source("data_analyses/return_curve.R")                # Return-level curves
 
 ---
 
-## Citation
-
-[Citation TBD upon publication]
-
 ## License
 
-[License TBD]
+MIT license.
 
 ### Real-data pipeline ordering
 
