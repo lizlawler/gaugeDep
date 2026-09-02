@@ -1,7 +1,6 @@
-# gaugeDependence — Manuscript Code
+Reproducible code associated with the following manuscript, which is under review with *Environmetrics*:
 
-Reproducible code for *Bayesian model averaging of risk set probabilities using a geometric representation of multivariate extremes*. 
----
+E. Lawler and B. Shaby (2026). Bayesian model averaging of risk set probabilities using a geometric representation of multivariate extremes. arXiv:2608.28888. https://doi.org/10.48550/arXiv.2608.28888
 
 ## Method overview
 
