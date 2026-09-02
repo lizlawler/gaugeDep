@@ -1,39 +1,51 @@
 #!/bin/zsh
-# shell script to fit joint model to fire data
 #
-Rscript --vanilla samplers/nimble/ang_mix_mcmc_real_data.R
-Rscript --vanilla samplers/nimble/ang_mix_loglik_calc_real_data.R
+# Local (zsh) script: runs the full real-data pipeline for both stations (redstone, friendmtn).
+# Computes pointwise log-likelihoods for all model components and extracts joint-model BMA
+# weights. The MCMC sampling lines are commented out (run separately/beforehand); this script
+# focuses on the loglik + weight-extraction stage.
+#
 
-for gauge in "gauss" "logistic" "inv_log" "asym_log" "dirichlet" "rectangular"; do
+for data_type in "redstone" "friendmtn"; do
 
-	export gauge
-	Rscript --vanilla samplers/rcpp/ang_star_mcmc_real_data.R ${gauge}
-	sleep 1
+	export data_type
+	# Rscript --vanilla samplers/nimble/ang_mix_mcmc_real_data.R
+	Rscript --vanilla samplers/nimble/ang_mix_loglik_calc_real_data.R ${data_type}
 
-	Rscript --vanilla samplers/rcpp/ang_star_loglik_calc_real_data.R ${gauge}
-	sleep 1
+	for gauge in "gauss" "logistic" "inv_log" "asym_log" "dirichlet" "rectangular"; do
 
-	for likelihood in "trunc" "cens"; do
+		export data_type gauge
+		# Rscript --vanilla samplers/rcpp/ang_star_mcmc_real_data.R ${gauge}
+		# sleep 1
 
-		export gauge likelihood
-		Rscript --vanilla samplers/rcpp/radial_mcmc_real_data.R ${gauge} ${likelihood}
+		Rscript --vanilla samplers/rcpp/ang_star_loglik_calc_real_data.R ${data_type} ${gauge}
 		sleep 1
 
-		Rscript --vanilla samplers/rcpp/radial_loglik_calc_real_data.R ${gauge} ${likelihood}
+		for likelihood in "trunc" "cens"; do
+
+			export data_type gauge likelihood
+			# Rscript --vanilla samplers/rcpp/radial_mcmc_real_data.R ${gauge} ${likelihood}
+			# sleep 1
+
+			Rscript --vanilla samplers/rcpp/radial_loglik_calc_real_data.R ${data_type} ${gauge} ${likelihood}
+			sleep 1
+
+		done
+
 		sleep 1
 
 	done
 
-	sleep 1
+	for dens in "star" "mix"; do
 
-done
+		for likelihood in "trunc" "cens"; do
 
-for dens in "star" "mix"; do
+			export likelihood dens
+			Rscript --vanilla extraction_scripts/extract_weights_joint_real_data.R ${data_type} ${likelihood} ${dens}
 
-	for likelihood in "trunc" "cens"; do
+		done
 
-		export likelihood dens
-		Rscript --vanilla extraction_scripts/extract_weights_joint_real_data.R ${likelihood} ${dens}
+		sleep 1
 
 	done
 

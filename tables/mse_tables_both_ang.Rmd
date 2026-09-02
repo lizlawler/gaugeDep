@@ -1,0 +1,96 @@
+---
+title: "Simulation study: normalised RMSE tables"
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    keep_tex: true
+header-includes:
+  - \usepackage{amssymb}
+  - \usepackage[table]{xcolor}
+  - \usepackage{colortbl}
+  - \usepackage{booktabs}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(kableExtra)
+library(tidyverse)
+library(qs)
+library(glue)
+library(grafify)
+```
+
+```{r echo=FALSE}
+format_rmse_column <- function(file, label) {
+  qread(file) |>
+    select(-c(mse, log_mse)) |>
+    separate_wider_delim(cols = 'ang_dens', delim = ", ", names = c("Likelihood (Model)", "Ang. Dens."), too_few = 'align_start')  |>
+    mutate(is_inf = is.infinite(rmse_norm),
+           rmse_norm = ifelse(is_inf, "--",
+                   ifelse(rmse_norm >= 1e3,
+                          formatC(rmse_norm, format = "e", digits = 3),
+                          formatC(rmse_norm, format = "f", digits = 3))),
+           symbol = case_when(`Ang. Dens.` == "star" ~ "\\star\\,",
+                              `Ang. Dens.` == "mix" ~ "\\bigcirc\\,",
+                              `Ang. Dens.` == "Both" ~ "\\circledast\\,",
+                              `Likelihood (Model)` == "BezELS" ~ "\\bigcirc\\,",
+                              TRUE ~ ""),
+           fontstyle = case_when(`Likelihood (Model)` == "cens"  ~ "textit",
+                                 `Likelihood (Model)` == "trunc" ~ "textbf",
+                                 TRUE ~ ""),
+           color = case_when(method == "Pseudo-BMA" ~ "DF536B",
+                             method == "Pseudo-BMA+" ~ "2297E6",
+                             method == "Stacking" ~ "F5C710",
+                             TRUE ~ "FFFFFF"),
+           styled = ifelse(is_inf,"--",
+                           ifelse(fontstyle != "",
+                                  glue("${symbol}\\{fontstyle}{{{rmse_norm}}}$"),
+                                  glue("${symbol}{rmse_norm}$"))),
+           !!label := ifelse(is_inf,"--",
+                             glue("\\cellcolor[HTML]{{{color}}}{styled}"))) |>
+    select(all_of(label)) 
+}
+```
+
+
+```{r echo=FALSE}
+cols <- list(
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_low_b1_all_both_ang.qs",  "B1low"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_low_b2_all_both_ang.qs",  "B2low"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_low_b3_all_both_ang.qs",  "B3low"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_mid_b1_all_both_ang.qs",  "B1mid"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_mid_b2_all_both_ang.qs",  "B2mid"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_mid_b3_all_both_ang.qs",  "B3mid"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_high_b1_all_both_ang.qs", "B1high"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_high_b2_all_both_ang.qs", "B2high"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/gauss_high_b3_all_both_ang.qs", "B3high")
+)
+
+full_table <- bind_cols(cols)
+colnames(full_table) <- rep(c("B1", "B2", "B3"), times = 3)
+
+kbl(full_table, format = 'latex', booktabs = TRUE, escape = FALSE, linesep = "", align = rep("c", 9)) |>
+  add_header_above(c("Low" = 3, "Mid" = 3, "High" = 3), bold = TRUE, line = TRUE) |>
+  kable_styling(latex_options = c("hold_position"), position = "center")
+```
+
+```{r echo=FALSE}
+cols <- list(
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_low_b1_all_both_ang.qs",  "B1low"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_low_b2_all_both_ang.qs",  "B2low"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_low_b3_all_both_ang.qs",  "B3low"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_mid_b1_all_both_ang.qs",  "B1mid"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_mid_b2_all_both_ang.qs",  "B2mid"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_mid_b3_all_both_ang.qs",  "B3mid"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_high_b1_all_both_ang.qs", "B1high"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_high_b2_all_both_ang.qs", "B2high"),
+  format_rmse_column("figures/is_preds_boxplots/joint/mse_tables/logistic_high_b3_all_both_ang.qs", "B3high")
+)
+
+full_table <- bind_cols(cols)
+colnames(full_table) <- rep(c("B1", "B2", "B3"), times = 3)
+
+kbl(full_table, format = 'latex', booktabs = TRUE, escape = FALSE, linesep = "", align = rep("c", 9)) |>
+  add_header_above(c("Low" = 3, "Mid" = 3, "High" = 3), bold = TRUE, line = TRUE) |>
+  kable_styling(latex_options = c("hold_position"), position = "center")
+```

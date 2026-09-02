@@ -1,8 +1,10 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Variant of run_all_mcmc.sh for the asymptotically-independent (AI) well-classified (wc)
+# scenarios (gauss and inv_log dep_types, high_wc level). Same chained pipeline.
+# Usage: bash run_all_mcmc_AI_wc.sh [optional extra sbatch flags]
 #
+
 level="high_wc"
 for dep_type in "gauss" "inv_log"; do
   
@@ -96,9 +98,9 @@ for dep_type in "gauss" "inv_log"; do
     
     for likelihood in "trunc" "cens"; do
       
-      export dep_type level likelihoood dens
+      export dep_type level likelihood dens
       sbatch --dependency=afterok:${loglik_dependency_list} \
-             --job-name ${dens}_${dep_type}_${level}_wts \
+             --job-name ${dens}_${dep_type}_${level}_${likelihood}_wts \
              --output="./shell_scripts/console_output/%x_%j.txt" \
              shell_scripts/call_joint_model_wts_extract.sh
       sleep 1

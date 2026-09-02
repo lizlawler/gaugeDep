@@ -1,14 +1,19 @@
 #!/bin/bash
+#
+# SLURM job: compute pointwise log-likelihood for the star angular model (sim study).
+# Calls: samplers/rcpp/ang_star_loglik_calc.R
+# Env vars in: dep_type, level, gauge
+#
 
 #SBATCH --partition=amilan
-#SBATCH --account=csu-general
-#SBATCH --chdir=/scratch/alpine/eslawler@colostate.edu/gaugeDep/
+#SBATCH --account=YOUR_HPC_ACCOUNT
+#SBATCH --chdir=/path/to/your/project/gaugeDep/
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=00:30:00
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=eslawler@colostate.edu
+#SBATCH --mail-user=YOUR_EMAIL@INSTITUTION.EDU
 
 export TMPDIR=/scratch/alpine/$USER/tmp/
 export TMP=${TMPDIR}

@@ -1,8 +1,9 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Submits Campbell-Wadsworth fit-and-predict jobs (competitor method) across all
+# sim-study scenarios, in batches of 40 datasets.
 #
+
 for dep_type in "gauss" "logistic" "husler_reiss"; do
   for level in "low" "mid" "high"; do
     for batch in {0..4}; do

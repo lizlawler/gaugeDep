@@ -1,8 +1,8 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Submits star angular pointwise log-likelihood jobs across all sim-study scenarios and gauges.
 #
+
 for dep_type in "gauss" "logistic"; do
 
   for level in "low" "mid" "high"; do

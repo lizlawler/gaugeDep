@@ -1,8 +1,9 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Submits angular mixture (NIMBLE) MCMC jobs across all sim-study scenarios,
+# looping over dep_type, level, and dataset batches. Standalone (no dependency chaining).
 #
+
 for dep_type in "gauss" "logistic"; do
   for level in "low" "mid" "high"; do
     for batch in {0..19}; do

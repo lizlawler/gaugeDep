@@ -1,14 +1,19 @@
 #!/bin/bash
+#
+# SLURM job: compute joint-model BMA weights (stacking / pseudo-BMA) via loo (sim study).
+# Calls: extraction_scripts/extract_weights_joint.R
+# Env vars in: dep_type, level, likelihood, dens
+#
 
 #SBATCH --partition=amilan
-#SBATCH --account=csu-general
-#SBATCH --chdir=/scratch/alpine/eslawler@colostate.edu/gaugeDep/
+#SBATCH --account=YOUR_HPC_ACCOUNT
+#SBATCH --chdir=/path/to/your/project/gaugeDep/
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=3
 #SBATCH --time=03:00:00
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=eslawler@colostate.edu
+#SBATCH --mail-user=YOUR_EMAIL@INSTITUTION.EDU
 
 export TMPDIR=/scratch/alpine/$USER/tmp/
 export TMP=${TMPDIR}

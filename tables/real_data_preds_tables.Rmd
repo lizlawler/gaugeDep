@@ -1,0 +1,108 @@
+---
+title: "Real Data Prediction Tables"
+author: "Liz Lawler"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document: 
+    keep_tex: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(kableExtra)
+library(tidyverse)
+library(qs)
+```
+
+```{r helper, include=FALSE}
+# make_preds_table()
+# -----------------------------------------------------------------------------
+# Builds a LaTeX summary table of real-data exceedance probability predictions
+# for a single fire weather station, across all three prediction boxes (b1, b2,
+# b3). For each box / likelihood / angular density / BMA method combination, it
+# reports the posterior median and 95% credible interval (computed across all
+# posterior iterations), scaled by 10^5.
+#
+# Reads the all-iteration prediction files produced by
+# data_analyses/imp_samp_real_data_all_iter.R:
+#   real_data_preds/{location}_b{1,2,3}_all_iter.qs
+#
+# Args:
+#   location      - "friendmtn" or "redstone"
+#   censored_only - logical. If TRUE, filter to censored-likelihood results only
+#                   and drop the likelihood column (the format used for the
+#                   defense presentation). If FALSE (default), show both
+#                   truncated and censored results (the format used in the
+#                   manuscript).
+#
+# Returns: a kableExtra LaTeX table object.
+make_preds_table <- function(location, censored_only = FALSE) {
+  # Load and stack the three prediction boxes
+  all_boxes <- map_dfr(c("b1", "b2", "b3"), function(b) {
+    qread(sprintf("../real_data_preds/%s_%s_all_iter.qs", location, b)) |>
+      mutate(box = b)
+  })
+
+  # For the censored-only (presentation) format, drop truncated results
+  if (censored_only) {
+    all_boxes <- all_boxes |> filter(!grepl("trunc", ang_dens))
+  }
+
+  # Summarise to posterior median and 95% CI per box/method/angular density,
+  # scaled by 10^5 and formatted to 3 significant figures
+  summary_tbl <- all_boxes |>
+    group_by(ang_dens, method, box) |>
+    summarize(lb  = quantile(preds, 0.025),
+              ub  = quantile(preds, 0.975),
+              med = median(preds),
+              .groups = "drop") |>
+    mutate(mult_factor = 10^5,
+           ci95 = sprintf("(%s, %s)",
+                          formatC(signif(lb * mult_factor, 3), format = "fg", digits = 3, flag = "#"),
+                          formatC(signif(ub * mult_factor, 3), format = "fg", digits = 3, flag = "#")),
+           med   = formatC(signif(med * mult_factor, 3), format = "fg", digits = 3, flag = "#"),
+           medci = sprintf("%s %s", med, ci95)) |>
+    select(box, ang_dens, method, medci) |>
+    rename(angdens = ang_dens) |>
+    arrange(box) |>
+    pivot_wider(names_from = method, values_from = medci) |>
+    separate_wider_delim(angdens, names = c("likelihood", "dens"), delim = ", ")
+
+  if (censored_only) {
+    # Censored-only format: drop the (now constant) likelihood column,
+    # 5-column table collapsing rows on the dens column only
+    summary_tbl |>
+      select(-likelihood) |>
+      kbl(format = "latex", align = c("l", "c", "c", "c", "c"),
+          booktabs = TRUE, escape = FALSE) |>
+      collapse_rows(columns = 1, latex_hline = "major", valign = "middle")
+  } else {
+    # Manuscript format: keep both likelihoods, 6-column table collapsing
+    # rows on both the likelihood and dens columns
+    summary_tbl |>
+      kbl(format = "latex", align = c("l", "l", "c", "c", "c", "c"),
+          booktabs = TRUE, escape = FALSE) |>
+      collapse_rows(columns = 1:2, latex_hline = "major", valign = "middle")
+  }
+}
+```
+
+## Friend Mountain (manuscript: both likelihoods)
+
+```{r friendmtn, echo=FALSE, message=FALSE, warning=FALSE}
+make_preds_table("friendmtn", censored_only = FALSE)
+```
+
+## Redstone (manuscript: both likelihoods)
+
+```{r redstone, echo=FALSE, message=FALSE, warning=FALSE}
+make_preds_table("redstone", censored_only = FALSE)
+```
+
+<!--
+Defense-presentation format (censored likelihood only). Set eval=TRUE to render.
+
+```{r redstone-cens-only, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+make_preds_table("redstone", censored_only = TRUE)
+```
+-->

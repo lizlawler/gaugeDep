@@ -1,8 +1,9 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Submits posterior parameter extraction jobs (angular mixture, star, radial)
+# across all sim-study scenarios. Run after the corresponding MCMC jobs complete.
 #
+
 for dep_type in "gauss" "logistic"; do
 
   for level in "low" "mid" "high"; do

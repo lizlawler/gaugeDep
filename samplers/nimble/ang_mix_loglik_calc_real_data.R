@@ -1,40 +1,40 @@
+# =============================================================================
+# Computes the posterior pointwise log-likelihood for the angular mixture
+# (Dirichlet process mixture of Betas) model on real fire weather data.
+# Output is used downstream for stacking weight computation via the `loo`
+# package.
+#
+# Called by: shell_scripts/local_machine/run_angular.sh (or similar)
+# Inputs:    data/raw/{data_type}_expo.qs
+#            samplers/nimble/ang_mix_mcmc_fits/real_data/{data_type}_2chains.qs
+# Outputs:   samplers/nimble/ang_mix_mcmc_fits/real_data/pw_loglik/{data_type}.qs
+#
+# Command-line args:
+#   1. data_type -- station identifier (e.g., "friendmtn", "redstone")
+#
+# Note: to run interactively for a single station, set data_type manually
+#       (e.g., data_type <- "friendmtn") rather than via command-line args.
+# =============================================================================
+
+args <- commandArgs(trailingOnly = TRUE)
+data_type <- args[1]
+
 library(nimble)
 library(tidyr)
 library(dplyr)
 library(qs)
 
-data_type <- "redstone"
+# Shared helper functions (mix_lpdf, angular_loglik)
+source("samplers/nimble/angular_mix_helpers.R")
 
-mix_lpdf <- function(w, wts, alpha, beta) {
-  n <- length(wts)
-  dens <- 0.0
-  for(i in 1:n) {
-    dens <- dens + wts[i] * dbeta(w, alpha[i], beta[i])
-  }
-  return(dens)
-}
+data   <- qread(sprintf("data/raw/%s_expo.qs", data_type))
+params <- qread(sprintf("samplers/nimble/ang_mix_mcmc_fits/real_data/%s_2chains.qs", data_type))
+w      <- data$W
 
-angular_loglik <- function(angles, posterior_params) {
-  probs <- posterior_params[,grepl(pattern = "probs\\[", colnames(posterior_params))]
-  alpha <- posterior_params[,grepl(pattern = "alphastar\\[", colnames(posterior_params))]
-  beta <- posterior_params[,grepl(pattern = "betastar\\[", colnames(posterior_params))]
-  
-  n_iter <- nrow(probs)
-  n_obs <- length(angles)
-  
-  pw_loglik <- matrix(NA, nrow = n_iter, ncol = n_obs)
-  for(i in 1:n_iter) {
-    pw_loglik[i, ] <- mix_lpdf(angles, probs[i,], alpha[i,], beta[i,])
-  }
-  return(pw_loglik) 
-}
+# Compute (n_iter x n_obs) matrix of pointwise log-likelihoods
+results <- angular_loglik(angles = w, posterior_params = params)
 
-data <- qread(sprintf("data/%s_expo.qs", data_type))
-params <- qread(sprintf("samplers/nimble/ang_mix_mcmc_fits/real_data/%s.qs", data_type))
-w <- data$W
-
-results <- angular_loglik(angles = w, 
-                          posterior_params = params)
-
-qsave(x = results, file = sprintf("samplers/nimble/ang_mix_mcmc_fits/real_data/pw_loglik/%s.qs", data_type))
-print(sprintf("Successfully saved posterior pointwise loglikelihood for angular mixture density of %s", data_type))
+qsave(x = results,
+      file = sprintf("samplers/nimble/ang_mix_mcmc_fits/real_data/pw_loglik/%s.qs", data_type))
+print(sprintf("Successfully saved posterior pointwise loglikelihood for angular mixture density of %s",
+              data_type))

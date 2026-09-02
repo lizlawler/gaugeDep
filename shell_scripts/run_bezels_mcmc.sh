@@ -1,8 +1,8 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Submits BezELS radial MCMC jobs (competitor method) across all sim-study scenarios.
 #
+
 for dep_type in "gauss" "logistic" "husler_reiss"; do
 
 	# Set level options based on dep_type

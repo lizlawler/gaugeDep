@@ -1,3 +1,13 @@
+# =============================================================================
+# Modified version of the sim.2d.joint simulation function from the
+# PWLExtremes package (Campbell & Wadsworth, 2023). Extends the original to
+# support importance-weighted sampling (k > 1) for targeting prediction boxes
+# above the fitted threshold, returning both simulated points and importance
+# weights for probability estimation.
+#
+# Sourced by: samplers/campbell_wadsworth/d2fitting.R
+# =============================================================================
+
 sim.2d.joint.mod <- function(nsim, k.vals = 1, gfun, shape = 2, par, fW.par, par.locs, 
                              r, w, tau = 0.95, bww = 0.05, bwr = 0.05, marg = "pos") {
   if (marg == "Rd") {
@@ -13,6 +23,7 @@ sim.2d.joint.mod <- function(nsim, k.vals = 1, gfun, shape = 2, par, fW.par, par
                  log = T))
     }
   }
+  # Fit a Beta to the angles, then draw angular samples from the gauge density.
   beta.mle = optim(par = rep(1, 2), fn = beta.nll)$par
   nthin = 2
   wstar = fW.mcmc.g.2d(niter = (nthin * nsim) + 1000, nburn = 1000, 
@@ -21,6 +32,7 @@ sim.2d.joint.mod <- function(nsim, k.vals = 1, gfun, shape = 2, par, fW.par, par
   if (marg == "Rd") {
     wstar = wstar * 4 - 2
   }
+  # Solve for the radial threshold r0(w) at each sampled angle (KDE-smoothed CCDF).
   r.tau.wstar = sapply(wstar, function(wstar.i) {
     weightsw <- dnorm(w, mean = as.numeric(wstar.i), sd = bww)
     ccdf <- function(rc) {
@@ -32,6 +44,7 @@ sim.2d.joint.mod <- function(nsim, k.vals = 1, gfun, shape = 2, par, fW.par, par
     ur <- uniroot(dummy, interval = c(0, 30))
     return(ur$root)
   })
+  # Draw radii above the (k-scaled) threshold; k > 1 adds importance weights.
   sims = lapply(k.vals, function(k) {
     if (k == 1) {
       rate <- sapply(wstar, gfun, par = par)

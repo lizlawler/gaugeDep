@@ -1,8 +1,10 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Submits joint-model BMA weight extraction jobs across all sim-study scenarios,
+# both likelihoods, and both angular densities (star, mix). Run after all loglik
+# jobs have completed.
 #
+
 for dep_type in "gauss" "logistic" "husler_reiss"; do
 
 	# Set level options based on dep_type

@@ -1,8 +1,10 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Variant of run_all_mcmc.sh for the Husler-Reiss dependence structure (low/mid/high).
+# Same chained pipeline structure as run_all_mcmc.sh.
+# Usage: bash run_all_mcmc_hr.sh [optional extra sbatch flags]
 #
+
 dep_type="husler_reiss"
 for level in "low" "mid" "high"; do
   

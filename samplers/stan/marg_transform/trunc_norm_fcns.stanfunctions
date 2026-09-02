@@ -1,0 +1,10 @@
+  // custom distribution functions for Half-Normal distribution
+  real trunc_norm_lpdf(real y, real ymin, real ymax, real mu, real sigma) {
+    if(y < ymin || y > ymax) {
+      return negative_infinity();
+    } else {
+      real lpdf = -log(sigma) + normal_lpdf(y | mu, sigma);
+      real cst = log_sum_exp(normal_lcdf(ymax | mu, sigma), -normal_lcdf(ymin | mu, sigma));
+      return lpdf - cst;
+    }
+  }

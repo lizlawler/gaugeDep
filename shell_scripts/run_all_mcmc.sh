@@ -1,8 +1,13 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Master orchestration: submits the full sim-study MCMC pipeline for the Gaussian and
+# logistic dependence structures. For each dep_type/level, submits angular mixture,
+# angular star, and radial (trunc+cens) MCMC jobs across all 6 gauges, with chained
+# SLURM dependencies so loglik and parameter-extraction jobs run after sampling, and
+# joint-model weight extraction runs once all loglik jobs finish.
+# Usage: bash run_all_mcmc.sh [optional extra sbatch flags]
 #
+
 for dep_type in "gauss" "logistic"; do
 
 	# Set level options based on dep_type

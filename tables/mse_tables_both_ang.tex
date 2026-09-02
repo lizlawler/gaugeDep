@@ -1,0 +1,149 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{amssymb}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={mse\_table},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{mse\_table}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{table}[!h]
+\centering
+\begin{tabular}[t]{ccccccccc}
+\toprule
+\multicolumn{3}{c}{\textbf{Low}} & \multicolumn{3}{c}{\textbf{Mid}} & \multicolumn{3}{c}{\textbf{High}} \\
+\cmidrule(l{3pt}r{3pt}){1-3} \cmidrule(l{3pt}r{3pt}){4-6} \cmidrule(l{3pt}r{3pt}){7-9}
+B1 & B2 & B3 & B1 & B2 & B3 & B1 & B2 & B3\\
+\midrule
+\cellcolor[HTML]{2297E6}$\star\,\textit{1.110}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.558}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{0.220}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.646}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.315}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.151}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{0.187}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.185}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.668}$\\
+\cellcolor[HTML]{DF536B}$\star\,\textit{1.112}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.559}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{0.225}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.647}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.337}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.151}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.190}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.185}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.668}$\\
+\cellcolor[HTML]{FFFFFF}$4.830$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.607}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.229}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{1.079}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.337}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.189}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.190}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.188}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.679}$\\
+\cellcolor[HTML]{2297E6}$\star\,\textbf{10.924}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.611}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.233}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{1.080}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.354}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.191}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.194}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.188}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.688}$\\
+\cellcolor[HTML]{DF536B}$\star\,\textbf{11.056}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.674}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.238}$ & \cellcolor[HTML]{FFFFFF}$1.201$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.354}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.191}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.199}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.203}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.800}$\\
+\cellcolor[HTML]{DF536B}$\circledast\,\textit{12.888}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.675}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.239}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{1.330}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{0.363}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.194}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.203}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.203}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.840}$\\
+\cellcolor[HTML]{DF536B}$\bigcirc\,\textit{13.253}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{1.729}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.239}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{1.330}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.393}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.196}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.204}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.209}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{3.333}$\\
+\cellcolor[HTML]{2297E6}$\bigcirc\,\textit{16.663}$ & \cellcolor[HTML]{FFFFFF}$2.536$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.239}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{1.885}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.393}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{0.213}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{0.206}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{0.224}$ & \cellcolor[HTML]{FFFFFF}$12.863$\\
+\cellcolor[HTML]{2297E6}$\circledast\,\textit{17.294}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{3.448}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.249}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{2.306}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{0.413}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{0.241}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.207}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{0.267}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{41.923}$\\
+\cellcolor[HTML]{F5C710}$\bigcirc\,\textit{46.497}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{3.458}$ & \cellcolor[HTML]{FFFFFF}$0.827$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{2.327}$ & \cellcolor[HTML]{FFFFFF}$0.658$ & \cellcolor[HTML]{FFFFFF}$0.466$ & \cellcolor[HTML]{FFFFFF}$0.684$ & \cellcolor[HTML]{FFFFFF}$0.624$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{78.495}$\\
+\cellcolor[HTML]{F5C710}$\star\,\textbf{77.498}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{4.459}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{0.867}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{3.665}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{1.347}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{0.866}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.454$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{1.434}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,141.723$\\
+\cellcolor[HTML]{F5C710}$\circledast\,\textit{138.477}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{6.893}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{0.867}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{4.424}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{1.347}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{0.904}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{1.897}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{1.488}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{249.855}$\\
+\cellcolor[HTML]{F5C710}$\star\,\textit{336.152}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{11.292}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{0.871}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{4.795}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{1.394}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{0.906}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{1.973}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{1.597}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{252.395}$\\
+\cellcolor[HTML]{FFFFFF}$\bigcirc\,414.870$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{12.725}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{0.906}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,8.841$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{1.561}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{0.978}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{2.078}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{1.597}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{296.203}$\\
+\cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{511.159}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{12.981}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{0.912}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{12.164}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{1.577}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{1.015}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{2.534}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{1.598}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{325.473}$\\
+\cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{538.582}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{14.384}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{1.054}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{12.513}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{1.583}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.106$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{2.535}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.617$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{326.152}$\\
+\cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{777.740}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,18.873$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.579$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{12.655}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.721$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{1.221}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{2.542}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{1.661}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{326.195}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}[t]{ccccccccc}
+\toprule
+\multicolumn{3}{c}{\textbf{Low}} & \multicolumn{3}{c}{\textbf{Mid}} & \multicolumn{3}{c}{\textbf{High}} \\
+\cmidrule(l{3pt}r{3pt}){1-3} \cmidrule(l{3pt}r{3pt}){4-6} \cmidrule(l{3pt}r{3pt}){7-9}
+B1 & B2 & B3 & B1 & B2 & B3 & B1 & B2 & B3\\
+\midrule
+\cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.467}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{0.399}$ & \cellcolor[HTML]{FFFFFF}$0.810$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.193}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.339}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.810}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.179}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{38.069}$ & --\\
+\cellcolor[HTML]{F5C710}$\circledast\,\textit{0.488}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{0.451}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{1.010}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.196}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.345}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.824}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.180}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{41.279}$ & --\\
+\cellcolor[HTML]{F5C710}$\star\,\textit{0.524}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.485}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{1.098}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.206}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.420}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.831}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.187}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{51.554}$ & --\\
+\cellcolor[HTML]{FFFFFF}$0.635$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.503}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{1.127}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.208}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.425}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.839}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.189}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{56.271}$ & --\\
+\cellcolor[HTML]{2297E6}$\bigcirc\,\textit{0.695}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{0.504}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{1.213}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.285}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{1.082}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{1.564}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{0.197}$ & \cellcolor[HTML]{2297E6}$\circledast\,\textit{69.413}$ & --\\
+\cellcolor[HTML]{2297E6}$\circledast\,\textit{0.695}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.541}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{1.241}$ & \cellcolor[HTML]{FFFFFF}$0.376$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{1.919}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{3.537}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{0.310}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textit{87.881}$ & --\\
+\cellcolor[HTML]{F5C710}$\star\,\textbf{0.771}$ & \cellcolor[HTML]{DF536B}$\circledast\,\textit{0.542}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textit{1.241}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{0.437}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{1.981}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{3.711}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{0.423}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{4.303e+04}$ & --\\
+\cellcolor[HTML]{DF536B}$\star\,\textbf{0.777}$ & \cellcolor[HTML]{FFFFFF}$0.550$ & \cellcolor[HTML]{F5C710}$\star\,\textit{1.306}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.560}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{2.041}$ & \cellcolor[HTML]{FFFFFF}$5.682$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.492}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textit{1.207e+05}$ & --\\
+\cellcolor[HTML]{2297E6}$\star\,\textbf{0.781}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{0.708}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{1.484}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{0.595}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{2.209}$ & \cellcolor[HTML]{F5C710}$\star\,\textit{11.044}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.522}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{1.076e+06}$ & --\\
+\cellcolor[HTML]{DF536B}$\bigcirc\,\textit{0.875}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.723}$ & \cellcolor[HTML]{2297E6}$\star\,\textit{1.561}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{0.623}$ & \cellcolor[HTML]{FFFFFF}$2.302$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{16.293}$ & \cellcolor[HTML]{FFFFFF}$0.530$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{1.627e+06}$ & --\\
+\cellcolor[HTML]{DF536B}$\circledast\,\textit{0.877}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{0.724}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{1.577}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.006$ & \cellcolor[HTML]{2297E6}$\star\,\textit{2.877}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{16.579}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,0.660$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{2.356e+06}$ & --\\
+\cellcolor[HTML]{2297E6}$\star\,\textit{0.961}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{0.725}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{1.617}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{1.432}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{2.966}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{16.831}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{0.750}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{3.127e+06}$ & --\\
+\cellcolor[HTML]{DF536B}$\star\,\textit{0.966}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{0.738}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{1.659}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{1.485}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{3.189}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{17.068}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{0.779}$ & \cellcolor[HTML]{F5C710}$\circledast\,\textit{4.968e+06}$ & --\\
+\cellcolor[HTML]{FFFFFF}$\bigcirc\,2.092$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{1.249}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{1.783}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{1.639}$ & \cellcolor[HTML]{DF536B}$\star\,\textit{3.250}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{27.024}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{0.809}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{5.292e+06}$ & --\\
+\cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{2.237}$ & \cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{1.315}$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{1.849}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{2.113}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{3.539}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{28.379}$ & \cellcolor[HTML]{F5C710}$\star\,\textbf{0.973}$ & \cellcolor[HTML]{2297E6}$\bigcirc\,\textbf{7.768e+06}$ & --\\
+\cellcolor[HTML]{DF536B}$\bigcirc\,\textbf{2.439}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{1.328}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{1.905}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{2.173}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{3.755}$ & \cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{28.885}$ & \cellcolor[HTML]{2297E6}$\star\,\textbf{1.017}$ & \cellcolor[HTML]{FFFFFF}$1.922e+07$ & --\\
+\cellcolor[HTML]{F5C710}$\bigcirc\,\textbf{2.652}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.996$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.955$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{2.221}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,4.034$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,30.066$ & \cellcolor[HTML]{DF536B}$\star\,\textbf{1.033}$ & \cellcolor[HTML]{FFFFFF}$\bigcirc\,1.975e+07$ & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

@@ -1,14 +1,19 @@
 #!/bin/bash
+#
+# SLURM job: fit Campbell-Wadsworth model + predictions over a batch of 40 datasets (competitor).
+# Calls: samplers/campbell_wadsworth/d2fitting.R
+# Env vars in: dep_type, level, batch (start/end dataset index derived from batch)
+#
 
 #SBATCH --partition=amilan
-#SBATCH --account=csu-general
-#SBATCH --chdir=/scratch/alpine/eslawler@colostate.edu/gaugeDep/
+#SBATCH --account=YOUR_HPC_ACCOUNT
+#SBATCH --chdir=/path/to/your/project/gaugeDep/
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --time=12:00:00
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=eslawler@colostate.edu
+#SBATCH --mail-user=YOUR_EMAIL@INSTITUTION.EDU
 
 export TMPDIR=/scratch/alpine/$USER/tmp/
 export TMP=${TMPDIR}

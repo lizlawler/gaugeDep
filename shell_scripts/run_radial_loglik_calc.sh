@@ -1,8 +1,9 @@
 #!/bin/bash
-# shell script to call sbatch
 #
-# cycle through loop and launch sbatch for every combination
+# Submits radial pointwise log-likelihood jobs across all sim-study scenarios,
+# gauges, and both likelihoods.
 #
+
 for dep_type in "gauss" "logistic"; do
 
   for level in "low" "mid" "high"; do

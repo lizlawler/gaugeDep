@@ -4,21 +4,16 @@ namespace fire_transform_g1_model_namespace {
 using stan::model::model_base_crtp;
 using namespace stan::math;
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 148> locations_array__ =
+static constexpr std::array<const char*, 142> locations_array__ =
   {" (found before start of program)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 14, column 2 to column 21)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 15, column 2 to column 24)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 16, column 2 to column 24)",
+  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 16, column 2 to column 27)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 20, column 2 to column 51)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 21, column 2 to column 46)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 22, column 2 to column 27)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 25, column 2 to column 43)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 26, column 2 to column 43)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 28, column 2 to column 49)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 29, column 2 to column 49)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 33, column 2 to column 37)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 34, column 2 to column 40)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 35, column 2 to column 40)",
+  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 35, column 2 to column 36)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 38, column 4 to column 60)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 39, column 4 to column 60)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 37, column 16 to line 40, column 3)",
@@ -31,10 +26,9 @@ static constexpr std::array<const char*, 148> locations_array__ =
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 10, column 2 to column 25)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 14, column 9 to column 10)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 15, column 9 to column 10)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 16, column 9 to column 10)",
+  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 16, column 18 to column 19)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 20, column 19 to column 20)",
   " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 21, column 18 to column 19)",
-  " (in 'samplers/stan/marg_transform/fire_transform_g1.stan', line 22, column 18 to column 19)",
   " (in 'samplers/stan/marg_transform/gpd_fcns.stanfunctions', line 3, column 4, included from\n'samplers/stan/marg_transform/fire_transform_g1.stan', line 2, column 2)",
   " (in 'samplers/stan/marg_transform/gpd_fcns.stanfunctions', line 14, column 6, included from\n'samplers/stan/marg_transform/fire_transform_g1.stan', line 2, column 2)",
   " (in 'samplers/stan/marg_transform/gpd_fcns.stanfunctions', line 13, column 9, included from\n'samplers/stan/marg_transform/fire_transform_g1.stan', line 2, column 2)",
@@ -331,13 +325,13 @@ gpareto_lpdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ inv_xi = DUMMY_VAR__;
-    current_statement__ = 30;
+    current_statement__ = 24;
     inv_xi = stan::math::inv(xi);
-    current_statement__ = 41;
+    current_statement__ = 35;
     if ((stan::math::primitive_value(stan::math::logical_lt(xi, 0)) &&
         stan::math::primitive_value(
           stan::math::logical_gt((y / sigma), -(inv_xi))))) {
-      current_statement__ = 39;
+      current_statement__ = 33;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "xi<0 and y/sigma > -1/xi; found -1/xi = ");
@@ -346,21 +340,21 @@ gpareto_lpdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
       stan::math::stan_print(&errmsg_stream__, (y / sigma));
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 38;
+      current_statement__ = 32;
       if (stan::math::logical_lt(sigma, 1e-15)) {
-        current_statement__ = 36;
+        current_statement__ = 30;
         std::stringstream errmsg_stream__;
         stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma = ");
         stan::math::stan_print(&errmsg_stream__, sigma);
         throw std::domain_error(errmsg_stream__.str());
       } else {
-        current_statement__ = 35;
+        current_statement__ = 29;
         if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-          current_statement__ = 33;
+          current_statement__ = 27;
           return ((-((1 + inv_xi)) * stan::math::log1p((xi * (y / sigma)))) -
                  stan::math::log(sigma));
         } else {
-          current_statement__ = 31;
+          current_statement__ = 25;
           return (-(stan::math::log(sigma)) - (y / sigma));
         }
       }
@@ -392,13 +386,13 @@ gpareto_cdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ inv_xi = DUMMY_VAR__;
-    current_statement__ = 43;
+    current_statement__ = 37;
     inv_xi = stan::math::inv(xi);
-    current_statement__ = 54;
+    current_statement__ = 48;
     if ((stan::math::primitive_value(stan::math::logical_lt(xi, 0)) &&
         stan::math::primitive_value(
           stan::math::logical_gt((y / sigma), -(inv_xi))))) {
-      current_statement__ = 52;
+      current_statement__ = 46;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "xi<0 and y/sigma > -1/xi; found -1/xi = ");
@@ -407,22 +401,22 @@ gpareto_cdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
       stan::math::stan_print(&errmsg_stream__, (y / sigma));
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 51;
+      current_statement__ = 45;
       if (stan::math::logical_lt(sigma, 1e-15)) {
-        current_statement__ = 49;
+        current_statement__ = 43;
         std::stringstream errmsg_stream__;
         stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma = ");
         stan::math::stan_print(&errmsg_stream__, sigma);
         throw std::domain_error(errmsg_stream__.str());
       } else {
-        current_statement__ = 48;
+        current_statement__ = 42;
         if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-          current_statement__ = 46;
+          current_statement__ = 40;
           return stan::math::exp(
                    stan::math::log1m_exp((-(inv_xi) *
                      stan::math::log1p((xi * (y / sigma))))));
         } else {
-          current_statement__ = 44;
+          current_statement__ = 38;
           return stan::math::exp(stan::math::log1m_exp((-(y) / sigma)));
         }
       }
@@ -454,13 +448,13 @@ gpareto_lcdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ inv_xi = DUMMY_VAR__;
-    current_statement__ = 56;
+    current_statement__ = 50;
     inv_xi = stan::math::inv(xi);
-    current_statement__ = 67;
+    current_statement__ = 61;
     if ((stan::math::primitive_value(stan::math::logical_lt(xi, 0)) &&
         stan::math::primitive_value(
           stan::math::logical_gt((y / sigma), -(inv_xi))))) {
-      current_statement__ = 65;
+      current_statement__ = 59;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "xi<0 and y/sigma > -1/xi; found -1/xi = ");
@@ -469,21 +463,21 @@ gpareto_lcdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
       stan::math::stan_print(&errmsg_stream__, (y / sigma));
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 64;
+      current_statement__ = 58;
       if (stan::math::logical_lt(sigma, 1e-15)) {
-        current_statement__ = 62;
+        current_statement__ = 56;
         std::stringstream errmsg_stream__;
         stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma = ");
         stan::math::stan_print(&errmsg_stream__, sigma);
         throw std::domain_error(errmsg_stream__.str());
       } else {
-        current_statement__ = 61;
+        current_statement__ = 55;
         if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-          current_statement__ = 59;
+          current_statement__ = 53;
           return stan::math::log1m_exp((-(inv_xi) *
                    stan::math::log1p((xi * (y / sigma)))));
         } else {
-          current_statement__ = 57;
+          current_statement__ = 51;
           return stan::math::log1m_exp((-(y) / sigma));
         }
       }
@@ -515,13 +509,13 @@ gpareto_lccdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ inv_xi = DUMMY_VAR__;
-    current_statement__ = 69;
+    current_statement__ = 63;
     inv_xi = stan::math::inv(xi);
-    current_statement__ = 80;
+    current_statement__ = 74;
     if ((stan::math::primitive_value(stan::math::logical_lt(xi, 0)) &&
         stan::math::primitive_value(
           stan::math::logical_gt((y / sigma), -(inv_xi))))) {
-      current_statement__ = 78;
+      current_statement__ = 72;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__,
         "xi<0 and y/sigma > -1/xi; found -1/xi = ");
@@ -530,20 +524,20 @@ gpareto_lccdf(const T0__& y, const T1__& sigma, const T2__& xi, std::ostream*
       stan::math::stan_print(&errmsg_stream__, (y / sigma));
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 77;
+      current_statement__ = 71;
       if (stan::math::logical_lt(sigma, 1e-15)) {
-        current_statement__ = 75;
+        current_statement__ = 69;
         std::stringstream errmsg_stream__;
         stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma = ");
         stan::math::stan_print(&errmsg_stream__, sigma);
         throw std::domain_error(errmsg_stream__.str());
       } else {
-        current_statement__ = 74;
+        current_statement__ = 68;
         if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-          current_statement__ = 72;
+          current_statement__ = 66;
           return (-(inv_xi) * stan::math::log1p((xi * (y / sigma))));
         } else {
-          current_statement__ = 70;
+          current_statement__ = 64;
           return (-(y) / sigma);
         }
       }
@@ -574,23 +568,23 @@ gpareto_icdf(const T0__& p, const T1__& sigma, const T2__& xi, std::ostream*
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 86;
+    current_statement__ = 80;
     if (stan::math::logical_lt(sigma, 1e-15)) {
-      current_statement__ = 85;
+      current_statement__ = 79;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "sigma<=0; found sigma =");
       stan::math::stan_print(&errmsg_stream__, sigma);
       throw std::domain_error(errmsg_stream__.str());
     } else {
-      current_statement__ = 84;
+      current_statement__ = 78;
       if (stan::math::logical_gt(stan::math::abs(xi), 1e-15)) {
-        current_statement__ = 83;
+        current_statement__ = 77;
         return stan::math::exp(
                  ((stan::math::log(
                      (stan::math::exp((-(xi) * stan::math::log1m(p))) - 1)) +
                  stan::math::log(sigma)) - stan::math::log(xi)));
       } else {
-        current_statement__ = 82;
+        current_statement__ = 76;
         return (-(sigma) * stan::math::log1m(p));
       }
     }
@@ -620,14 +614,14 @@ egpd_lpdf(const T0__& y, const T1__& sigma, const T2__& xi, const T3__&
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 92;
+    current_statement__ = 86;
     if (stan::math::logical_gt(kappa, 1e-15)) {
-      current_statement__ = 90;
+      current_statement__ = 84;
       return ((stan::math::log(kappa) + ((kappa - 1) *
              gpareto_lcdf(y, sigma, xi, pstream__))) +
              gpareto_lpdf<false>(y, sigma, xi, pstream__));
     } else {
-      current_statement__ = 88;
+      current_statement__ = 82;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -661,12 +655,12 @@ egpd_cdf(const T0__& y, const T1__& sigma, const T2__& xi, const T3__& kappa,
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 98;
+    current_statement__ = 92;
     if (stan::math::logical_gt(kappa, 1e-15)) {
-      current_statement__ = 96;
+      current_statement__ = 90;
       return stan::math::exp((kappa * gpareto_lcdf(y, sigma, xi, pstream__)));
     } else {
-      current_statement__ = 94;
+      current_statement__ = 88;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -700,12 +694,12 @@ egpd_lcdf(const T0__& y, const T1__& sigma, const T2__& xi, const T3__&
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 104;
+    current_statement__ = 98;
     if (stan::math::logical_gt(kappa, 1e-15)) {
-      current_statement__ = 102;
+      current_statement__ = 96;
       return (kappa * gpareto_lcdf(y, sigma, xi, pstream__));
     } else {
-      current_statement__ = 100;
+      current_statement__ = 94;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -739,13 +733,13 @@ egpd_lccdf(const T0__& y, const T1__& sigma, const T2__& xi, const T3__&
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 110;
+    current_statement__ = 104;
     if (stan::math::logical_gt(kappa, 1e-15)) {
-      current_statement__ = 108;
+      current_statement__ = 102;
       return stan::math::log1m_exp((kappa *
                gpareto_lcdf(y, sigma, xi, pstream__)));
     } else {
-      current_statement__ = 106;
+      current_statement__ = 100;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -779,16 +773,16 @@ egpd_icdf(const T0__& u_adj, const T1__& sigma, const T2__& xi, const T3__&
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 117;
+    current_statement__ = 111;
     if (stan::math::logical_gt(kappa, 1e-15)) {
       local_scalar_t__ p = DUMMY_VAR__;
-      current_statement__ = 114;
+      current_statement__ = 108;
       p = stan::math::exp((stan::math::exp(-(stan::math::log(kappa))) *
             stan::math::log(u_adj)));
-      current_statement__ = 115;
+      current_statement__ = 109;
       return gpareto_icdf(p, sigma, xi, pstream__);
     } else {
-      current_statement__ = 112;
+      current_statement__ = 106;
       std::stringstream errmsg_stream__;
       stan::math::stan_print(&errmsg_stream__, "kappa<=0; found kappa = ");
       stan::math::stan_print(&errmsg_stream__, kappa);
@@ -825,45 +819,45 @@ egpd_rng(const T0__& n, const T1__& ymin, const T2__& sigma, const T3__& xi,
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ cst = DUMMY_VAR__;
-    current_statement__ = 119;
+    current_statement__ = 113;
     cst = egpd_cdf(ymin, sigma, xi, kappa, pstream__);
-    current_statement__ = 120;
+    current_statement__ = 114;
     stan::math::validate_non_negative_index("rng_val", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> rng_val =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 122;
+    current_statement__ = 116;
     stan::math::validate_non_negative_index("alpha", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> alpha =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 123;
+    current_statement__ = 117;
     stan::model::assign(alpha, stan::math::rep_vector(0, n),
       "assigning variable alpha");
-    current_statement__ = 124;
+    current_statement__ = 118;
     stan::math::validate_non_negative_index("beta", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> beta =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 125;
+    current_statement__ = 119;
     stan::model::assign(beta, stan::math::rep_vector(1, n),
       "assigning variable beta");
-    current_statement__ = 126;
+    current_statement__ = 120;
     stan::math::validate_non_negative_index("u", "n", n);
     std::vector<local_scalar_t__> u =
       std::vector<local_scalar_t__>(n, DUMMY_VAR__);
-    current_statement__ = 127;
+    current_statement__ = 121;
     stan::model::assign(u, stan::math::uniform_rng(alpha, beta, base_rng__),
       "assigning variable u");
-    current_statement__ = 131;
+    current_statement__ = 125;
     for (int i = 1; i <= n; ++i) {
       local_scalar_t__ u_adj = DUMMY_VAR__;
-      current_statement__ = 128;
+      current_statement__ = 122;
       u_adj = ((stan::model::rvalue(u, "u", stan::model::index_uni(i)) * (1 -
         cst)) + cst);
-      current_statement__ = 129;
+      current_statement__ = 123;
       stan::model::assign(rng_val,
         egpd_icdf(u_adj, sigma, xi, kappa, pstream__),
         "assigning variable rng_val", stan::model::index_uni(i));
     }
-    current_statement__ = 132;
+    current_statement__ = 126;
     return rng_val;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -894,12 +888,12 @@ egpd_trunc_lpdf(const T0__& y, const T1__& ymin, const T2__& sigma,
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ lpdf = DUMMY_VAR__;
-    current_statement__ = 134;
+    current_statement__ = 128;
     lpdf = egpd_lpdf<false>(y, sigma, xi, kappa, pstream__);
     local_scalar_t__ cst = DUMMY_VAR__;
-    current_statement__ = 135;
+    current_statement__ = 129;
     cst = egpd_lccdf(ymin, sigma, xi, kappa, pstream__);
-    current_statement__ = 136;
+    current_statement__ = 130;
     return (lpdf - cst);
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -937,30 +931,30 @@ prob_forecast(const T0__& n_int, const T1__& int_pts_arg__, const T2__& ymin,
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 138;
+    current_statement__ = 132;
     stan::math::validate_non_negative_index("pred_probs", "n_int", n_int);
     Eigen::Matrix<local_scalar_t__,-1,1> pred_probs =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n_int, DUMMY_VAR__);
     local_scalar_t__ numer_cst = DUMMY_VAR__;
-    current_statement__ = 140;
+    current_statement__ = 134;
     numer_cst = egpd_cdf(ymin, sigma, xi, kappa, pstream__);
     local_scalar_t__ denom_cst = DUMMY_VAR__;
-    current_statement__ = 141;
+    current_statement__ = 135;
     denom_cst = stan::math::exp(egpd_lccdf(ymin, sigma, xi, kappa, pstream__));
-    current_statement__ = 145;
+    current_statement__ = 139;
     for (int n = 1; n <= n_int; ++n) {
       local_scalar_t__ unnorm_pred_prob = DUMMY_VAR__;
-      current_statement__ = 142;
+      current_statement__ = 136;
       unnorm_pred_prob = egpd_cdf(
                            stan::model::rvalue(int_pts, "int_pts",
                              stan::model::index_uni(n)), sigma, xi, kappa,
                            pstream__);
-      current_statement__ = 143;
+      current_statement__ = 137;
       stan::model::assign(pred_probs, ((unnorm_pred_prob - numer_cst) /
         denom_cst), "assigning variable pred_probs",
         stan::model::index_uni(n));
     }
-    current_statement__ = 146;
+    current_statement__ = 140;
     return pred_probs;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -997,25 +991,25 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
     try {
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
-      current_statement__ = 18;
+      current_statement__ = 13;
       context__.validate_dims("data initialization", "N", "int",
         std::vector<size_t>{});
       N = std::numeric_limits<int>::min();
-      current_statement__ = 18;
+      current_statement__ = 13;
       N = context__.vals_i("N")[(1 - 1)];
-      current_statement__ = 18;
+      current_statement__ = 13;
       stan::math::check_greater_or_equal(function__, "N", N, 1);
-      current_statement__ = 19;
+      current_statement__ = 14;
       context__.validate_dims("data initialization", "D", "int",
         std::vector<size_t>{});
       D = std::numeric_limits<int>::min();
-      current_statement__ = 19;
+      current_statement__ = 14;
       D = context__.vals_i("D")[(1 - 1)];
-      current_statement__ = 19;
+      current_statement__ = 14;
       stan::math::check_greater_or_equal(function__, "D", D, 1);
-      current_statement__ = 20;
+      current_statement__ = 15;
       stan::math::validate_non_negative_index("erc", "N", N);
-      current_statement__ = 21;
+      current_statement__ = 16;
       context__.validate_dims("data initialization", "erc", "double",
         std::vector<size_t>{static_cast<size_t>(N)});
       erc_data__ = Eigen::Matrix<double,-1,1>::Constant(N,
@@ -1023,7 +1017,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       new (&erc) Eigen::Map<Eigen::Matrix<double,-1,1>>(erc_data__.data(), N);
       {
         std::vector<local_scalar_t__> erc_flat__;
-        current_statement__ = 21;
+        current_statement__ = 16;
         erc_flat__ = context__.vals_r("erc");
         pos__ = 1;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
@@ -1032,11 +1026,11 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 21;
+      current_statement__ = 16;
       stan::math::check_greater_or_equal(function__, "erc", erc, 0);
-      current_statement__ = 22;
+      current_statement__ = 17;
       stan::math::validate_non_negative_index("fwi", "N", N);
-      current_statement__ = 23;
+      current_statement__ = 18;
       context__.validate_dims("data initialization", "fwi", "double",
         std::vector<size_t>{static_cast<size_t>(N)});
       fwi_data__ = Eigen::Matrix<double,-1,1>::Constant(N,
@@ -1044,7 +1038,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       new (&fwi) Eigen::Map<Eigen::Matrix<double,-1,1>>(fwi_data__.data(), N);
       {
         std::vector<local_scalar_t__> fwi_flat__;
-        current_statement__ = 23;
+        current_statement__ = 18;
         fwi_flat__ = context__.vals_r("fwi");
         pos__ = 1;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
@@ -1053,20 +1047,18 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 23;
+      current_statement__ = 18;
       stan::math::check_greater_or_equal(function__, "fwi", fwi, 0);
-      current_statement__ = 24;
+      current_statement__ = 19;
       stan::math::validate_non_negative_index("xi_prime", "D", D);
-      current_statement__ = 25;
+      current_statement__ = 20;
       stan::math::validate_non_negative_index("kappa_prime", "D", D);
-      current_statement__ = 26;
-      stan::math::validate_non_negative_index("sigma_prime", "D", D);
-      current_statement__ = 27;
-      stan::math::validate_non_negative_index("xi", "D", D);
-      current_statement__ = 28;
-      stan::math::validate_non_negative_index("kappa", "D", D);
-      current_statement__ = 29;
+      current_statement__ = 21;
       stan::math::validate_non_negative_index("sigma", "D", D);
+      current_statement__ = 22;
+      stan::math::validate_non_negative_index("xi", "D", D);
+      current_statement__ = 23;
+      stan::math::validate_non_negative_index("kappa", "D", D);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -1112,11 +1104,11 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       current_statement__ = 2;
       kappa_prime = in__.template read<
                       Eigen::Matrix<local_scalar_t__,-1,1>>(D);
-      Eigen::Matrix<local_scalar_t__,-1,1> sigma_prime =
+      Eigen::Matrix<local_scalar_t__,-1,1> sigma =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(D, DUMMY_VAR__);
       current_statement__ = 3;
-      sigma_prime = in__.template read<
-                      Eigen::Matrix<local_scalar_t__,-1,1>>(D);
+      sigma = in__.template read_constrain_lb<
+                Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__, D);
       Eigen::Matrix<local_scalar_t__,-1,1> xi =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(D, DUMMY_VAR__);
       current_statement__ = 4;
@@ -1128,47 +1120,23 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       current_statement__ = 5;
       stan::model::assign(kappa, stan::math::exp(kappa_prime),
         "assigning variable kappa");
-      Eigen::Matrix<local_scalar_t__,-1,1> sigma =
-        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(D, DUMMY_VAR__);
-      local_scalar_t__ max_sigma_erc = DUMMY_VAR__;
-      current_statement__ = 7;
-      max_sigma_erc = (stan::math::max(erc) *
-        -(stan::model::rvalue(xi, "xi", stan::model::index_uni(1))));
-      local_scalar_t__ max_sigma_fwi = DUMMY_VAR__;
-      current_statement__ = 8;
-      max_sigma_fwi = (stan::math::max(fwi) *
-        -(stan::model::rvalue(xi, "xi", stan::model::index_uni(2))));
-      current_statement__ = 9;
-      stan::model::assign(sigma, (max_sigma_erc *
-        stan::math::exp(
-          stan::model::rvalue(sigma_prime, "sigma_prime",
-            stan::model::index_uni(1)))), "assigning variable sigma",
-        stan::model::index_uni(1));
-      current_statement__ = 10;
-      stan::model::assign(sigma, (max_sigma_fwi *
-        stan::math::exp(
-          stan::model::rvalue(sigma_prime, "sigma_prime",
-            stan::model::index_uni(2)))), "assigning variable sigma",
-        stan::model::index_uni(2));
       current_statement__ = 4;
       stan::math::check_greater_or_equal(function__, "xi", xi, -(1));
       current_statement__ = 5;
       stan::math::check_greater_or_equal(function__, "kappa", kappa, 0);
-      current_statement__ = 6;
-      stan::math::check_greater_or_equal(function__, "sigma", sigma, 0);
       {
-        current_statement__ = 11;
+        current_statement__ = 6;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(
                          stan::math::to_vector(xi_prime)));
-        current_statement__ = 12;
+        current_statement__ = 7;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(
                          stan::math::to_vector(kappa_prime)));
-        current_statement__ = 13;
-        lp_accum__.add(stan::math::std_normal_lpdf<propto__>(
-                         stan::math::to_vector(sigma_prime)));
-        current_statement__ = 17;
+        current_statement__ = 8;
+        lp_accum__.add(stan::math::exponential_lpdf<propto__>(
+                         stan::math::to_vector(sigma), 1));
+        current_statement__ = 12;
         for (int n = 1; n <= N; ++n) {
-          current_statement__ = 14;
+          current_statement__ = 9;
           lp_accum__.add(egpd_lpdf<false>(
                            stan::model::rvalue(erc, "erc",
                              stan::model::index_uni(n)),
@@ -1178,7 +1146,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
                              stan::model::index_uni(1)),
                            stan::model::rvalue(kappa, "kappa",
                              stan::model::index_uni(1)), pstream__));
-          current_statement__ = 15;
+          current_statement__ = 10;
           lp_accum__.add(egpd_lpdf<false>(
                            stan::model::rvalue(fwi, "fwi",
                              stan::model::index_uni(n)),
@@ -1229,11 +1197,11 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       current_statement__ = 2;
       kappa_prime = in__.template read<
                       Eigen::Matrix<local_scalar_t__,-1,1>>(D);
-      Eigen::Matrix<local_scalar_t__,-1,1> sigma_prime =
+      Eigen::Matrix<local_scalar_t__,-1,1> sigma =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(D, DUMMY_VAR__);
       current_statement__ = 3;
-      sigma_prime = in__.template read<
-                      Eigen::Matrix<local_scalar_t__,-1,1>>(D);
+      sigma = in__.template read_constrain_lb<
+                Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__, D);
       Eigen::Matrix<local_scalar_t__,-1,1> xi =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(D, DUMMY_VAR__);
       current_statement__ = 4;
@@ -1245,47 +1213,23 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       current_statement__ = 5;
       stan::model::assign(kappa, stan::math::exp(kappa_prime),
         "assigning variable kappa");
-      Eigen::Matrix<local_scalar_t__,-1,1> sigma =
-        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(D, DUMMY_VAR__);
-      local_scalar_t__ max_sigma_erc = DUMMY_VAR__;
-      current_statement__ = 7;
-      max_sigma_erc = (stan::math::max(erc) *
-        -(stan::model::rvalue(xi, "xi", stan::model::index_uni(1))));
-      local_scalar_t__ max_sigma_fwi = DUMMY_VAR__;
-      current_statement__ = 8;
-      max_sigma_fwi = (stan::math::max(fwi) *
-        -(stan::model::rvalue(xi, "xi", stan::model::index_uni(2))));
-      current_statement__ = 9;
-      stan::model::assign(sigma, (max_sigma_erc *
-        stan::math::exp(
-          stan::model::rvalue(sigma_prime, "sigma_prime",
-            stan::model::index_uni(1)))), "assigning variable sigma",
-        stan::model::index_uni(1));
-      current_statement__ = 10;
-      stan::model::assign(sigma, (max_sigma_fwi *
-        stan::math::exp(
-          stan::model::rvalue(sigma_prime, "sigma_prime",
-            stan::model::index_uni(2)))), "assigning variable sigma",
-        stan::model::index_uni(2));
       current_statement__ = 4;
       stan::math::check_greater_or_equal(function__, "xi", xi, -(1));
       current_statement__ = 5;
       stan::math::check_greater_or_equal(function__, "kappa", kappa, 0);
-      current_statement__ = 6;
-      stan::math::check_greater_or_equal(function__, "sigma", sigma, 0);
       {
-        current_statement__ = 11;
+        current_statement__ = 6;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(
                          stan::math::to_vector(xi_prime)));
-        current_statement__ = 12;
+        current_statement__ = 7;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(
                          stan::math::to_vector(kappa_prime)));
-        current_statement__ = 13;
-        lp_accum__.add(stan::math::std_normal_lpdf<propto__>(
-                         stan::math::to_vector(sigma_prime)));
-        current_statement__ = 17;
+        current_statement__ = 8;
+        lp_accum__.add(stan::math::exponential_lpdf<propto__>(
+                         stan::math::to_vector(sigma), 1));
+        current_statement__ = 12;
         for (int n = 1; n <= N; ++n) {
-          current_statement__ = 14;
+          current_statement__ = 9;
           lp_accum__.add(egpd_lpdf<false>(
                            stan::model::rvalue(erc, "erc",
                              stan::model::index_uni(n)),
@@ -1295,7 +1239,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
                              stan::model::index_uni(1)),
                            stan::model::rvalue(kappa, "kappa",
                              stan::model::index_uni(1)), pstream__));
-          current_statement__ = 15;
+          current_statement__ = 10;
           lp_accum__.add(egpd_lpdf<false>(
                            stan::model::rvalue(fwi, "fwi",
                              stan::model::index_uni(n)),
@@ -1359,26 +1303,21 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       current_statement__ = 2;
       kappa_prime = in__.template read<
                       Eigen::Matrix<local_scalar_t__,-1,1>>(D);
-      Eigen::Matrix<double,-1,1> sigma_prime =
+      Eigen::Matrix<double,-1,1> sigma =
         Eigen::Matrix<double,-1,1>::Constant(D,
           std::numeric_limits<double>::quiet_NaN());
       current_statement__ = 3;
-      sigma_prime = in__.template read<
-                      Eigen::Matrix<local_scalar_t__,-1,1>>(D);
+      sigma = in__.template read_constrain_lb<
+                Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__, D);
       Eigen::Matrix<double,-1,1> xi =
         Eigen::Matrix<double,-1,1>::Constant(D,
           std::numeric_limits<double>::quiet_NaN());
       Eigen::Matrix<double,-1,1> kappa =
         Eigen::Matrix<double,-1,1>::Constant(D,
           std::numeric_limits<double>::quiet_NaN());
-      Eigen::Matrix<double,-1,1> sigma =
-        Eigen::Matrix<double,-1,1>::Constant(D,
-          std::numeric_limits<double>::quiet_NaN());
-      double max_sigma_erc = std::numeric_limits<double>::quiet_NaN();
-      double max_sigma_fwi = std::numeric_limits<double>::quiet_NaN();
       out__.write(xi_prime);
       out__.write(kappa_prime);
-      out__.write(sigma_prime);
+      out__.write(sigma);
       if (stan::math::logical_negation(
             (stan::math::primitive_value(emit_transformed_parameters__) ||
             stan::math::primitive_value(emit_generated_quantities__)))) {
@@ -1391,36 +1330,13 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       current_statement__ = 5;
       stan::model::assign(kappa, stan::math::exp(kappa_prime),
         "assigning variable kappa");
-      current_statement__ = 7;
-      max_sigma_erc = (stan::math::max(erc) *
-        -(stan::model::rvalue(xi, "xi", stan::model::index_uni(1))));
-      current_statement__ = 8;
-      max_sigma_fwi = (stan::math::max(fwi) *
-        -(stan::model::rvalue(xi, "xi", stan::model::index_uni(2))));
-      current_statement__ = 9;
-      stan::model::assign(sigma, (max_sigma_erc *
-        stan::math::exp(
-          stan::model::rvalue(sigma_prime, "sigma_prime",
-            stan::model::index_uni(1)))), "assigning variable sigma",
-        stan::model::index_uni(1));
-      current_statement__ = 10;
-      stan::model::assign(sigma, (max_sigma_fwi *
-        stan::math::exp(
-          stan::model::rvalue(sigma_prime, "sigma_prime",
-            stan::model::index_uni(2)))), "assigning variable sigma",
-        stan::model::index_uni(2));
       current_statement__ = 4;
       stan::math::check_greater_or_equal(function__, "xi", xi, -(1));
       current_statement__ = 5;
       stan::math::check_greater_or_equal(function__, "kappa", kappa, 0);
-      current_statement__ = 6;
-      stan::math::check_greater_or_equal(function__, "sigma", sigma, 0);
       if (emit_transformed_parameters__) {
         out__.write(xi);
         out__.write(kappa);
-        out__.write(sigma);
-        out__.write(max_sigma_erc);
-        out__.write(max_sigma_fwi);
       }
       if (stan::math::logical_negation(emit_generated_quantities__)) {
         return ;
@@ -1459,13 +1375,13 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
         in__.read<Eigen::Matrix<local_scalar_t__,-1,1>>(D),
         "assigning variable kappa_prime");
       out__.write(kappa_prime);
-      Eigen::Matrix<local_scalar_t__,-1,1> sigma_prime =
+      Eigen::Matrix<local_scalar_t__,-1,1> sigma =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(D, DUMMY_VAR__);
       current_statement__ = 3;
-      stan::model::assign(sigma_prime,
+      stan::model::assign(sigma,
         in__.read<Eigen::Matrix<local_scalar_t__,-1,1>>(D),
-        "assigning variable sigma_prime");
-      out__.write(sigma_prime);
+        "assigning variable sigma");
+      out__.write_free_lb(0, sigma);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -1490,8 +1406,8 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
       context__.validate_dims("parameter initialization", "kappa_prime",
         "double", std::vector<size_t>{static_cast<size_t>(D)});
       current_statement__ = 3;
-      context__.validate_dims("parameter initialization", "sigma_prime",
-        "double", std::vector<size_t>{static_cast<size_t>(D)});
+      context__.validate_dims("parameter initialization", "sigma", "double",
+        std::vector<size_t>{static_cast<size_t>(D)});
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
       Eigen::Matrix<local_scalar_t__,-1,1> xi_prime =
@@ -1522,20 +1438,20 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
         }
       }
       out__.write(kappa_prime);
-      Eigen::Matrix<local_scalar_t__,-1,1> sigma_prime =
+      Eigen::Matrix<local_scalar_t__,-1,1> sigma =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(D, DUMMY_VAR__);
       {
-        std::vector<local_scalar_t__> sigma_prime_flat__;
+        std::vector<local_scalar_t__> sigma_flat__;
         current_statement__ = 3;
-        sigma_prime_flat__ = context__.vals_r("sigma_prime");
+        sigma_flat__ = context__.vals_r("sigma");
         pos__ = 1;
         for (int sym1__ = 1; sym1__ <= D; ++sym1__) {
-          stan::model::assign(sigma_prime, sigma_prime_flat__[(pos__ - 1)],
-            "assigning variable sigma_prime", stan::model::index_uni(sym1__));
+          stan::model::assign(sigma, sigma_flat__[(pos__ - 1)],
+            "assigning variable sigma", stan::model::index_uni(sym1__));
           pos__ = (pos__ + 1);
         }
       }
-      out__.write(sigma_prime);
+      out__.write_free_lb(0, sigma);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -1544,11 +1460,9 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
   get_param_names(std::vector<std::string>& names__, const bool
                   emit_transformed_parameters__ = true, const bool
                   emit_generated_quantities__ = true) const {
-    names__ = std::vector<std::string>{"xi_prime", "kappa_prime",
-                "sigma_prime"};
+    names__ = std::vector<std::string>{"xi_prime", "kappa_prime", "sigma"};
     if (emit_transformed_parameters__) {
-      std::vector<std::string>
-        temp{"xi", "kappa", "sigma", "max_sigma_erc", "max_sigma_fwi"};
+      std::vector<std::string> temp{"xi", "kappa"};
       names__.reserve(names__.size() + temp.size());
       names__.insert(names__.end(), temp.begin(), temp.end());
     }
@@ -1565,9 +1479,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
     if (emit_transformed_parameters__) {
       std::vector<std::vector<size_t>>
         temp{std::vector<size_t>{static_cast<size_t>(D)},
-             std::vector<size_t>{static_cast<size_t>(D)},
-             std::vector<size_t>{static_cast<size_t>(D)},
-             std::vector<size_t>{}, std::vector<size_t>{}};
+             std::vector<size_t>{static_cast<size_t>(D)}};
       dimss__.reserve(dimss__.size() + temp.size());
       dimss__.insert(dimss__.end(), temp.begin(), temp.end());
     }
@@ -1586,7 +1498,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
         std::to_string(sym1__));
     }
     for (int sym1__ = 1; sym1__ <= D; ++sym1__) {
-      param_names__.emplace_back(std::string() + "sigma_prime" + '.' +
+      param_names__.emplace_back(std::string() + "sigma" + '.' +
         std::to_string(sym1__));
     }
     if (emit_transformed_parameters__) {
@@ -1598,12 +1510,6 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
         param_names__.emplace_back(std::string() + "kappa" + '.' +
           std::to_string(sym1__));
       }
-      for (int sym1__ = 1; sym1__ <= D; ++sym1__) {
-        param_names__.emplace_back(std::string() + "sigma" + '.' +
-          std::to_string(sym1__));
-      }
-      param_names__.emplace_back(std::string() + "max_sigma_erc");
-      param_names__.emplace_back(std::string() + "max_sigma_fwi");
     }
     if (emit_generated_quantities__) {}
   }
@@ -1620,7 +1526,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
         std::to_string(sym1__));
     }
     for (int sym1__ = 1; sym1__ <= D; ++sym1__) {
-      param_names__.emplace_back(std::string() + "sigma_prime" + '.' +
+      param_names__.emplace_back(std::string() + "sigma" + '.' +
         std::to_string(sym1__));
     }
     if (emit_transformed_parameters__) {
@@ -1632,20 +1538,14 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
         param_names__.emplace_back(std::string() + "kappa" + '.' +
           std::to_string(sym1__));
       }
-      for (int sym1__ = 1; sym1__ <= D; ++sym1__) {
-        param_names__.emplace_back(std::string() + "sigma" + '.' +
-          std::to_string(sym1__));
-      }
-      param_names__.emplace_back(std::string() + "max_sigma_erc");
-      param_names__.emplace_back(std::string() + "max_sigma_fwi");
     }
     if (emit_generated_quantities__) {}
   }
   inline std::string get_constrained_sizedtypes() const {
-    return std::string("[{\"name\":\"xi_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"kappa_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"sigma_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"xi\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"},{\"name\":\"kappa\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"},{\"name\":\"max_sigma_erc\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"max_sigma_fwi\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]");
+    return std::string("[{\"name\":\"xi_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"kappa_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"xi\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"},{\"name\":\"kappa\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"}]");
   }
   inline std::string get_unconstrained_sizedtypes() const {
-    return std::string("[{\"name\":\"xi_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"kappa_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"sigma_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"xi\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"},{\"name\":\"kappa\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"},{\"name\":\"max_sigma_erc\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"max_sigma_fwi\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]");
+    return std::string("[{\"name\":\"xi_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"kappa_prime\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"parameters\"},{\"name\":\"xi\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"},{\"name\":\"kappa\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(D) + "},\"block\":\"transformed_parameters\"}]");
   }
   // Begin method overload boilerplate
   template <typename RNG> inline void
@@ -1655,8 +1555,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
               emit_generated_quantities = true, std::ostream*
               pstream = nullptr) const {
     const size_t num_params__ = ((D + D) + D);
-    const size_t num_transformed = emit_transformed_parameters * (((((D + D)
-      + D) + 1) + 1));
+    const size_t num_transformed = emit_transformed_parameters * ((D + D));
     const size_t num_gen_quantities = emit_generated_quantities * (0);
     const size_t num_to_write = num_params__ + num_transformed +
       num_gen_quantities;
@@ -1673,8 +1572,7 @@ class fire_transform_g1_model final : public model_base_crtp<fire_transform_g1_m
               emit_generated_quantities = true, std::ostream*
               pstream = nullptr) const {
     const size_t num_params__ = ((D + D) + D);
-    const size_t num_transformed = emit_transformed_parameters * (((((D + D)
-      + D) + 1) + 1));
+    const size_t num_transformed = emit_transformed_parameters * ((D + D));
     const size_t num_gen_quantities = emit_generated_quantities * (0);
     const size_t num_to_write = num_params__ + num_transformed +
       num_gen_quantities;

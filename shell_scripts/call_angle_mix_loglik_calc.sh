@@ -1,14 +1,19 @@
 #!/bin/bash
+#
+# SLURM job: compute pointwise log-likelihood for the angular mixture model (sim study).
+# Calls: samplers/nimble/ang_mix_loglik_calc.R
+# Env vars in: dep_type, level
+#
 
 #SBATCH --partition=amilan
-#SBATCH --account=csu-general
-#SBATCH --chdir=/scratch/alpine/eslawler@colostate.edu/gaugeDep/
+#SBATCH --account=YOUR_HPC_ACCOUNT
+#SBATCH --chdir=/path/to/your/project/gaugeDep/
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=2
 #SBATCH --time=03:00:00
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=eslawler@colostate.edu
+#SBATCH --mail-user=YOUR_EMAIL@INSTITUTION.EDU
 
 export TMPDIR=/scratch/alpine/$USER/tmp/
 export TMP=${TMPDIR}
